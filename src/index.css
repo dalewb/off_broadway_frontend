@@ -3,3 +3,19 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.production_card {
+  width: 30%;
+  float: left;
+  margin: 5%;
+}
+
+.production_card img, .actor_card img {
+  width: 100%;
+}
+
+.actor_card {
+  width: 20%;
+  margin: 5%;
+  float: left
+}

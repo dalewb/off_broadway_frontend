@@ -7,7 +7,7 @@ class ActorCard extends Component {
 
   render() {
     return (
-      <div>
+      <div className='actor_card'>
         {this.props.actor ? <img src={this.props.actor.img_url} alt='' /> : null }
         <h1>{this.props.actor ? this.props.actor.name : null}</h1>
         <p>CV: {this.props.actor ? this.props.actor.cv : null}</p>
