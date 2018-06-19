@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import CharactersDisplay from './CharactersDisplay'
-import SelectedCharacters from './SelectedCharacters'
+import ActorsDisplay from './ActorsDisplay'
+import SelectedActors from './SelectedActors'
 
 class CreateContainer extends Component {
   constructor(props) {
@@ -11,8 +11,8 @@ class CreateContainer extends Component {
   render() {
     return (
       <div>
-        <SelectedCharacters />
-        <CharactersDisplay />
+        <SelectedActors />
+        <ActorsDisplay />
       </div>
     )
   }
