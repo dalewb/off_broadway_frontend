@@ -22,6 +22,18 @@ class CreateContainer extends Component {
     b_actor_id: 2
   }
 
+  createScript = (scriptInfo) => {
+    this.setState({
+      title: scriptInfo.title,
+      line_1: `${scriptInfo.char1}-${scriptInfo.line1}`,
+      line_2: `${scriptInfo.char2}-${scriptInfo.line2}`,
+      line_3: `${scriptInfo.char3}-${scriptInfo.line3}`,
+      line_4: `${scriptInfo.char4}-${scriptInfo.line4}`,
+      line_5: `${scriptInfo.char5}-${scriptInfo.line5}`,
+      user_id: `${scriptInfo.userId}`
+    }, () => {this.postScript()})
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
@@ -105,7 +117,7 @@ class CreateContainer extends Component {
         </form>
         <SelectedActors />
         <ActorsDisplay />
-        <ScriptContainer />
+        <ScriptContainer createScript={this.createScript}/>
       </div>
     )
   }
