@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 import AllProductionsDisplay from './AllProductionsDisplay'
-import SelectedProduction from './SelectedProduction'
+// import SelectedProduction from './SelectedProduction'
 
 class AllProductionsContainer extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   render() {
     return (
