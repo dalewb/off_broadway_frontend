@@ -10,7 +10,7 @@ class AllProductionsContainer extends Component {
 
   render() {
     return (
-      <AllProductionsDisplay />
+      <AllProductionsDisplay allProductions={this.props.allProductions}/>
     )
   }
 }
