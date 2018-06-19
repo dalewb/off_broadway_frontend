@@ -44,6 +44,7 @@ class LineCreation extends Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <form onSubmit={this.handleSubmit}>
         <input type="text" name="title" onChange={this.handleChange}></input><br />
         <LineInputForm name="line1" char="char1" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
@@ -53,6 +54,9 @@ class LineCreation extends Component {
         <LineInputForm name="line5" char="char5" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
         <input type="submit"></input>
       </form>
+=======
+      <div></div>
+>>>>>>> brie
     )
   }
 }

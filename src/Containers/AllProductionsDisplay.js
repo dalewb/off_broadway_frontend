@@ -25,10 +25,15 @@ class AllProductionsDisplay extends Component {
   };
 
   renderProductionCards = () => {
+<<<<<<< HEAD
     let tempKey = 0
     const cards = this.state.productions.map(production => {
       tempKey++
       return <ProductionCard key={tempKey} production={production} />
+=======
+    const cards = this.state.productions.map((production, index) => {
+      return <ProductionCard production={production} key={index} />
+>>>>>>> brie
     });
     return cards;
   };

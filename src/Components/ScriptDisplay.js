@@ -18,10 +18,17 @@ class ScriptDisplay extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     return this.renderLines();
     // return (
     //   {this.renderLines()}
     // )
+=======
+    return (
+      <div></div>
+      // {this.renderLines()}
+    )
+>>>>>>> brie
   }
 }
 
