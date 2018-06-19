@@ -25,8 +25,8 @@ class AllActorsDisplay extends Component {
   };
 
   renderActorCards = () => {
-    const cards = this.state.actors.map(actor => {
-      return <ActorCard actor={actor} />
+    const cards = this.state.actors.map((actor, index) => {
+      return <ActorCard actor={actor} key={index} />
     });
     return cards;
   };

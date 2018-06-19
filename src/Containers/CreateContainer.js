@@ -4,9 +4,9 @@ import ActorsDisplay from './ActorsDisplay'
 import SelectedActors from './SelectedActors'
 
 class CreateContainer extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   render() {
     return (

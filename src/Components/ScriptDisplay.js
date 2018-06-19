@@ -18,7 +18,8 @@ class ScriptDisplay extends Component {
 
   render() {
     return (
-      {this.renderLines()}
+      <div></div>
+      // {this.renderLines()}
     )
   }
 }

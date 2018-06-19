@@ -18,7 +18,6 @@ class AllProductionsDisplay extends Component {
 
   fetchProductionData = () => {
     fetch(URL + 'productions').then(response => response.json()).then(productions => {
-      console.log(productions);
       this.setState({
         productions
       });
@@ -26,8 +25,8 @@ class AllProductionsDisplay extends Component {
   };
 
   renderProductionCards = () => {
-    const cards = this.state.productions.map(production => {
-      return <ProductionCard production={production} />
+    const cards = this.state.productions.map((production, index) => {
+      return <ProductionCard production={production} key={index} />
     });
     return cards;
   };

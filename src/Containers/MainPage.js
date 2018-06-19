@@ -4,9 +4,9 @@ import Header from '../Components/Header'
 import ContentContainer from '../Containers/ContentContainer'
 
 class MainPage extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   render() {
     return (
