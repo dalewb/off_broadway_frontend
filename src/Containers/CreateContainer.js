@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ActorsDisplay from './ActorsDisplay'
 import SelectedActors from './SelectedActors'
+import ScriptContainer from './ScriptContainer'
 
 class CreateContainer extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class CreateContainer extends Component {
       <div>
         <SelectedActors />
         <ActorsDisplay />
+        <ScriptContainer />
       </div>
     )
   }
