@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CharacterCard extends Component {
+class ActorCard extends Component {
   constructor(props) {
     super(props)
 
@@ -9,10 +9,10 @@ class CharacterCard extends Component {
   render() {
     return (
       <div>
-        <p>Char Info</p>
+        <p>Actor Info</p>
       </div>
     )
   }
 }
 
-export default CharacterCard;
+export default ActorCard;

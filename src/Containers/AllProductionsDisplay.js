@@ -10,12 +10,12 @@ class AllProductionsDisplay extends Component {
     this.state = {
       users: [],
       productions: [],
-      characters: [],
+      actors: [],
       scripts: []
     };
     this.fetchProductionData();
     this.fetchScriptData();
-    this.fetchCharacterData();
+    this.fetchActorData();
     this.fetchUserData();
   };
 
@@ -35,12 +35,12 @@ class AllProductionsDisplay extends Component {
     });
   };
 
-  fetchCharacterData = () => {
-    fetch(URL + 'characters').then(response => response.json()).then(characters => {
-      this.setState({
-        characters
-      });
-    });
+  fetchActorData = () => {
+    fetch(URL + 'actors')
+      .then(response => response.json())
+      .then(actors => this.setState({
+        actors
+      }));
   };
 
   fetchUserData = () => {
@@ -54,10 +54,11 @@ class AllProductionsDisplay extends Component {
   constructProduction = () => {
     let newProduction = {};
     this.state.productions.map(production => {
-      const charA = this.state.characters.find(character => {
-        newProduction[production.id] = {};
-        if (character.id === production.character_id){
-          return newProduction[production.id]['A'] = character
+      newProduction[production.id] = {};
+      const charA = this.state.actors.find(actor => {
+        console.log('inside charA', actor);
+        if (actor.id === production.actor_id){
+          return newProduction[production.id]['A'] = actor
         };
       });
       const script = this.state.scripts.find(s => {
@@ -69,10 +70,14 @@ class AllProductionsDisplay extends Component {
     return newProduction;
   };
 
+  renderProductions = () => {
+    <ProductionCard productionInfo={this.constructProduction()} />
+  }
+
   render() {
     console.log(this.constructProduction());
     return (
-      <ProductionCard />
+      <p>display</p>
     )
   }
 }

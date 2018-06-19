@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
-import CharacterCard from '../Components/CharacterCard'
+import ActorCard from '../Components/ActorCard'
 
-class SelectedCharacters extends Component {
+class SelectedActors extends Component {
   constructor(props) {
     super(props)
   }
 
   render() {
     return (
-      <CharacterCard />
+      <ActorCard />
     )
   }
 }
 
-export default SelectedCharacters;
+export default SelectedActors;
