@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard'
 
-const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+// const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+const URL = 'http://localhost:3000/api/v1/'
 
 class AllProductionsDisplay extends Component {
   constructor(props) {
@@ -13,6 +14,9 @@ class AllProductionsDisplay extends Component {
       actors: [],
       scripts: []
     };
+  };
+
+  componentDidMount() {
     this.fetchProductionData();
     this.fetchScriptData();
     this.fetchActorData();
@@ -56,7 +60,6 @@ class AllProductionsDisplay extends Component {
     this.state.productions.map(production => {
       newProduction[production.id] = {};
       const charA = this.state.actors.find(actor => {
-        console.log('inside charA', actor);
         if (actor.id === production.actor_id){
           return newProduction[production.id]['A'] = actor
         };
@@ -67,6 +70,7 @@ class AllProductionsDisplay extends Component {
         }
       });
     });
+    console.log(newProduction);
     return newProduction;
   };
 
