@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 
 import ActorsDisplay from './ActorsDisplay'
 import SelectedActors from './SelectedActors'
-<<<<<<< HEAD
 import ScriptContainer from './ScriptContainer'
-=======
->>>>>>> brie
 
 class CreateContainer extends Component {
   // constructor(props) {
@@ -97,11 +94,6 @@ class CreateContainer extends Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
-        <SelectedActors />
-        <ActorsDisplay />
-        <ScriptContainer />
-=======
         <form onSubmit={this.handleSubmit}>
           <input type='text' name='title' /><br />
           <input type='text' name='line_1' /><br />
@@ -113,7 +105,7 @@ class CreateContainer extends Component {
         </form>
         <SelectedActors />
         <ActorsDisplay />
->>>>>>> brie
+        <ScriptContainer />
       </div>
     )
   }

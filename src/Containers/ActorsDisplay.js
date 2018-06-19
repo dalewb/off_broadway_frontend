@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 
 import ActorCard from '../Components/ActorCard'
 
-<<<<<<< HEAD
-class AllActorsDisplay extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return (
-      <ActorCard />
-=======
 const URL = 'http://localhost:3000/api/v1/actors'
 
 class AllActorsDisplay extends Component {
@@ -47,7 +37,6 @@ class AllActorsDisplay extends Component {
       <React.Fragment>
         {aCards}
       </React.Fragment>
->>>>>>> brie
     )
   }
 }
