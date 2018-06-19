@@ -117,7 +117,11 @@ class CreateContainer extends Component {
         </form>
         <SelectedActors />
         <ActorsDisplay />
+<<<<<<< HEAD
         <ScriptContainer createScript={this.createScript}/>
+=======
+        <ScriptContainer />
+>>>>>>> 17bfbaf8c88a3a6eed34ee5b10f79a17423293b4
       </div>
     )
   }
