@@ -103,7 +103,7 @@ class CreateContainer extends Component {
   handleActorCardClick = (actor) => {
     debugger
     this.setState({
-      actors: [...this.state.myActors, actor]
+      myActors: [...this.state.myActors, actor]
     }, () => {console.log(this.state.myActors)})
   }
 
