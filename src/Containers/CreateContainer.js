@@ -101,10 +101,11 @@ class CreateContainer extends Component {
   }
 
   handleActorCardClick = (actor) => {
-    debugger
+    console.log('insideTopClick this', this)
+    console.log('insideTopClick', actor);
     this.setState({
       myActors: [...this.state.myActors, actor]
-    }, () => {console.log(this.state.myActors)})
+    }, () => {console.log('after setstate',this.state)})
   }
 
   render() {
