@@ -45,7 +45,7 @@ class LineCreation extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" name="title" onChange={this.handleChange}></input><br />
+        <input type="text"  name="title" placeholder='Play Title' onChange={this.handleChange}></input><br />
         <LineInputForm name="line1" char="char1" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
         <LineInputForm name="line2" char="char2" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
         <LineInputForm name="line3" char="char3" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />

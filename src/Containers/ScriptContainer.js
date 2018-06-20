@@ -20,7 +20,7 @@ class ScriptContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div id='scriptCreation'>
         <LineCreation createScript={this.props.createScript} test={'test'} />
         <ScriptDisplay />
       </div>
