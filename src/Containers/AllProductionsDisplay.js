@@ -29,12 +29,14 @@ class AllProductionsDisplay extends Component {
   render() {
     const pCards = this.renderProductionCards();
     return (
-      <React.Fragment>
-        {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
-        <Card.Group centered>
-          {pCards}
-        </Card.Group>
-      </React.Fragment>
+      <div className="ui four column grid">
+        <div className="row">
+          {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
+          <Card.Group centered>
+            {pCards}
+          </Card.Group>
+        </div>
+      </div>
     )
   }
 }
