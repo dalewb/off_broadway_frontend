@@ -2,12 +2,19 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  font-size: .75em;
+}
+
+.divider {
+  width: 100%;
+  clear: both;
 }
 
 .production_card {
-  width: 30%;
+  width: 20%;
+  margin-left: 2%;
+  margin-right: 2%;
   float: left;
-  margin: 5%;
 }
 
 .production_card img, .actor_card img {
@@ -16,6 +23,15 @@ body {
 
 .actor_card {
   width: 20%;
-  margin: 5%;
+  margin: 2%;
   float: left
+}
+
+#productionDisplay {
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  position: relative;
 }
