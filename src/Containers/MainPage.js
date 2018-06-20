@@ -4,15 +4,21 @@ import Header from '../Components/Header'
 import ContentContainer from '../Containers/ContentContainer'
 
 class MainPage extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
+  state = {
+    page: 'all productions'
+  }
+
+  pageChange = (page) => {
+    this.setState({
+      page
+    });
+  }
 
   render() {
     return (
       <React.Fragment>
-        <Header />
-        <ContentContainer />
+        <Header onClickHandler={this.pageChange} />
+        <ContentContainer userId={this.props.userId} page={this.state.page} />
       </React.Fragment>
     )
   }

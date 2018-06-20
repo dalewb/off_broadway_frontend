@@ -28,6 +28,14 @@ body {
   width: 100%;
 }
 
+.all-selected-actors {
+  display: block;
+  position:absolute;
+  left:0;
+  width:100%;
+
+}
+
 #contentContainer{
   width: 96%;
   margin-left: 2%;

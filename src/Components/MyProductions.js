@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard';
-import ProductionReview from '../Components/ProductionReview';
+import ProductionReview from './ProductionReview';
 import { Card } from 'semantic-ui-react';
 
-class AllProductionsDisplay extends Component {
+class MyProductions extends Component {
 
   state = {
     productionReview: null
   }
 
   renderProductionCards = () => {
-    const cards = this.props.allProductions.map((production, index) => {
+    const cards = this.props.myProductions.map((production, index) => {
       return <ProductionCard production={production} key={index} onClickHandler={this.setProductionReview} />
     });
     return cards;
   };
 
   setProductionReview = (id) => {
-    const productionReview = this.props.allProductions.find(prod => {
+    const productionReview = this.props.myProductions.find(prod => {
       return prod.script_id === id
     });
     this.setState({
@@ -39,4 +39,4 @@ class AllProductionsDisplay extends Component {
   }
 }
 
-export default AllProductionsDisplay;
+export default MyProductions;
