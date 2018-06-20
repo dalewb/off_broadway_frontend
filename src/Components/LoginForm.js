@@ -21,12 +21,15 @@ class LoginForm extends Component {
     return (
       <div id='loginForm'>
         <h1>Login Form Div</h1>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.props.logIn} /*onSubmit={this.onSubmit} */ >
         Log In Form
           <input type='text' name='username' onChange={this.handleChange}></input><br />
           <input type='password' name='password' onChange={this.handleChange}></input><br />
           <input type='submit' value='Submit'></input>
         </form>
+        <p>
+          <button onClick={this.props.userExistsCheck} >Sign Up</button>
+        </p>
       </div>
     )
   }

@@ -8,8 +8,9 @@ class LoginPage extends Component {
   render() {
     return (
       <div id='contentContainer'>
-        <LoginForm />
-        <SignUpForm />
+        {this.props.userExistsState ? <LoginForm logIn={this.props.logIn} userExistsState={this.props.userExistsState} userExistsCheck={this.props.userExistsCheck} /> : <SignUpForm logIn={this.props.logIn} userExistsCheck={this.props.userExistsCheck} userExistsState={this.props.userExistsState} />}
+        {/* <LoginForm />
+        <SignUpForm /> */}
       </div>
     )
   }
