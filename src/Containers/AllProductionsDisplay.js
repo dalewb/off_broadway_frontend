@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from '../Components/ProductionReview';
+import { Card } from 'semantic-ui-react'
 
 class AllProductionsDisplay extends Component {
 
