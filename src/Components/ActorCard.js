@@ -6,12 +6,17 @@ class ActorCard extends Component {
 
   }
 
-  render() {
+  renderActor = () => {
     return (
-      <div>
-        <p>Actor Info</p>
+      <div onClick={() => this.props.handleClick(this.props.actor)}>
+        <p>Name: {this.props.actor.name}</p>
+        <img src={this.props.actor.img_url} />
       </div>
     )
+  }
+
+  render() {
+    return this.props.actor ? this.renderActor() : null;
   }
 }
 

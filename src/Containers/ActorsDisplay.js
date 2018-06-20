@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ActorCard from '../Components/ActorCard'
 
-const URL = 'http://localhost:3000/api/v1/actors'
+const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 
 class AllActorsDisplay extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class AllActorsDisplay extends Component {
   }
 
   fetchActorData = () => {
-    fetch(URL).then(response => response.json()).then(actors => {
+    fetch(URL + 'actors').then(response => response.json()).then(actors => {
       this.setState({
         actors
       });
@@ -26,7 +26,7 @@ class AllActorsDisplay extends Component {
 
   renderActorCards = () => {
     const cards = this.state.actors.map((actor, index) => {
-      return <ActorCard actor={actor} key={index} />
+      return <ActorCard actor={actor} key={index} handleClick={this.props.handleClick}/>
     });
     return cards;
   };

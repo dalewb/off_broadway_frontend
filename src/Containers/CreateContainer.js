@@ -4,6 +4,8 @@ import ActorsDisplay from './ActorsDisplay'
 import SelectedActors from './SelectedActors'
 import ScriptContainer from './ScriptContainer'
 
+const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+
 class CreateContainer extends Component {
   // constructor(props) {
   //   super(props)
@@ -19,7 +21,8 @@ class CreateContainer extends Component {
     line_5: '',
     img_url: 'https://i.pinimg.com/originals/2e/eb/61/2eeb616e06307b0e4acd01252c41edef.jpg',
     a_actor_id: 1,
-    b_actor_id: 2
+    b_actor_id: 2,
+    myActors: [],
   }
 
   createScript = (scriptInfo) => {
@@ -47,18 +50,18 @@ class CreateContainer extends Component {
   };
 
   postScript = () => {
-    fetch('http://localhost:3000/api/v1/scripts', {
+    fetch(URL + 'scripts', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {'Content-Type': 'application/json'}
     })
-      .then( res => {debugger} )
+      .then( res => res.json() )
       .then(response => this.postProduction(response.scriptId));
   };
 
   postProduction = (scriptId) => {
     // debugger
-    fetch('http://localhost:3000/api/v1/productions', {
+    fetch(URL + 'productions', {
       method: 'POST',
       body: JSON.stringify({script_id: scriptId, user_id: this.state.user_id}),
       headers: {'Content-Type': 'application/json'}
@@ -74,7 +77,7 @@ class CreateContainer extends Component {
 
   postACast = (productionId) => {
     // debugger
-    fetch('http://localhost:3000/api/v1/casts', {
+    fetch(URL + 'casts', {
       method: 'POST',
       body: JSON.stringify({production_id: productionId, actor_id: this.state.a_actor_id}),
       headers: {'Content-Type': 'application/json'}
@@ -90,7 +93,7 @@ class CreateContainer extends Component {
 
   postBCast = (productionId) => {
     // debugger
-    fetch('http://localhost:3000/api/v1/casts', {
+    fetch(URL + 'casts', {
       method: 'POST',
       body: JSON.stringify({production_id: productionId, actor_id: this.state.b_actor_id}),
       headers: {'Content-Type': 'application/json'}
@@ -101,6 +104,13 @@ class CreateContainer extends Component {
         console.log(response);
         // debugger
       });
+  }
+
+  handleActorCardClick = (actor) => {
+    debugger
+    this.setState({
+      actors: [...this.state.myActors, actor]
+    }, () => {console.log(this.state.myActors)})
   }
 
   render() {
@@ -116,7 +126,7 @@ class CreateContainer extends Component {
           <input type='submit' />
         </form>
         <SelectedActors />
-        <ActorsDisplay />
+        <ActorsDisplay handleClick={this.handleActorCardClick}/>
         <ScriptContainer createScript={this.createScript}/>
       </div>
     )
