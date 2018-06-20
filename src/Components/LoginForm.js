@@ -19,7 +19,8 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
+      <div id='loginForm'>
+        <h1>Login Form Div</h1>
         <form onSubmit={this.onSubmit}>
         Log In Form
           <input type='text' name='username' onChange={this.handleChange}></input><br />

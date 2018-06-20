@@ -21,14 +21,14 @@ body {
   width: 100%;
 }
 
-#contentContainer {
+#contentContainer{
   width: 96%;
   margin-left: 2%;
   margin-right: 2%;
   position: relative;
 }
 
-#productionDisplay, #createContainer {
+#productionDisplay, #createContainer, #header, #loginForm, #signUpForm {
   width: 100%;
   margin-top: 5%;
   margin-bottom: 5%;

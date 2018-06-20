@@ -60,11 +60,11 @@ class ContentContainer extends Component {
 
   render() {
     return (
-      <div id='contentContainer'>
+      <React.Fragment>
         {/* logic for displaying pages determined by header */}
         <AllProductionsContainer allProductions={this.state.productions}/>
         <CreateContainer actors={this.state.actors} />
-      </div>
+      </React.Fragment>
     )
   }
 }
