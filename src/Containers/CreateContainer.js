@@ -52,7 +52,7 @@ class CreateContainer extends Component {
       body: JSON.stringify(this.state),
       headers: {'Content-Type': 'application/json'}
     })
-      .then( res => res.json() )
+      .then( res => {debugger} )
       .then(response => this.postProduction(response.scriptId));
   };
 
