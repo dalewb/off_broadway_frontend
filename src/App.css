@@ -22,13 +22,13 @@
   font-size: large;
 }
 
-.selected-actors {
+.selected {
   overflow-x: scroll;
   min-height: 475px;
   max-width: 100%;
 }
 
-.ui.grid > .row.selected-actors-row {
+.ui.grid > .row.selected-row {
   flex-wrap: nowrap;
   min-height: 100%;
 }

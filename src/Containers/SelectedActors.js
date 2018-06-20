@@ -21,9 +21,9 @@ renderActors = () => {
 
   render() {
     return (
-      <div className="ui segment gray selected-actors">
+      <div className="ui segment gray selected">
         <div className="ui five column grid">
-          <div className="row selected-actors-row">
+          <div className="row selected-row">
             <Card.Group centered >
               {this.renderActors()}
             </Card.Group>
