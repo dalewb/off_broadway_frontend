@@ -16,6 +16,11 @@ class AllActorsDisplay extends Component {
     return (
       <div className="ui five cards centered">
         {aCards}
+        <div className='divider'></div>
+        <p>&nbsp;</p>
+        <p>
+          <button>Submit Project</button>
+        </p>
       </div>
     )
   }

@@ -32,7 +32,8 @@ class CreateContainer extends Component {
       line_3: `${scriptInfo.char3}-${scriptInfo.line3}`,
       line_4: `${scriptInfo.char4}-${scriptInfo.line4}`,
       line_5: `${scriptInfo.char5}-${scriptInfo.line5}`,
-      user_id: `${scriptInfo.userId}`
+      user_id: `${scriptInfo.userId}`,
+      step: 2
     }, /*() => {this.postScript()}*/ () => {console.log('createScript:state', this.state)});
   };
 
@@ -68,8 +69,22 @@ class CreateContainer extends Component {
       .then(response => {
         console.log('postProduction end');
         console.log('postACast', response);
-        this.postACast(response.productionId)
+        this.postCast(response.productionId)
       });
+  };
+
+  postCast = (productionId) => {
+    this.state.myActors.forEach(actor =>{
+      fetch(URL + 'casts', {
+        method: 'POST',
+        body: JSON.stringify({production_id: productionId, actor_id: actor.id}),
+        headers: {'Content-Type': 'application/json'}
+      })
+        .then( res => res.json() )
+        .then(response => {
+          console.log('postCast', response);
+        });
+    });
   };
 
   postACast = (productionId) => {
@@ -119,11 +134,7 @@ class CreateContainer extends Component {
   render() {
     return (
       <div id='createContainer'>
-        <ScriptContainer createScript={this.createScript}/>
-        <div id='selectedCards'>
-          <SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor}/>
-        </div>
-        <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick}/>
+        {this.state.step === 1 ? <ScriptContainer createScript={this.createScript}/> : <React.Fragment><SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor}/> <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick}/></React.Fragment> }
       </div>
     );
   };
