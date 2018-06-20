@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import handleChange from '../util';
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
+
+import { NavLink } from 'react-router-dom';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -36,7 +38,7 @@ class LoginForm extends Component {
             <Button type='submit'>Submit</Button>
           </Form.Field>
         </Form>
-        <Button onClick={this.props.userExistsCheck} >Sign Up</Button>
+        <NavLink to="/sign_up" >Sign Up</NavLink>
       </div>
     )
   }

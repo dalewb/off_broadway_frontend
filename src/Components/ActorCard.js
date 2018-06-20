@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
 class ActorCard extends Component {
   // constructor(props) {

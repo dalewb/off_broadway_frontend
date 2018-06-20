@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import ActorCard from '../Components/ActorCard'
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 
 class AllActorsDisplay extends Component {
   // constructor(props) {
