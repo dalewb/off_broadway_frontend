@@ -62,8 +62,8 @@ class ContentContainer extends Component {
     return (
       <React.Fragment>
         {/* logic for displaying pages determined by header */}
-        <AllProductionsContainer allProductions={this.state.productions}/>
-        <CreateContainer actors={this.state.actors} />
+        {this.props.page === 'all productions' ? <AllProductionsContainer allProductions={this.state.productions} /> : null}
+        {this.props.page === 'new production' ? <CreateContainer actors={this.state.actors} /> : null}
       </React.Fragment>
     )
   }
