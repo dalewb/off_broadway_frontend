@@ -16,7 +16,7 @@ renderActors = () => {
 
   render() {
     return (
-      <div>
+      <div id='selectedCards'>
         <h4>2. Select two (2) actors:</h4>
         <div className="ui five cards centered">
           {this.renderActors()}
