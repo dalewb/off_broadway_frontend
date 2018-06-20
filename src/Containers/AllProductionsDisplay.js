@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from '../Components/ProductionReview';
+import { Card } from 'semantic-ui-react'
 
 class AllProductionsDisplay extends Component {
 
@@ -28,16 +29,6 @@ class AllProductionsDisplay extends Component {
   render() {
     const pCards = this.renderProductionCards();
     return (
-<<<<<<< HEAD
-      <React.Fragment>
-        <div className="ui three cards centered">
-          {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
-        </div>
-        <div className="ui five cards centered">
-          {pCards}
-        </div>
-      </React.Fragment>
-=======
       <div className="ui four column grid">
         <div className="row">
           {this.state.productionReview ? <ProductionReview production={this.state.productionReview} handleViewProductionClick={this.props.handleViewProductionClick}/> : null}
@@ -46,7 +37,6 @@ class AllProductionsDisplay extends Component {
           </Card.Group>
         </div>
       </div>
->>>>>>> dalewb
     )
   }
 }
