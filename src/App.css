@@ -22,6 +22,21 @@
   font-size: large;
 }
 
+.selected {
+  overflow-x: scroll;
+  min-height: 475px;
+  max-width: 100%;
+}
+
+.ui.grid > .row.selected-row {
+  flex-wrap: nowrap;
+  min-height: 100%;
+}
+
+.ui.grid {
+  padding: 0px 20px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

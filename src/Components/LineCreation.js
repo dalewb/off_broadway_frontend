@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import LineInputForm from './LineInputForm'
+import { Form, Input, Button } from 'semantic-ui-react'
 // import handleChange from '../util';
 
 class LineCreation extends Component {
@@ -51,6 +52,7 @@ class LineCreation extends Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <form onSubmit={this.handleSubmit}>
         <p>
           <input type="text"  name="title" placeholder='Play Title' onChange={this.handleChange}></input>
@@ -67,6 +69,17 @@ class LineCreation extends Component {
           <button type='submit'>Next Step ></button>
         </p>
       </form>
+=======
+      <Form onSubmit={this.handleSubmit}>
+        <Input type="text"  name="title" placeholder='Play Title' onChange={this.handleChange} />
+        <LineInputForm name="line1" char="char1" handleChange={this.handleChange} handleSelect={this.handleSelect}/>
+        <LineInputForm name="line2" char="char2" handleChange={this.handleChange} handleSelect={this.handleSelect}/>
+        <LineInputForm name="line3" char="char3" handleChange={this.handleChange} handleSelect={this.handleSelect}/>
+        <LineInputForm name="line4" char="char4" handleChange={this.handleChange} handleSelect={this.handleSelect}/>
+        <LineInputForm name="line5" char="char5" handleChange={this.handleChange} handleSelect={this.handleSelect}/>
+        <Button type="submit">Submit</Button>
+      </Form>
+>>>>>>> dalewb
     )
   }
 }

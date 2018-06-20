@@ -28,6 +28,7 @@ class AllProductionsDisplay extends Component {
   render() {
     const pCards = this.renderProductionCards();
     return (
+<<<<<<< HEAD
       <React.Fragment>
         <div className="ui three cards centered">
           {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
@@ -36,6 +37,16 @@ class AllProductionsDisplay extends Component {
           {pCards}
         </div>
       </React.Fragment>
+=======
+      <div className="ui four column grid">
+        <div className="row">
+          {this.state.productionReview ? <ProductionReview production={this.state.productionReview} handleViewProductionClick={this.props.handleViewProductionClick}/> : null}
+          <Card.Group centered>
+            {pCards}
+          </Card.Group>
+        </div>
+      </div>
+>>>>>>> dalewb
     )
   }
 }

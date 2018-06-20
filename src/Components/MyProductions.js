@@ -12,7 +12,9 @@ class MyProductions extends Component {
 
   renderProductionCards = () => {
     const cards = this.props.myProductions.map((production, index) => {
-      return <ProductionCard production={production} key={index} onClickHandler={this.setProductionReview} />
+      return (
+        <ProductionCard production={production} key={index} onClickHandler={this.setProductionReview} />
+      )
     });
     return cards;
   };
@@ -26,11 +28,23 @@ class MyProductions extends Component {
     });
   };
 
+  resetProductionReview = () => {
+    this.setState({
+      productionReview: null
+    })
+  }
+
   render() {
     const pCards = this.renderProductionCards();
     return (
       <React.Fragment>
-        {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
+        <div className="ui segment gray selected">
+          <div className="ui five column grid">
+            <div className="row selected-row">
+              {this.state.productionReview ? <ProductionReview production={this.state.productionReview} clickHandler={this.resetProductionReview} handleViewProductionClick={this.props.handleViewProductionClick}/> : null}
+            </div>
+          </div>
+        </div>
         <Card.Group centered>
           {pCards}
         </Card.Group>
