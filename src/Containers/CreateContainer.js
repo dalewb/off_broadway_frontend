@@ -101,18 +101,35 @@ class CreateContainer extends Component {
   }
 
   handleActorCardClick = (actor) => {
+<<<<<<< HEAD
     console.log('insideTopClick this', this)
     console.log('insideTopClick', actor);
     this.setState({
       myActors: [...this.state.myActors, actor]
     }, () => {console.log('after setstate',this.state)})
+=======
+    if (!this.state.myActors.includes(actor) && this.state.myActors.length < 2) {
+      this.setState(prevState => ({
+        myActors: [...prevState.myActors, actor]
+      }), () => {console.log(this.state.myActors)})
+    }
+  }
+
+  removeChosenActor = (actorToRemove) => {
+    let filteredActors = this.state.myActors.filter(actor => {
+      return actor !== actorToRemove
+    })
+    this.setState({
+      myActors: [...filteredActors]
+    })
+>>>>>>> brie
   }
 
   render() {
     return (
       <div id='createContainer'>
       <h1>Create Container</h1>
-        <SelectedActors />
+        <SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor}/>
         <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick}/>
         <ScriptContainer createScript={this.createScript}/>
         {/* <form onSubmit={this.handleSubmit}>

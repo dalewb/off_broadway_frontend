@@ -7,9 +7,20 @@ class SelectedActors extends Component {
   //   super(props)
   // }
 
+renderActors = () => {
+
+  return this.props.myActors.map((actor, index) => {
+    return <ActorCard
+      actor={actor}
+      key={index}
+      handleClick={() => {this.props.removeChosenActor(actor)}}
+    />
+  })
+}
+
   render() {
     return (
-      <ActorCard />
+      this.renderActors()
     )
   }
 }
