@@ -8,11 +8,21 @@ class MainPage extends Component {
   //   super(props)
   // }
 
+  state = {
+    page: 'all productions'
+  }
+
+  pageChange = (page) => {
+    this.setState({
+      page
+    });
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Header />
-        <ContentContainer />
+        <Header onClickHandler={this.pageChange} />
+        <ContentContainer page={this.state.page} />
       </React.Fragment>
     )
   }
