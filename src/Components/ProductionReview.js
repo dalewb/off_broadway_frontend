@@ -6,7 +6,8 @@ const ProductionReview = (props) => (
         <p>
             {props.production.script.title}<br />
             Written by: {props.production.user.username}<br />
-            Featuring: {props.production.actors[0].name} and {props.production.actors[1].name}
+            Featuring: {props.production.actors[0].name} and {props.production.actors[1].name}<br />
+            <button>View Production</button>
         </p>
     </div>
 );
