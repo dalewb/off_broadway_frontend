@@ -4,9 +4,6 @@ import AllProductionsDisplay from './AllProductionsDisplay'
 // import SelectedProduction from './SelectedProduction'
 
 class AllProductionsContainer extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
 
   render() {
     return (

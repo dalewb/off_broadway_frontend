@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import AllProductionsContainer from './AllProductionsContainer'
-import CreateContainer from './CreateContainer'
+import AllProductionsContainer from './AllProductionsContainer';
+import CreateContainer from './CreateContainer';
+import MyProductions from '../Components/MyProductions';
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 // const URL = 'http://localhost:3000/api/v1/'
@@ -10,18 +11,14 @@ class ContentContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
       productions: [],
-      actors: [],
-      scripts: []
+      myProductions: []
     };
   };
 
   componentDidMount() {
     this.fetchProductionData();
     this.fetchActorData();
-    // this.fetchScriptData();
-    // this.fetchUserData();
   };
 
   fetchProductionData = () => {
@@ -29,16 +26,10 @@ class ContentContainer extends Component {
       this.setState({
         productions
       });
+    }).then(() => {
+      this.myProductions();
     });
   };
-
-  // fetchScriptData = () => {
-  //   fetch(URL + 'scripts').then(response => response.json()).then(scripts => {
-  //     this.setState({
-  //       scripts
-  //     });
-  //   });
-  // };
 
   fetchActorData = () => {
     fetch(URL + 'actors')
@@ -50,13 +41,19 @@ class ContentContainer extends Component {
       });
   };
 
-  // fetchUserData = () => {
-  //   fetch(URL + 'users').then(response => response.json()).then(users => {
-  //     this.setState({
-  //       users
-  //     });
-  //   });
-  // };
+  myProductions = () => {
+    const myProductions = []
+    this.state.productions.forEach(production => {
+      if (production.user_id === this.props.userId){
+        return myProductions.push(production);
+      }else{
+        return;
+      }
+    });
+    this.setState({
+      myProductions
+    });
+  };
 
   render() {
     return (
@@ -64,6 +61,7 @@ class ContentContainer extends Component {
         {/* logic for displaying pages determined by header */}
         {this.props.page === 'all productions' ? <AllProductionsContainer allProductions={this.state.productions} /> : null}
         {this.props.page === 'new production' ? <CreateContainer actors={this.state.actors} /> : null}
+        {this.props.page === 'my productions' ? <MyProductions myProductions={this.state.myProductions} /> : null}
       </React.Fragment>
     )
   }

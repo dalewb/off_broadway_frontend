@@ -6,7 +6,8 @@ import MainPage from './Containers/MainPage'
 class App extends Component {
   state = {
     loggedIn: false,
-    userExists: false
+    userExists: false,
+    userId: 2
   }
 
   userExistsCheck = () => {
@@ -25,9 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.loggedIn ? <MainPage /> : <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck} />}
-        {/* <LoginPage />
-        <MainPage /> */}
+        {this.state.loggedIn ? <MainPage userId={this.state.userId} /> : <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck} />}
       </div>
     );
   }
