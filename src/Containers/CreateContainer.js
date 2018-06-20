@@ -101,13 +101,6 @@ class CreateContainer extends Component {
   }
 
   handleActorCardClick = (actor) => {
-<<<<<<< HEAD
-    console.log('insideTopClick this', this)
-    console.log('insideTopClick', actor);
-    this.setState({
-      myActors: [...this.state.myActors, actor]
-    }, () => {console.log('after setstate',this.state)})
-=======
     if (!this.state.myActors.includes(actor) && this.state.myActors.length < 2) {
       this.setState(prevState => ({
         myActors: [...prevState.myActors, actor]
@@ -122,7 +115,6 @@ class CreateContainer extends Component {
     this.setState({
       myActors: [...filteredActors]
     })
->>>>>>> brie
   }
 
   render() {
