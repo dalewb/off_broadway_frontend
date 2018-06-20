@@ -31,7 +31,7 @@ class AllProductionsDisplay extends Component {
     return (
       <div className="ui four column grid">
         <div className="row">
-          {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
+          {this.state.productionReview ? <ProductionReview production={this.state.productionReview} handleViewProductionClick={this.props.handleViewProductionClick}/> : null}
           <Card.Group centered>
             {pCards}
           </Card.Group>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dropdown, Menu, Form, Input, Select } from 'semantic-ui-react';
+import { Form, Input, Select } from 'semantic-ui-react';
 
 class LineInput extends Component {
   // constructor(props) {
@@ -12,7 +12,7 @@ class LineInput extends Component {
     ]
     return (
       <Form>
-        <Form.Group>
+        <Form.Group centered>
           <Form.Field
             control={Select}
             label="Select Character"

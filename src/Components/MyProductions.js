@@ -28,6 +28,12 @@ class MyProductions extends Component {
     });
   };
 
+  resetProductionReview = () => {
+    this.setState({
+      productionReview: null
+    })
+  }
+
   render() {
     const pCards = this.renderProductionCards();
     return (
@@ -35,10 +41,10 @@ class MyProductions extends Component {
         <div className="ui segment gray selected">
           <div className="ui five column grid">
             <div className="row selected-row">
-        {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
-      </div>
-    </div>
-  </div>
+              {this.state.productionReview ? <ProductionReview production={this.state.productionReview} clickHandler={this.resetProductionReview} handleViewProductionClick={this.props.handleViewProductionClick}/> : null}
+            </div>
+          </div>
+        </div>
         <Card.Group centered>
           {pCards}
         </Card.Group>
