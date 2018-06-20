@@ -19,9 +19,9 @@ class ContentContainer extends Component {
 
   componentDidMount() {
     this.fetchProductionData();
-    this.fetchScriptData();
-    this.fetchActorData();
-    this.fetchUserData();
+    // this.fetchScriptData();
+    // this.fetchActorData();
+    // this.fetchUserData();
   };
 
   fetchProductionData = () => {
@@ -32,29 +32,29 @@ class ContentContainer extends Component {
     });
   };
 
-  fetchScriptData = () => {
-    fetch(URL + 'scripts').then(response => response.json()).then(scripts => {
-      this.setState({
-        scripts
-      });
-    });
-  };
+  // fetchScriptData = () => {
+  //   fetch(URL + 'scripts').then(response => response.json()).then(scripts => {
+  //     this.setState({
+  //       scripts
+  //     });
+  //   });
+  // };
 
-  fetchActorData = () => {
-    fetch(URL + 'actors')
-      .then(response => response.json())
-      .then(actors => this.setState({
-        actors
-      }));
-  };
+  // fetchActorData = () => {
+  //   fetch(URL + 'actors')
+  //     .then(response => response.json())
+  //     .then(actors => this.setState({
+  //       actors
+  //     }));
+  // };
 
-  fetchUserData = () => {
-    fetch(URL + 'users').then(response => response.json()).then(users => {
-      this.setState({
-        users
-      });
-    });
-  };
+  // fetchUserData = () => {
+  //   fetch(URL + 'users').then(response => response.json()).then(users => {
+  //     this.setState({
+  //       users
+  //     });
+  //   });
+  // };
 
   render() {
     return (
