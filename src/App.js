@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import LoginPage from './Containers/LoginPage'
-import MainPage from './Containers/MainPage'
+import LoginPage from './Containers/LoginPage';
+import MainPage from './Containers/MainPage';
+import ARtesting from './Containers/ARtesting';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -40,6 +41,7 @@ class App extends Component {
         <div className="App">
           <Route exact path="/home" render={this.loggedInPage} />
           {this.state.loggedIn ? <MainPage userId={this.state.userId} /> : <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck} />}
+          < ARtesting />
         </div>
       </Router>
     );
