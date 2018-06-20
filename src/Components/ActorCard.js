@@ -5,17 +5,18 @@ class ActorCard extends Component {
   //   super(props)
   // }
 
-  handleActorClick = (props) => {
+
+// what
+// the
+// FUUUCCKKKKKKK
+
+  handleActorClick(props) {
     props.handleClick(props.actor)
   }
 
   renderActor = () => {
     return (
-<<<<<<< HEAD
-      <div onClick={this.props.handleClick} className='actor_card' >
-=======
-      <div onClick={this.handleActorClick} className='actor_card' >
->>>>>>> brie
+      <div onClick={() => this.handleActorClick(this.props)} className='actor_card' >
         <img src={this.props.actor.img_url} alt='' />
         <p>Name: {this.props.actor.name}</p>
       </div>
