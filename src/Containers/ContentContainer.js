@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import AllProductionsContainer from './AllProductionsContainer'
 import CreateContainer from './CreateContainer'
 
-// const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
-const URL = 'http://localhost:3000/api/v1/'
+const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+// const URL = 'http://localhost:3000/api/v1/'
 
 class ContentContainer extends Component {
   constructor(props) {
