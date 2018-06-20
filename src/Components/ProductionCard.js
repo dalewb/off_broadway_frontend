@@ -9,7 +9,7 @@ class ProductionCard extends Component {
 
   renderProductionCard() {
     return (
-      <Card>
+      <Card onClick={() => this.props.onClickHandler(this.props.production.script_id)}>
         <Image src={this.props.production.script.img_url} alt='' />
         <Card.Content>
           <Card.Header>{this.props.production.script.title}</Card.Header>

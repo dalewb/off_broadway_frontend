@@ -31,7 +31,7 @@ class AllProductionsDisplay extends Component {
     return (
       <React.Fragment>
         {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
-        <Card.Group>
+        <Card.Group centered>
           {pCards}
         </Card.Group>
       </React.Fragment>
