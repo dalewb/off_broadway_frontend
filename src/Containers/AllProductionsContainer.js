@@ -8,7 +8,6 @@ class AllProductionsContainer extends Component {
   render() {
     return (
       <div id='productionDisplay'>
-        <h1>Production Display Div</h1>
         <AllProductionsDisplay allProductions={this.props.allProductions}/>
         <div className='divider'></div>
       </div>

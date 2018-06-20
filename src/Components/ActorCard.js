@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react';
 
 class ActorCard extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
 
   renderActor = () => {
     return (

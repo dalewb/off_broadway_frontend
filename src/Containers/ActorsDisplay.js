@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
 import ActorCard from '../Components/ActorCard'
-import { Card } from 'semantic-ui-react';
 
 class AllActorsDisplay extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
 
   renderActorCards = () => {
     const cards = this.props.actors.map((actor, index) => {
@@ -18,9 +14,9 @@ class AllActorsDisplay extends Component {
   render() {
     const aCards = this.renderActorCards();
     return (
-      <Card.Group>
+      <div className="ui five cards centered">
         {aCards}
-      </Card.Group>
+      </div>
     )
   }
 }

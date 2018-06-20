@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 class LineInput extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
+
   render() {
     return (
       <React.Fragment>

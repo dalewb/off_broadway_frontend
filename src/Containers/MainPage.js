@@ -12,6 +12,7 @@ class MainPage extends Component {
     this.setState({
       page
     });
+    window.history.pushState({}, "new state", page.replace(/ /g,"-"));
   }
 
   render() {

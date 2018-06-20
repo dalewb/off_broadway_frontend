@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 
-import ActorsDisplay from './ActorsDisplay'
-import SelectedActors from './SelectedActors'
-import ScriptContainer from './ScriptContainer'
+import ActorsDisplay from './ActorsDisplay';
+import SelectedActors from './SelectedActors';
+import ScriptContainer from './ScriptContainer';
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 
 class CreateContainer extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
 
   state = {
     title: '',
@@ -19,13 +16,15 @@ class CreateContainer extends Component {
     line_3: '',
     line_4: '',
     line_5: '',
-    img_url: 'https://i.pinimg.com/originals/2e/eb/61/2eeb616e06307b0e4acd01252c41edef.jpg',
     a_actor_id: 1,
     b_actor_id: 2,
     myActors: [],
+    step: 1,
+    img_url: 'https://i.pinimg.com/originals/2e/eb/61/2eeb616e06307b0e4acd01252c41edef.jpg',
   }
 
   createScript = (scriptInfo) => {
+    console.log('createScript:scriptInfo', scriptInfo)
     this.setState({
       title: scriptInfo.title,
       line_1: `${scriptInfo.char1}-${scriptInfo.line1}`,
@@ -34,8 +33,8 @@ class CreateContainer extends Component {
       line_4: `${scriptInfo.char4}-${scriptInfo.line4}`,
       line_5: `${scriptInfo.char5}-${scriptInfo.line5}`,
       user_id: `${scriptInfo.userId}`
-    }, () => {this.postScript()})
-  }
+    }, /*() => {this.postScript()}*/ () => {console.log('createScript:state', this.state)});
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +45,7 @@ class CreateContainer extends Component {
       line_3: e.target.line_3.value,
       line_4: e.target.line_4.value,
       line_5: e.target.line_5.value,
-    }, () => this.postScript() );
+    }, /* () => this.postScript() */ console.log('handleSubmit', this.state));
   };
 
   postScript = () => {
@@ -71,7 +70,7 @@ class CreateContainer extends Component {
         console.log('postACast', response);
         this.postACast(response.productionId)
       });
-  }
+  };
 
   postACast = (productionId) => {
     fetch(URL + 'casts', {
@@ -85,7 +84,7 @@ class CreateContainer extends Component {
         console.log('postACast', response);
         this.postBCast(productionId)
       });
-  }
+  };
 
   postBCast = (productionId) => {
     fetch(URL + 'casts', {
@@ -98,15 +97,15 @@ class CreateContainer extends Component {
         console.log('postBCast end');
         console.log(response);
       });
-  }
+  };
 
   handleActorCardClick = (actor) => {
     if (!this.state.myActors.includes(actor) && this.state.myActors.length < 2) {
       this.setState(prevState => ({
         myActors: [...prevState.myActors, actor]
-      }), () => {console.log(this.state.myActors)})
-    }
-  }
+      }))
+    };
+  };
 
   removeChosenActor = (actorToRemove) => {
     let filteredActors = this.state.myActors.filter(actor => {
@@ -114,28 +113,20 @@ class CreateContainer extends Component {
     })
     this.setState({
       myActors: [...filteredActors]
-    })
-  }
+    });
+  };
 
   render() {
     return (
       <div id='createContainer'>
-      <h1>Create Container</h1>
-        <SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor}/>
-        <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick}/>
         <ScriptContainer createScript={this.createScript}/>
-        {/* <form onSubmit={this.handleSubmit}>
-          <input type='text' name='title' /><br />
-          <input type='text' name='line_1' /><br />
-          <input type='text' name='line_2' /><br />
-          <input type='text' name='line_3' /><br />
-          <input type='text' name='line_4' /><br />
-          <input type='text' name='line_5' /><br />
-          <input type='submit' />
-        </form> */}
+        <div id='selectedCards'>
+          <SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor}/>
+        </div>
+        <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick}/>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default CreateContainer;

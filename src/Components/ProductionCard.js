@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react';
 
 class ProductionCard extends Component {
-  // constructor(props) {
-  //   super(props)
-
-  // }
 
   renderProductionCard() {
     return (
