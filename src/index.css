@@ -10,7 +10,7 @@ body {
   clear: both;
 }
 
-.production_card {
+.production_card, .actor_card {
   width: 20%;
   margin-left: 2%;
   margin-right: 2%;
@@ -21,17 +21,15 @@ body {
   width: 100%;
 }
 
-.actor_card {
-  width: 20%;
-  margin: 2%;
-  float: left
-}
-
-#productionDisplay {
+#productionDisplay, #createContainer {
   width: 96%;
   margin-left: 2%;
   margin-right: 2%;
   margin-top: 5%;
   margin-bottom: 5%;
   position: relative;
+}
+
+#createContainer {
+  background: fuchsia;
 }

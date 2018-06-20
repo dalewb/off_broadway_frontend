@@ -115,7 +115,7 @@ class CreateContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div id='createContainer'>
         <form onSubmit={this.handleSubmit}>
           <input type='text' name='title' /><br />
           <input type='text' name='line_1' /><br />
