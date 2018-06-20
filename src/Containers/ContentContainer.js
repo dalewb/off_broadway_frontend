@@ -19,8 +19,8 @@ class ContentContainer extends Component {
 
   componentDidMount() {
     this.fetchProductionData();
+    this.fetchActorData();
     // this.fetchScriptData();
-    // this.fetchActorData();
     // this.fetchUserData();
   };
 
@@ -40,13 +40,15 @@ class ContentContainer extends Component {
   //   });
   // };
 
-  // fetchActorData = () => {
-  //   fetch(URL + 'actors')
-  //     .then(response => response.json())
-  //     .then(actors => this.setState({
-  //       actors
-  //     }));
-  // };
+  fetchActorData = () => {
+    fetch(URL + 'actors')
+      .then(response => response.json())
+      .then(actors => {
+        this.setState({
+          actors
+        });
+      });
+  };
 
   // fetchUserData = () => {
   //   fetch(URL + 'users').then(response => response.json()).then(users => {
@@ -62,7 +64,7 @@ class ContentContainer extends Component {
         {/* logic for displaying pages determined by header */}
         <p>Content Container</p>
         <AllProductionsContainer allProductions={this.state.productions}/>
-        <CreateContainer />
+        <CreateContainer actors={this.state.actors} />
       </div>
     )
   }

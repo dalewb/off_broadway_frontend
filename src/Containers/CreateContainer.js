@@ -126,7 +126,7 @@ class CreateContainer extends Component {
           <input type='submit' />
         </form>
         <SelectedActors />
-        <ActorsDisplay handleClick={this.handleActorCardClick}/>
+        <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick}/>
         <ScriptContainer createScript={this.createScript}/>
       </div>
     )
