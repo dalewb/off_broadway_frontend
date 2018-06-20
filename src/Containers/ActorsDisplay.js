@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import ActorCard from '../Components/ActorCard'
 
 class AllActorsDisplay extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   renderActorCards = () => {
     const cards = this.props.actors.map((actor, index) => {

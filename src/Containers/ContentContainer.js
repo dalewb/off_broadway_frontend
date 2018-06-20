@@ -60,9 +60,8 @@ class ContentContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div id='contentContainer'>
         {/* logic for displaying pages determined by header */}
-        <p>Content Container</p>
         <AllProductionsContainer allProductions={this.state.productions}/>
         <CreateContainer actors={this.state.actors} />
       </div>

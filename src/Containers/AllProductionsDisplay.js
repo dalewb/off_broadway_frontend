@@ -6,8 +6,8 @@ import ProductionCard from '../Components/ProductionCard'
 // const URL = 'http://localhost:3000/api/v1/'
 
 class AllProductionsDisplay extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
     // this.state = {
     //   users: [],
     //   productions: [],
@@ -15,7 +15,7 @@ class AllProductionsDisplay extends Component {
     //   scripts: []
     // };
     // this.fetchProductionData();
-  };
+  // };
 
   // fetchProductionData = () => {
   //   fetch(URL + 'productions').then(response => response.json()).then(productions => {
