@@ -7,7 +7,7 @@ class App extends Component {
   state = {
     loggedIn: false,
     userExists: false,
-    userId: 1
+    userId: 2
   }
 
   userExistsCheck = () => {
@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.loggedIn ? <MainPage userId={this.props.userId} /> : <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck} />}
+        {this.state.loggedIn ? <MainPage userId={this.state.userId} /> : <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck} />}
       </div>
     );
   }
