@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import handleChange from '../util';
 
+import { NavLink } from 'react-router-dom';
+
 class LoginForm extends Component {
   constructor(props) {
     super(props)
@@ -28,7 +30,8 @@ class LoginForm extends Component {
           <input type='submit' value='Submit'></input>
         </form>
         <p>
-          <button onClick={this.props.userExistsCheck} >Sign Up</button>
+        <NavLink to="/sign_up" >Sign Up</NavLink>
+          
         </p>
       </div>
     )

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import handleChange from '../util';
 
+import { NavLink } from 'react-router-dom';
+
 class SignUpForm extends Component {
   constructor(props) {
     super(props)
@@ -36,7 +38,7 @@ class SignUpForm extends Component {
           <input type="submit" name="Submit"></input>
         </form>
         <p>
-          <button onClick={this.props.userExistsCheck} >Already have an account? Log In</button>
+        <NavLink to="/" >Already have an account? Log In</NavLink>
         </p>
       </div>
     );
