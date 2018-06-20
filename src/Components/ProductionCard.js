@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card, Image } from 'semantic-ui-react';
 
 class ProductionCard extends Component {
   // constructor(props) {
@@ -6,13 +7,21 @@ class ProductionCard extends Component {
 
   // }
 
+  renderProductionCard() {
+    return (
+      <Card>
+        <Image src={this.props.production.script.img_url} alt='' />
+        <Card.Content>
+          <Card.Header>{this.props.production.script.title}</Card.Header>
+          <Card.Description>Written by: {this.props.production.user.username}</Card.Description>
+        </Card.Content>
+      </Card>
+    )
+  }
+
   render() {
     return (
-      <div className='production_card' onClick={() => this.props.onClickHandler(this.props.production.script_id)}>
-        <img src={this.props.production.script.img_url} alt='' />
-        <h1>{this.props.production.script.title}</h1>
-        <p>Written by: {this.props.production.user.username}</p>
-      </div>
+      this.renderProductionCard()
     )
   }
 }

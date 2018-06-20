@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import ActorCard from '../Components/ActorCard'
+import { Card, Icon, Image } from 'semantic-ui-react';
 
 class AllActorsDisplay extends Component {
   // constructor(props) {
@@ -17,9 +18,9 @@ class AllActorsDisplay extends Component {
   render() {
     const aCards = this.renderActorCards();
     return (
-      <React.Fragment>
+      <Card.Group>
         {aCards}
-      </React.Fragment>
+      </Card.Group>
     )
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import ActorCard from '../Components/ActorCard'
+import { Card } from 'semantic-ui-react';
 
 class SelectedActors extends Component {
   // constructor(props) {
@@ -20,7 +21,9 @@ renderActors = () => {
 
   render() {
     return (
-      this.renderActors()
+      <Card.Group centered >
+        {this.renderActors()}
+      </Card.Group>
     )
   }
 }

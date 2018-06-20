@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from '../Components/ProductionReview';
+import { Card, Icon, Image } from 'semantic-ui-react';
 
 class AllProductionsDisplay extends Component {
 
@@ -30,7 +31,9 @@ class AllProductionsDisplay extends Component {
     return (
       <React.Fragment>
         {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
-        {pCards}
+        <Card.Group>
+          {pCards}
+        </Card.Group>
       </React.Fragment>
     )
   }
