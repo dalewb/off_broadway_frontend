@@ -9,39 +9,46 @@ class LineCreation extends Component {
     super(props)
 
     this.state = {
-      title: '',
-      line1: '',
-      line2: '',
-      line3: '',
-      line4: '',
-      line5: '',
-      char1: 'A',
-      char2: 'A',
-      char3: 'A',
-      char4: 'A',
-      char5: 'A',
-      actor1: 'Actor 1',
-      actor2: 'Actor 2',
-      userId: 1,
-    }
-  }
+      title: null,
+      line1: null,
+      line2: null,
+      line3: null,
+      line4: null,
+      line5: null,
+      char1: null,
+      char2: null,
+      char3: null,
+      char4: null,
+      char5: null,
+      userId: 1
+    };
+  };
 
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   handleSelect = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.createScript(this.state)
-  }
+    if (this.checkProject()){
+      this.props.createScript(this.state);
+    };
+  };
+
+  checkProject = () => {
+    if (this.state.title === null || this.state.title === '' || this.state.title === ' '){
+      alert('Script must have a valid title!');
+      return false
+    }else return true ;
+  };
 
   render() {
     return (
