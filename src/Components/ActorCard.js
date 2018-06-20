@@ -12,12 +12,8 @@ class ActorCard extends Component {
   renderActor = () => {
     let actor = this.props.actor
     return (
-<<<<<<< HEAD
-      <div onClick={this.handleActorClick}>
-=======
-      <div onClick={() => this.props.handleClick(this.props.actor)} className='actor_card' >
+      <div onClick={this.handleActorClick} className='actor_card' >
         <img src={this.props.actor.img_url} alt='' />
->>>>>>> brie
         <p>Name: {this.props.actor.name}</p>
       </div>
     )
