@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import AllProductionsContainer from './AllProductionsContainer'
 import CreateContainer from './CreateContainer'
 
-const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
-// const URL = 'http://localhost:3000/api/v1/'
+// const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+const URL = 'http://localhost:3000/api/v1/'
 
 class ContentContainer extends Component {
   constructor(props) {
@@ -62,8 +62,8 @@ class ContentContainer extends Component {
     return (
       <React.Fragment>
         {/* logic for displaying pages determined by header */}
-        <AllProductionsContainer allProductions={this.state.productions}/>
-        <CreateContainer actors={this.state.actors} />
+        {this.props.page === 'all productions' ? <AllProductionsContainer allProductions={this.state.productions} /> : null}
+        {this.props.page === 'new production' ? <CreateContainer actors={this.state.actors} /> : null}
       </React.Fragment>
     )
   }
