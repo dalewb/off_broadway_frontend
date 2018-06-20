@@ -1,41 +1,35 @@
 import React, { Component } from 'react';
 
-import ProductionCard from '../Components/ProductionCard'
-
-// const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
-// const URL = 'http://localhost:3000/api/v1/'
+import ProductionCard from '../Components/ProductionCard';
+import ProductionReview from '../Components/ProductionReview';
 
 class AllProductionsDisplay extends Component {
-  // constructor(props) {
-  //   super(props);
-    // this.state = {
-    //   users: [],
-    //   productions: [],
-    //   characters: [],
-    //   scripts: []
-    // };
-    // this.fetchProductionData();
-  // };
 
-  // fetchProductionData = () => {
-  //   fetch(URL + 'productions').then(response => response.json()).then(productions => {
-  //     this.setState({
-  //       productions
-  //     });
-  //   });
-  // };
+  state = {
+    productionReview: null
+  }
 
   renderProductionCards = () => {
     const cards = this.props.allProductions.map((production, index) => {
-      return <ProductionCard production={production} key={index} />
+      return <ProductionCard production={production} key={index} onClickHandler={this.setProductionReview} />
     });
     return cards;
+  };
+
+  setProductionReview = (id) => {
+    const productionReview = this.props.allProductions.find(prod => {
+      return prod.script_id === id
+    });
+    this.setState({
+      productionReview
+    });
   };
 
   render() {
     const pCards = this.renderProductionCards();
     return (
       <React.Fragment>
+        {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
         {pCards}
       </React.Fragment>
     )
