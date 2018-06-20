@@ -110,7 +110,11 @@ class CreateContainer extends Component {
   render() {
     return (
       <div id='createContainer'>
-        <form onSubmit={this.handleSubmit}>
+      <h1>Create Container</h1>
+        <SelectedActors />
+        <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick}/>
+        <ScriptContainer createScript={this.createScript}/>
+        {/* <form onSubmit={this.handleSubmit}>
           <input type='text' name='title' /><br />
           <input type='text' name='line_1' /><br />
           <input type='text' name='line_2' /><br />
@@ -118,10 +122,7 @@ class CreateContainer extends Component {
           <input type='text' name='line_4' /><br />
           <input type='text' name='line_5' /><br />
           <input type='submit' />
-        </form>
-        <SelectedActors />
-        <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick}/>
-        <ScriptContainer createScript={this.createScript}/>
+        </form> */}
       </div>
     )
   }
