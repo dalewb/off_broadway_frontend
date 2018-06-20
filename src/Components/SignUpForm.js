@@ -26,13 +26,16 @@ class SignUpForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        Sign-up Form
-        <input type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br />
-        <input type="password" name="password" value={this.state.password} onChange={this.handleChange} /><br />
-        <input type="password" name="passwordCheck" onChange={this.handleChange} /><br />
-        <input type="submit" name="Submit"></input>
-      </form>
+      <div id='signUpForm'>
+        <h1>Sign Up Form Div</h1>
+        <form onSubmit={this.handleSubmit}>
+          Sign-up Form
+          <input type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br />
+          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} /><br />
+          <input type="password" name="passwordCheck" onChange={this.handleChange} /><br />
+          <input type="submit" name="Submit"></input>
+        </form>
+      </div>
     );
   };
 };

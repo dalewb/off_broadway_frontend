@@ -60,7 +60,6 @@ class CreateContainer extends Component {
   };
 
   postProduction = (scriptId) => {
-    // debugger
     fetch(URL + 'productions', {
       method: 'POST',
       body: JSON.stringify({script_id: scriptId, user_id: this.state.user_id}),
@@ -70,13 +69,11 @@ class CreateContainer extends Component {
       .then(response => {
         console.log('postProduction end');
         console.log('postACast', response);
-        // debugger
         this.postACast(response.productionId)
       });
   }
 
   postACast = (productionId) => {
-    // debugger
     fetch(URL + 'casts', {
       method: 'POST',
       body: JSON.stringify({production_id: productionId, actor_id: this.state.a_actor_id}),
@@ -86,13 +83,11 @@ class CreateContainer extends Component {
       .then(response => {
         console.log('postACast end');
         console.log('postACast', response);
-        // debugger
         this.postBCast(productionId)
       });
   }
 
   postBCast = (productionId) => {
-    // debugger
     fetch(URL + 'casts', {
       method: 'POST',
       body: JSON.stringify({production_id: productionId, actor_id: this.state.b_actor_id}),
@@ -102,7 +97,6 @@ class CreateContainer extends Component {
       .then(response => {
         console.log('postBCast end');
         console.log(response);
-        // debugger
       });
   }
 
@@ -115,8 +109,12 @@ class CreateContainer extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div id='createContainer'>
+      <h1>Create Container</h1>
+        <SelectedActors />
+        <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick}/>
+        <ScriptContainer createScript={this.createScript}/>
+        {/* <form onSubmit={this.handleSubmit}>
           <input type='text' name='title' /><br />
           <input type='text' name='line_1' /><br />
           <input type='text' name='line_2' /><br />
@@ -124,10 +122,7 @@ class CreateContainer extends Component {
           <input type='text' name='line_4' /><br />
           <input type='text' name='line_5' /><br />
           <input type='submit' />
-        </form>
-        <SelectedActors />
-        <ActorsDisplay handleClick={this.handleActorCardClick}/>
-        <ScriptContainer createScript={this.createScript}/>
+        </form> */}
       </div>
     )
   }

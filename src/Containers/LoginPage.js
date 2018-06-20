@@ -7,10 +7,10 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div id='contentContainer'>
         <LoginForm />
         <SignUpForm />
-      </React.Fragment>
+      </div>
     )
   }
 }
