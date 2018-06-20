@@ -60,7 +60,6 @@ class CreateContainer extends Component {
   };
 
   postProduction = (scriptId) => {
-    // debugger
     fetch(URL + 'productions', {
       method: 'POST',
       body: JSON.stringify({script_id: scriptId, user_id: this.state.user_id}),
@@ -70,13 +69,11 @@ class CreateContainer extends Component {
       .then(response => {
         console.log('postProduction end');
         console.log('postACast', response);
-        // debugger
         this.postACast(response.productionId)
       });
   }
 
   postACast = (productionId) => {
-    // debugger
     fetch(URL + 'casts', {
       method: 'POST',
       body: JSON.stringify({production_id: productionId, actor_id: this.state.a_actor_id}),
@@ -86,13 +83,11 @@ class CreateContainer extends Component {
       .then(response => {
         console.log('postACast end');
         console.log('postACast', response);
-        // debugger
         this.postBCast(productionId)
       });
   }
 
   postBCast = (productionId) => {
-    // debugger
     fetch(URL + 'casts', {
       method: 'POST',
       body: JSON.stringify({production_id: productionId, actor_id: this.state.b_actor_id}),
@@ -102,7 +97,6 @@ class CreateContainer extends Component {
       .then(response => {
         console.log('postBCast end');
         console.log(response);
-        // debugger
       });
   }
 
