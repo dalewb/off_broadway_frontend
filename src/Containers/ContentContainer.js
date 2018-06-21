@@ -63,13 +63,24 @@ class ContentContainer extends Component {
     this.props.onClickHandler('view production');
   }
 
+  setViewProduction = (viewProduction) => {
+    this.setState({
+      viewProduction,
+      myProductions: [...this.state.myProductions, viewProduction],
+      productions: [...this.state.productions, viewProduction]
+    })
+    console.log("View Production", this.state.viewProduction);
+    console.log("In View Production, myProductions", this.state.myProductions);
+    this.props.onClickHandler('my productions')
+  }
+
   render() {
     return (
       <React.Fragment>
         {this.props.page === '/' ? <Home/> : null}
         {this.props.page === 'view production' ? <ARpage show={this.state.viewProduction}/> : null}
         {this.props.page === 'all productions' ? <AllProductionsContainer allProductions={this.state.productions} handleViewProductionClick={this.seeTheShow}/> : null}
-        {this.props.page === 'new production' ? <CreateContainer actors={this.state.actors} /> : null}
+        {this.props.page === 'new production' ? <CreateContainer actors={this.state.actors} setViewProduction={this.setViewProduction}/> : null}
         {this.props.page === 'my productions' ? <MyProductions myProductions={this.state.myProductions} handleViewProductionClick={this.seeTheShow}/> : null}
       </React.Fragment>
     )

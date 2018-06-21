@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ActorsDisplay from './ActorsDisplay';
 import SelectedActors from './SelectedActors';
 import ScriptContainer from './ScriptContainer';
+import MyProductions from '../Components/MyProductions'
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 
@@ -38,7 +39,7 @@ class CreateContainer extends Component {
   checkSubmission = () => {
     if (this.state.myActors.length < 1){
       alert('Please select at least ONE actor.');
-    }else {
+    } else {
       this.postScript()
     }
   };
@@ -95,7 +96,20 @@ class CreateContainer extends Component {
           });
         });
     });
+    this.getProductions(productionId)
   };
+
+  findProductionById = (productions, productionId) => {
+    let myProduction = productions.find(production => production.id === productionId)
+    this.props.setViewProduction(myProduction)
+  }
+
+  getProductions = (productionId) => {
+    console.log("DOES THIS HAPPEN AFTER?????????");
+    let productionInfo = fetch(URL + 'productions')
+      .then(res => res.json())
+      .then(data => this.findProductionById(data, productionId))
+  }
 
   handleActorCardClick = (actor) => {
     if (!this.state.myActors.includes(actor) && this.state.myActors.length < 2) {
@@ -114,10 +128,34 @@ class CreateContainer extends Component {
     });
   };
 
+  renderLogic = () => {
+    if (this.state.step === 1) {
+      return (
+        <ScriptContainer
+          storeScriptState={this.storeScriptState}
+        />
+      )
+    } else if (this.state.step === 2) {
+      return (
+        <React.Fragment>
+          <SelectedActors
+            myActors={this.state.myActors}
+            removeChosenActor={this.removeChosenActor}
+          />
+          <ActorsDisplay
+            actors={this.props.actors}
+            handleClick={this.handleActorCardClick}
+            checkSubmission={this.checkSubmission}
+          />
+        </React.Fragment>
+      )
+    }
+  }
+
   render() {
     return (
       <div id='createContainer'>
-        {this.state.step === 1 ? <ScriptContainer storeScriptState={this.storeScriptState} /> : <React.Fragment><SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor} /> <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick} checkSubmission={this.checkSubmission} /></React.Fragment> }
+        {this.renderLogic()}
       </div>
     );
   };
