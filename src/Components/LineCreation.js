@@ -53,16 +53,12 @@ class LineCreation extends Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <p>
-          <Input type="text"  name="title" placeholder='Play Title' onChange={this.handleChange}/>
-        </p>
-        <p>
-          <LineInputForm name="line1" char="char1" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
-          <LineInputForm name="line2" char="char2" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
-          <LineInputForm name="line3" char="char3" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
-          <LineInputForm name="line4" char="char4" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
-          <LineInputForm name="line5" char="char5" handleChange={this.handleChange} handleSelect={this.handleSelect}/>
-        </p>
+        <Input type="text"  name="title" placeholder='Play Title' onChange={this.handleChange}/>
+        <LineInputForm name="line1" char="char1" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
+        <LineInputForm name="line2" char="char2" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
+        <LineInputForm name="line3" char="char3" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
+        <LineInputForm name="line4" char="char4" handleChange={this.handleChange} handleSelect={this.handleSelect}/><br />
+        <LineInputForm name="line5" char="char5" handleChange={this.handleChange} handleSelect={this.handleSelect}/>
         <div className='spacer'></div>
         <p>
           <button type='submit'>Next Step ></button>
