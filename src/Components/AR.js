@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import ARtesting from '../Containers/ARtesting';
 
 class ARpage extends Component {
   render() {
     return (
-      <React.Fragment>
-        <h1>AR Content.</h1>
-      </React.Fragment>
+      
+      <ARtesting/>
+      
     )
   }
 }

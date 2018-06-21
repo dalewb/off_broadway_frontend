@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 
-import { Scene, WebGLRenderer, Color, BoxGeometry, MeshBasicMaterial, VertexColors, Mesh, Quaternion, Vector3, Matrix4 } from 'three';
-import { ARUtils, ARPerspectiveCamera, ARView, ARDebug, VRFrameData } from 'three.ar.js';
-import { VRControls } from 'three.ar.js/third_party/three.js/VRControls';
+import { Scene, WebGLRenderer, Color, BoxGeometry, MeshBasicMaterial, VertexColors, Mesh, Quaternion, Vector3, Matrix4, Clock, CubeGeometry, TextureLoader, PlaneGeometry, DoubleSide, AmbientLight, OrbitControls, Raycaster, PerspectiveCamera, Vector2, DirectionalLight, MultiMaterial, SkinnedMesh, AnimationMixer, SceneUtils } from 'three';
+
+import { ARUtils, ARPerspectiveCamera, ARView, ARDebug } from 'three.ar.js';
+// import { VRControls } from 'three.ar.js/third_party/js/VRControls';
+let THREE = require('three');
+// import * as THREE from 'three';
+
+// let MyLoader = require('../assets/JDLoader.min.js');
 
 
 let vrDisplay;
@@ -30,15 +35,16 @@ let colors = [
  * a valid display if found. Otherwise, display the unsupported
  * browser message.
  */
-ARUtils.getARDisplay().then(function (display) {
-  if (display) {
-    vrFrameData = new VRFrameData();
-    vrDisplay = display;
-    init();
-  } else {
-    ARUtils.displayUnsupportedMessage();
-  }
-});
+init();
+// ARUtils.getARDisplay().then(function (display) {
+//   if (display) {
+//     vrFrameData = new VRFrameData();
+//     vrDisplay = display;
+//     init();
+//   } else {
+//     ARUtils.displayUnsupportedMessage();
+//   }
+// });
 function init() {
   // Turn on the debugging panel
   let arDebug = new ARDebug(vrDisplay);
@@ -167,7 +173,7 @@ class ARtesting extends Component {
             <div id="canvasholder">
                 <span className="title">Tap to spawn objects on surfaces.</span><br/>
                 <span className="links">
-                    <a href="https://github.com/google-ar/three.ar.js">three.ar.js</a> -
+                    <a href="https://github.com/google-ar/ar.js">ar.js</a> -
                     <a href="https://developers.google.com/ar/develop/web/getting-started#examples">examples</a>
                 </span>
             </div>
