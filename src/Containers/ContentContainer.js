@@ -62,7 +62,6 @@ class ContentContainer extends Component {
   render() {
     return (
       <React.Fragment>
-        {/* logic for displaying pages determined by header */}
         {this.props.page === 'all productions' ? <AllProductionsContainer allProductions={this.state.productions} handleViewProductionClick={this.handleViewProductionClick}/> : null}
         {this.props.page === 'new production' ? <CreateContainer actors={this.state.actors} /> : null}
         {this.props.page === 'my productions' ? <MyProductions myProductions={this.state.myProductions} handleViewProductionClick={this.handleViewProductionClick}/> : null}
