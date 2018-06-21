@@ -19,7 +19,7 @@ class MainPage extends Component {
     return (
       <React.Fragment>
         <Header onClickHandler={this.pageChange} />
-        <ContentContainer userId={this.props.userId} page={this.state.page} />
+        <ContentContainer userId={this.props.userId} page={this.state.page} onClickHandler={this.pageChange} />
       </React.Fragment>
     )
   }
