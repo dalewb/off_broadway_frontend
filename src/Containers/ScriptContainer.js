@@ -8,7 +8,7 @@ class ScriptContainer extends Component {
     return (
       <div id='scriptCreation'>
         <h4>1. Write your script:</h4>
-        <LineCreation createScript={this.props.createScript} />
+        <LineCreation storeScriptState={this.props.storeScriptState} />
       </div>
     )
   }

@@ -39,7 +39,7 @@ class LineCreation extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.checkProject()){
-      this.props.createScript(this.state);
+      this.props.storeScriptState(this.state);
     };
   };
 
