@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ActorsDisplay from './ActorsDisplay';
 import SelectedActors from './SelectedActors';
 import ScriptContainer from './ScriptContainer';
+import MyProductions from '../Components/MyProductions'
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 
@@ -135,7 +136,7 @@ class CreateContainer extends Component {
           />
         </React.Fragment>
       )
-    } // else if (this.state.step === 3) redirect to my productions.
+    }
   }
 
   render() {
