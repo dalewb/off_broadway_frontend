@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 
 import LineInputForm from './LineInputForm'
 import { Form, Input } from 'semantic-ui-react'
+const coolstory = require('coolstory.js');
 // import handleChange from '../util';
 
-const filler = {userId: 1, title: 'Beast Upon the Shore', line_1: 'What do you remember about your mother?', line_2: 'I never meant to come between you and him.', line_3: 'Why did you scream like that?', line_4: 'Somehow we need to persuade him to part with a million dollars.', line_5: 'Try focussing more on your life and less on mine!', char1: 'A', char2: 'B', char3: 'A', char4: 'B', char5: 'A', img_url: 'https://i.pinimg.com/custom_covers/200x150/401101979251643329_1349568428.jpg'}
+function randy() {
+  return Math.floor(Math.random() * 5) + 1
+}
+
+const filler = { userId: randy(), title: coolstory.title(), line_1: 'What do you remember about your mother?', line_2: 'I never meant to come between you and him.', line_3: 'Why did you scream like that?', line_4: 'Somehow we need to persuade him to part with a million dollars.', line_5: 'Try focussing more on your life and less on mine!', char1: 'A', char2: 'B', char3: 'A', char4: 'B', char5: 'A', img_url: 'https://i.pinimg.com/custom_covers/200x150/401101979251643329_1349568428.jpg'}
 
 class LineCreation extends Component {
   constructor(props) {
@@ -22,7 +27,7 @@ class LineCreation extends Component {
       char3: null,
       char4: null,
       char5: null,
-      userId: 1
+      userId: null
     };
   };
 
@@ -65,7 +70,7 @@ class LineCreation extends Component {
       char3: filler.char3,
       char4: filler.char4,
       char5: filler.char5,
-      userId: 1
+      userId: filler.userId
     }, () => console.log('quickFiller state:', this.state));
   }
 
