@@ -5,7 +5,7 @@ import ContentContainer from '../Containers/ContentContainer'
 
 class MainPage extends Component {
   state = {
-    page: null
+    page: '/'
   }
 
   pageChange = (page) => {
