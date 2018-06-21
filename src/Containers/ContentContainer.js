@@ -59,6 +59,18 @@ class ContentContainer extends Component {
     alert("View Production!!")
   }
 
+  allProductionsPage = () => {
+    return <AllProductionsContainer allProductions={this.state.productions} handleViewProductionClick={this.handleViewProductionClick}/>
+  };
+
+  newProductionPage = () => {
+    return <CreateContainer actors={this.state.actors} />
+  };
+
+  myProductionsPage = () => {
+    return <MyProductions myProductions={this.state.myProductions} handleViewProductionClick={this.handleViewProductionClick}/>
+  }
+
   render() {
     return (
       <React.Fragment>
