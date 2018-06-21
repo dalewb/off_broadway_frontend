@@ -68,7 +68,7 @@ class CreateContainer extends Component {
       .then( res => res.json() )
       .then(response => {
         console.log('postProduction end');
-        console.log('postACast', response);
+        console.log('postProduction', response);
         this.postCast(response.productionId)
       });
   };
