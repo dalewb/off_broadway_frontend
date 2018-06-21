@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from './ProductionReview';
+import { Card } from 'semantic-ui-react';
 
 class MyProductions extends Component {
 
@@ -25,12 +26,20 @@ class MyProductions extends Component {
     });
   };
 
+  resetProductionReview = () => {
+    this.setState({
+      productionReview: null
+    })
+  }
+
   render() {
     const pCards = this.renderProductionCards();
     return (
       <React.Fragment>
-        {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
-        {pCards}
+        {this.state.productionReview ? <ProductionReview production={this.state.productionReview} clickHandler={this.resetProductionReview} handleViewProductionClick={this.props.handleViewProductionClick} /> : null}
+        <Card.Group centered>
+          {pCards}
+        </Card.Group>
       </React.Fragment>
     )
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import handleChange from '../util';
+import { Button, Form } from 'semantic-ui-react'
 
 import { NavLink } from 'react-router-dom';
 
@@ -23,16 +24,21 @@ class LoginForm extends Component {
     return (
       <div id='loginForm'>
         <h1>Login Form Div</h1>
-        <form onSubmit={this.props.logIn} /*onSubmit={this.onSubmit} */ >
-        Log In Form
-          <input type='text' name='username' onChange={this.handleChange}></input><br />
-          <input type='password' name='password' onChange={this.handleChange}></input><br />
-          <input type='submit' value='Submit'></input>
-        </form>
-        <p>
+        <Form onSubmit={this.props.logIn} /*onSubmit={this.onSubmit} */ >
+          <h2>Log In Form</h2>
+          <Form.Field>
+            <label>Username</label>
+            <input placeholder='Username' type='text' name='username' onChange={this.handleChange}></input><br />
+          </Form.Field>
+          <Form.Field>
+            <label>Password</label>
+            <input placeholder='Password' type='password' name='password' onChange={this.handleChange}></input><br />
+          </Form.Field>
+          <Form.Field>
+            <Button type='submit'>Submit</Button>
+          </Form.Field>
+        </Form>
         <NavLink to="/sign_up" >Sign Up</NavLink>
-          
-        </p>
       </div>
     )
   }

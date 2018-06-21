@@ -29,8 +29,12 @@ class AllProductionsDisplay extends Component {
     const pCards = this.renderProductionCards();
     return (
       <React.Fragment>
-        {this.state.productionReview ? <ProductionReview production={this.state.productionReview} /> : null}
-        {pCards}
+        <div className="ui three cards centered">
+          {this.state.productionReview ? <ProductionReview production={this.state.productionReview} handleViewProductionClick={() => this.props.handleViewProductionClick(this.state.productionReview)} /> : null}
+        </div>
+        <div className="ui five cards centered">
+          {pCards}
+        </div>
       </React.Fragment>
     )
   }

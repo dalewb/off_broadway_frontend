@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import ActorCard from '../Components/ActorCard'
 
 class AllActorsDisplay extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
 
   renderActorCards = () => {
     const cards = this.props.actors.map((actor, index) => {
@@ -17,9 +14,14 @@ class AllActorsDisplay extends Component {
   render() {
     const aCards = this.renderActorCards();
     return (
-      <React.Fragment>
+      <div className="ui five cards centered">
         {aCards}
-      </React.Fragment>
+        <div className='divider'></div>
+        <p>&nbsp;</p>
+        <p>
+          <button onClick={this.props.checkSubmission}>Submit Project</button>
+        </p>
+      </div>
     )
   }
 }

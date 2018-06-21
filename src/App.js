@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import LoginPage from './Containers/LoginPage';
 import MainPage from './Containers/MainPage';
-import ARtesting from './Containers/ARtesting';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -21,11 +20,7 @@ class App extends Component {
 
   logIn = (e) => {
     e.preventDefault();
-    // this.history.go('/about')
-    // console.log(window.history.state.);
-    window.history.pushState({}, "new state", "home");
-    // withRouter(window.history.pushState({}, "new state", "home"))
-    // window.history.go();
+    window.history.pushState({}, "new state", "/");
     this.setState({
       loggedIn: true
     });
@@ -39,9 +34,15 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/home" render={this.loggedInPage} />
-          {this.state.loggedIn ? <MainPage userId={this.state.userId} /> : <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck} />}
-          < ARtesting />
+          {this.state.loggedIn ? <React.Fragment>
+            <Route exact path="/" render={this.loggedInPage} /> 
+            <Route exact path="/new-production" render={this.loggedInPage} />
+            <Route exact path="/my-productions" render={this.loggedInPage} />
+            <Route exact path="/all-productions" render={this.loggedInPage} />
+            </React.Fragment>: <React.Fragment>
+              <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck}/>
+            </React.Fragment>
+          }
         </div>
       </Router>
     );

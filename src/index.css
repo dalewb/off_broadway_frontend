@@ -28,6 +28,14 @@ body {
   width: 100%;
 }
 
+.all-selected-actors {
+  display: block;
+  position:absolute;
+  left:0;
+  width:100%;
+
+}
+
 #contentContainer{
   width: 96%;
   margin-left: 2%;
@@ -67,4 +75,10 @@ canvas {
     display: block;
     line-height: 2em;
     text-align: center;
+}
+
+#selectedCards {
+  min-height: 10em;
+  margin-bottom: 5%;
+  /* background: fuchsia; */
 }
