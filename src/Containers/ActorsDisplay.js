@@ -19,7 +19,7 @@ class AllActorsDisplay extends Component {
         <div className='divider'></div>
         <p>&nbsp;</p>
         <p>
-          <button>Submit Project</button>
+          <button onClick={this.props.checkSubmission}>Submit Project</button>
         </p>
       </div>
     )
