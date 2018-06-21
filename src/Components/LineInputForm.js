@@ -26,6 +26,7 @@ class LineInput extends Component {
           name={this.props.name}
           onChange={this.props.handleChange}
           style={{ width: "500px" }}
+          value={this.props.lineText}
         />
       </Form.Group>
     )
