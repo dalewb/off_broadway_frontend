@@ -18,6 +18,7 @@ class LineInput extends Component {
           compact
           onChange={this.props.handleSelect}
           name={this.props.char}
+          value={this.props.char}
         />
         <Form.Field
           control={Input}
