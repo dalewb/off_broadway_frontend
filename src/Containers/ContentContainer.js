@@ -66,6 +66,8 @@ class ContentContainer extends Component {
   setViewProduction = (viewProduction) => {
     this.setState({
       viewProduction,
+      myProductions: [...this.state.myProductions, viewProduction],
+      productions: [...this.state.productions, viewProduction]
     })
     console.log("View Production", this.state.viewProduction);
     console.log("In View Production, myProductions", this.state.myProductions);
