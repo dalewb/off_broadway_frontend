@@ -38,7 +38,7 @@ class CreateContainer extends Component {
   checkSubmission = () => {
     if (this.state.myActors.length < 1){
       alert('Please select at least ONE actor.');
-    }else {
+    } else {
       this.postScript()
     }
   };
@@ -114,10 +114,34 @@ class CreateContainer extends Component {
     });
   };
 
+  renderLogic = () => {
+    if (this.state.step === 1) {
+      return (
+        <ScriptContainer
+          storeScriptState={this.storeScriptState}
+        />
+      )
+    } else if (this.state.step === 2) {
+      return (
+        <React.Fragment>
+          <SelectedActors
+            myActors={this.state.myActors}
+            removeChosenActor={this.removeChosenActor}
+          />
+          <ActorsDisplay
+            actors={this.props.actors}
+            handleClick={this.handleActorCardClick}
+            checkSubmission={this.checkSubmission}
+          />
+        </React.Fragment>
+      )
+    } // else if (this.state.step === 3) redirect to my productions.
+  }
+
   render() {
     return (
       <div id='createContainer'>
-        {this.state.step === 1 ? <ScriptContainer storeScriptState={this.storeScriptState} /> : <React.Fragment><SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor} /> <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick} checkSubmission={this.checkSubmission} /></React.Fragment> }
+        {this.renderLogic()}
       </div>
     );
   };
