@@ -96,7 +96,19 @@ class CreateContainer extends Component {
           });
         });
     });
+    this.getProductions(productionId)
   };
+
+  findProductionById = (productions, productionId) => {
+    let myProduction = productions.find(production => production.id === productionId)
+    this.props.setViewProduction(myProduction)
+  }
+
+  getProductions = (productionId) => {
+    let productionInfo = fetch(URL + 'productions')
+      .then(res => res.json())
+      .then(data => this.findProductionById(data, productionId))
+  }
 
   handleActorCardClick = (actor) => {
     if (!this.state.myActors.includes(actor) && this.state.myActors.length < 2) {
