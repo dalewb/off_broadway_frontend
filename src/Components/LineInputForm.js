@@ -9,7 +9,7 @@ class LineInput extends Component {
       { key: 2, text: "Character B", value: "B" }
     ]
     return (
-      <Form.Group centered >
+      <Form.Group >
         <Form.Field
           control={Select}
           // label="Select Character"
