@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import LineInputForm from './LineInputForm'
-import { Form, Input, Button } from 'semantic-ui-react'
+import { Form, Input } from 'semantic-ui-react'
 // import handleChange from '../util';
 
 class LineCreation extends Component {
