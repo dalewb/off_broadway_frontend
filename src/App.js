@@ -41,6 +41,7 @@ class App extends Component {
           <Route exact path="/home" render={this.loggedInPage} />
           <Route exact path="/new-production" render={this.loggedInPage} />
           <Route exact path="/my-productions" render={this.loggedInPage} />
+          <Route exact path="/all-productions" render={this.loggedInPage} />
           {this.state.loggedIn ? <MainPage userId={this.state.userId} /> : <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck} />}
         </div>
       </Router>

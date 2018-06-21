@@ -39,26 +39,26 @@ class CreateContainer extends Component {
     if (this.state.myActors.length < 1){
       alert('Please select at least ONE actor.');
     }else {
-      console.log('all set to persist:', this.state);
+      this.postScript()
     }
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.setState({
-      title: e.target.title.value,
-      line_1: e.target.line_1.value,
-      line_2: e.target.line_2.value,
-      line_3: e.target.line_3.value,
-      line_4: e.target.line_4.value,
-      line_5: e.target.line_5.value,
-    }, console.log('handleSubmit', this.state));
-  };
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     title: e.target.title.value,
+  //     line_1: e.target.line_1.value,
+  //     line_2: e.target.line_2.value,
+  //     line_3: e.target.line_3.value,
+  //     line_4: e.target.line_4.value,
+  //     line_5: e.target.line_5.value,
+  //   }, console.log('handleSubmit', this.state));
+  // };
 
   postScript = () => {
     fetch(URL + 'scripts', {
       method: 'POST',
-      body: JSON.stringify(this.state),
+      body: JSON.stringify({ title: this.state.title, user_id: this.state.user_id, line_1: this.state.line_1, line_2: this.state.line_2, line_3: this.state.line_3, line_4: this.state.line_4, line_5: this.state.line_5, img_url: this.state.img_url}),
       headers: {'Content-Type': 'application/json'}
     })
       .then( res => res.json() )
@@ -89,6 +89,10 @@ class CreateContainer extends Component {
         .then( res => res.json() )
         .then(response => {
           console.log('postCast', response);
+          window.history.pushState({}, "new state", "my-productions");
+          this.setState({
+            step: 1
+          });
         });
     });
   };
