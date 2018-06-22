@@ -97,6 +97,7 @@ class CreateContainer extends Component {
     let productionInfo = fetch(URL + 'productions')
       .then(res => res.json())
       .then(data => this.findProductionById(data, productionId));
+      console.log(productionInfo);
   };
 
   handleActorCardClick = (actor) => {
