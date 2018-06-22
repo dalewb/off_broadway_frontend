@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 class ARpage extends Component {
   state = {
-    currentLine: 1
+    currentLine: 0
   }
 
   componentDidMount() {
-    // this.openCurtains();
-  }
+    this.openCurtains();
+    setTimeout(this.cycleDialogue(), 500);
+  };
 
   dialogue = '';
 
@@ -44,27 +45,28 @@ class ARpage extends Component {
     const rightCurtain = document.getElementById('img_r-curtain');
     leftCurtain.style.left = `0px`;
     rightCurtain.style.right = `0px`;
-    let i = 0;
+    let left = leftCurtain.style.left.replace(/[^0-9.]/g, "");
+    let right = rightCurtain.style.left.replace(/[^0-9.]/g, "");
 
     const moveLCurtain = () => {
-      let left = leftCurtain.style.left.replace(/[^0-9.]/g, "");
-      if (i < 26) {
-        // console.log('moving left curtain:', `old: ${left}. updated: ${left -= 2}`);
-        leftCurtain.style.left = `${left -= 2}px`;
-        i += 2;
+      if (left > (-26)) {
+        leftCurtain.style.left = `${left -= 1}px`;
         window.requestAnimationFrame(moveLCurtain);
       } else {
         return
       };
     };
 
+    const moveRCurtain = () => {
+      if (right > (-26)) {
+        rightCurtain.style.right = `${right -= 1}px`;
+        window.requestAnimationFrame(moveRCurtain);
+      } else {
+        return
+      };
+    }
     moveLCurtain();
-    // let i = 0;
-    // while (i < 50){
-    //   leftCurtain.style.left = `${i * (-1)}px`
-    //   rightCurtain.style.right = `${i * (-1)}px`
-    //     i++;
-    // };
+    moveRCurtain();
   };
 
   cycleDialogue = () => {
