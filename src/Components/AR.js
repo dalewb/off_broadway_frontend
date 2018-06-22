@@ -79,8 +79,8 @@ class ARpage extends Component {
     this.renderDialogue();
     return (
       <React.Fragment>
+        <div id='play_title'>{this.props.show.script.title}</div>
         <div id='showDiv' onClick={this.cycleDialogue} >
-          <div id='play_title'>{this.props.show.script.title}</div>
           {this.dialogue}
           <img id='img_chairs' src='/assets/stage_setup_chairs.png' alt='chairs' />
           <img id='img_l-curtain' src='/assets/stage_setup_l-curtain.png' alt='left curtain' />

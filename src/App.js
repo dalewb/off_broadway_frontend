@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import LoginPage from './Containers/LoginPage'
-import MainPage from './Containers/MainPage'
+import LoginPage from './Containers/LoginPage';
+import MainPage from './Containers/MainPage';
+import Footer from './Components/Footer';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -46,6 +47,8 @@ class App extends Component {
               </React.Fragment>
             }
           </div>
+          <div className='spacer'></div>
+          {this.state.loggedIn ? <Footer/> : null}
         </div>
       </Router>
     );

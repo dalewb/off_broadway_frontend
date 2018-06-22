@@ -9,6 +9,7 @@ class Header extends Component {
       <div id='header'>
         <NavLink to="/" exact onClick={() => this.props.onClickHandler('/')} >OFF-BROADWAY</NavLink>
         <div className='spacer'></div>
+        <div className='line'></div>
         <Button name="all_productions" onClick={() => this.props.onClickHandler('all productions')}>All Productions</Button>
         <Button name="create_new_production" onClick={() => this.props.onClickHandler('new production')}>Create New Production</Button>
         <Button name="my_productions" onClick={() => this.props.onClickHandler('my productions')}>My Productions</Button>

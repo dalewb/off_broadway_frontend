@@ -14,7 +14,6 @@ h1, h2, h3, h4, h5 {
   padding: 0px;
   width: 100%;
   /* background: fuchsia; */
-  position: fixed;
 }
 
 .headline {
@@ -22,6 +21,22 @@ h1, h2, h3, h4, h5 {
   font-size: 5em;
   letter-spacing: .2rem;
   margin-bottom: -2%;
+}
+
+#footer {
+  font-family: 'Port Lligat Slab', serif;
+  color: rgb(185, 185, 185);
+  font-size: .75em;
+  letter-spacing: .2rem;
+  margin-top: 10%;
+  margin-bottom: 3%;
+  border-top: 1px;
+  border-top-style: dotted;
+  border-top-color: rgb(161, 161, 161);
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 96%;
+  padding-top: 1%;
 }
 
 .subhead {
@@ -34,6 +49,14 @@ h1, h2, h3, h4, h5 {
 .divider {
   width: 100%;
   clear: both;
+}
+
+.line {
+  width: 100%;
+  clear: both;
+  border-top: 1px;
+  border-top-style: dotted;
+  border-top-color: rgb(202, 202, 202);
 }
 
 .production_card {
@@ -68,6 +91,7 @@ h1, h2, h3, h4, h5 {
   margin-right: 2%;
   position: relative;
   z-index: 2;
+  /* background: fuchsia; */
 }
 
 #productionDisplay, #createContainer, #header, {
@@ -99,6 +123,36 @@ h1, h2, h3, h4, h5 {
 
 #sub-content {
   margin-top: 10%;
+}
+
+#welcome-headline {
+  font-family: 'Six Caps', sans-serif;
+  font-size: 2.5em;
+  letter-spacing: .1rem;
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 2%;
+  margin-top: -2%;
+  color: #333;
+}
+
+#welcome-subhead {
+  font-family: 'Port Lligat Slab', serif;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  line-height: 1.2rem;
+  display: block;
+  color: rgb(109, 109, 109);
+  font-size: .9em;
+}
+
+#group-shot {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 #loginForm, #signUpForm {
@@ -188,12 +242,14 @@ h1, h2, h3, h4, h5 {
 
 #play_title {
   font-family: 'Six Caps', sans-serif;
-  color: #fff;
+  color: #333;
   font-size: 2.5em;
-  position: fixed;
-  z-index: 9;
-  top: 76%;
-  left: 5%;
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -4%;
+  margin-bottom: 2%;
+  letter-spacing: .1rem;
 }
 
 .A-bubble, .B-bubble {
