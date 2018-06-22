@@ -58,9 +58,11 @@ class ContentContainer extends Component {
     });
   };
 
-  seeTheShow = (item) => {
-    console.log('seeTheShow:', item);
+  seeTheShow = (viewProduction) => {
     this.props.onClickHandler('view production');
+    this.setState({
+      viewProduction
+    });
   };
 
   setViewProduction = (viewProduction) => {

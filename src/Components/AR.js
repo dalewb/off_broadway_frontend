@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class ARpage extends Component {
   render() {
+    console.log('inside AR file, svg:', this.props.show.actors[0].svg_url);
     return (
       <React.Fragment>
         <div id='showDiv'>
@@ -9,8 +10,8 @@ class ARpage extends Component {
           <img id='img_l-curtain' src='/assets/stage_setup_l-curtain.png' alt='left curtain' />
           <img id='img_r-curtain' src='/assets/stage_setup_r-curtain.png' alt='right curtain' />
           <img id='img_stage' src='/assets/stage_setup_stage.png' alt='stage' />
-          {/* <img id='a-character' src={props.production.svg_url} alt={props.production.actor.name} />
-          <img id='b-character' src={props.production.svg_url} alt={props.production.actor.name} /> */}
+          <object id='a-character' data={this.props.show.actors[0].svg_url} type="image/svg+xml"></object>
+          <object id='b-character' data={this.props.show.actors[1].svg_url} type="image/svg+xml"></object>
         </div>
       </React.Fragment>
     )

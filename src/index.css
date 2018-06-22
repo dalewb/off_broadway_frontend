@@ -82,6 +82,7 @@ body {
   position: absolute;
   z-index: 7;
   top: -1%;
+  z-index: 7;
 }
 
 #img_l-curtain {
@@ -97,5 +98,20 @@ body {
   left: -10%;
   top: 65%;
   position: absolute;
-  
+  z-index: 5;
+}
+
+#a-character, #b-character {
+  position: absolute;
+  z-index: 6;
+  height: 65%;
+  top: 10%;
+}
+
+#a-character {
+  left: 30%;
+}
+
+#b-character {
+  right: 30%;
 }
