@@ -48,8 +48,10 @@ class ARpage extends Component {
 
   cycleDialogue = () => {
     if(this.state.currentLine < 5){
+      const currentLine = this.state.currentLine + 1
+
       this.setState({
-        currentLine: ++this.state.currentLine
+        currentLine
       });
     }else{
       this.setState({
@@ -63,14 +65,13 @@ class ARpage extends Component {
     return (
       <React.Fragment>
         <div id='showDiv' onClick={this.cycleDialogue} >
-          {/* <div className={`${this.props.show.script.line_1[0]}-bubble`} id='line_1' >{this.props.show.script.line_1}</div> */}
           {this.dialogue}
           <img id='img_chairs' src='/assets/stage_setup_chairs.png' alt='chairs' />
           <img id='img_l-curtain' src='/assets/stage_setup_l-curtain.png' alt='left curtain' />
           <img id='img_r-curtain' src='/assets/stage_setup_r-curtain.png' alt='right curtain' />
           <img id='img_stage' src='/assets/stage_setup_stage.png' alt='stage' />
-          <object id='a-character' data={this.props.show.actors[0].svg_url} type="image/svg+xml"></object>
-          <object id='b-character' data={this.props.show.actors[1].svg_url} type="image/svg+xml"></object>
+          <object id='a-character' aria-label='Actor A' data={this.props.show.actors[0].svg_url} type="image/svg+xml"></object>
+          <object id='b-character' aria-label='Actor B' data={this.props.show.actors[1].svg_url} type="image/svg+xml"></object>
         </div>
       </React.Fragment>
     )

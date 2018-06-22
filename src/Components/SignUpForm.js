@@ -3,6 +3,7 @@ import { Button, Form } from 'semantic-ui-react'
 // import handleChange from '../util';
 
 import { NavLink } from 'react-router-dom';
+import Headline from './Headline';
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -30,9 +31,8 @@ class SignUpForm extends Component {
   render() {
     return (
       <div id='signUpForm'>
-        <h1>Sign Up Form Div</h1>
+        <Headline />
         <Form onSubmit={this.props.logIn} /* onSubmit={this.handleSubmit} */ >
-          Sign-up Form
           <Form.Field>
           <input placeholder='Username' type="text" name="username" value={this.state.username} onChange={this.handleChange} />
           </Form.Field>
@@ -44,9 +44,8 @@ class SignUpForm extends Component {
           </Form.Field>
           <Button type="submit">Submit</Button>
         </Form>
-        <p>
+        <p>&nbsp;</p>
         <NavLink to="/" >Already have an account? Log In</NavLink>
-        </p>
       </div>
     );
   };
