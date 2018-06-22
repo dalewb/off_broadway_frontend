@@ -31,7 +31,14 @@ class App extends Component {
     return <MainPage userId={this.state.userId} logIn={this.logIn} />
   };
 
+  requireAuth = () => {
+    if (!this.state.loggedIn){
+      window.history.pushState({}, "new state", "/");
+    }
+  }
+
   render() {
+    this.requireAuth();
     return (
       <Router>
         <div className="App">

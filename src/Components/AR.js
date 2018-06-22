@@ -70,7 +70,6 @@ class ARpage extends Component {
   cycleDialogue = () => {
     if(this.state.currentLine < 5){
       const currentLine = this.state.currentLine + 1
-
       this.setState({
         currentLine
       });
