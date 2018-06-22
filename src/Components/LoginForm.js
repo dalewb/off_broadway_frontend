@@ -20,6 +20,10 @@ class LoginForm extends Component {
     // fetch to backend for username to verify password
   }
 
+  test = (e) => {
+    console.log(e.target.value);
+  }
+
   render() {
     return (
       <div id='loginForm'>
@@ -28,11 +32,11 @@ class LoginForm extends Component {
           <h2>Log In Form</h2>
           <Form.Field>
             <label>Username</label>
-            <input placeholder='Username' type='text' name='username' onChange={this.handleChange}></input><br />
+            <input placeholder='Username' type='text' name='username' onChange={this.props.setUserInfo}></input><br />
           </Form.Field>
           <Form.Field>
             <label>Password</label>
-            <input placeholder='Password' type='password' name='password' onChange={this.handleChange}></input><br />
+            <input placeholder='Password' type='password' name='password' onChange={this.props.setUserInfo}></input><br />
           </Form.Field>
           <Form.Field>
             <Button type='submit'>Submit</Button>

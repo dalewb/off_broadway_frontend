@@ -5,11 +5,15 @@ import MainPage from './Containers/MainPage'
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+
 class App extends Component {
   state = {
     loggedIn: false,
     userExists: false,
-    userId: 2
+    userId: 2,
+    username: '',
+    password: '',
   }
 
   userExistsCheck = () => {
@@ -18,12 +22,45 @@ class App extends Component {
     });
   };
 
+  findUser = (users, username) => {
+    let thisUser = users.find(user => {
+      return (
+        user.username === username[0]
+      )
+    })
+    if (thisUser) {
+      this.setState({
+        userId: thisUser.id
+      }, () => {console.log(this.state.userId)})
+      window.history.pushState({}, "new state", "/");
+      this.setState({
+        loggedIn: true
+      })
+      debugger
+    } else {
+      alert("User Does Not Exist")
+    }
+  }
+
+  fetchUsers = () => {
+    fetch(URL + 'users')
+      .then(res => res.json())
+      .then(users => this.findUser(users, this.state.username))
+  }
+
   logIn = (e) => {
     e.preventDefault();
-    window.history.pushState({}, "new state", "/");
+    if (!this.state.username || !this.state.password) {
+      alert("Username and password fields cannot be empty.")
+    } else {
+      this.fetchUsers()
+    }
+  }
+
+  setUserInfo = (e) => {
     this.setState({
-      loggedIn: true
-    });
+      [e.target.name]: [e.target.value]
+    }, () => {console.log(this.state)})
   }
 
   loggedInPage = () => {
@@ -35,12 +72,17 @@ class App extends Component {
       <Router>
         <div className="App">
           {this.state.loggedIn ? <React.Fragment>
-            <Route exact path="/" render={this.loggedInPage} /> 
+            <Route exact path="/" render={this.loggedInPage} />
             <Route exact path="/new-production" render={this.loggedInPage} />
             <Route exact path="/my-productions" render={this.loggedInPage} />
             <Route exact path="/all-productions" render={this.loggedInPage} />
             </React.Fragment>: <React.Fragment>
-              <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck}/>
+              <LoginPage
+                logIn={this.logIn}
+                userExistsState={this.state.userExists}
+                userExistsCheck={this.userExistsCheck}
+                setUserInfo={this.setUserInfo}
+              />
             </React.Fragment>
           }
         </div>

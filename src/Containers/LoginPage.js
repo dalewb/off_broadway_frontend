@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 class LoginPage extends Component {
 
   logInForm = () => {
-    return <LoginForm logIn={this.props.logIn} userExistsState={this.props.userExistsState} userExistsCheck={this.props.userExistsCheck} />
+    return <LoginForm logIn={this.props.logIn} userExistsState={this.props.userExistsState} userExistsCheck={this.props.userExistsCheck} setUserInfo={this.props.setUserInfo}/>
   };
 
   signUpForm = () => {
