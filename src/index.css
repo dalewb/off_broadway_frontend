@@ -66,7 +66,8 @@ canvas {
 }
 
 #canvasholder{
-    position: absolute;
+  width: 100%;
+    /* position: absolute;
     left: 50%;
     bottom: 0;
     transform: translate(-50%, 0);
@@ -74,7 +75,7 @@ canvas {
     z-index: 10;
     display: block;
     line-height: 2em;
-    text-align: center;
+    text-align: center; */
 }
 
 #selectedCards {
