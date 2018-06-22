@@ -18,8 +18,10 @@ class MainPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header onClickHandler={this.pageChange} />
-        <ContentContainer userId={this.props.userId} page={this.state.page} onClickHandler={this.pageChange} />
+        <Header onClickHandler={this.pageChange} logIn={this.props.logIn} />
+        <div id='sub-content'>
+          <ContentContainer userId={this.props.userId} page={this.state.page} onClickHandler={this.pageChange} />
+        </div>
       </React.Fragment>
     )
   }

@@ -7,10 +7,10 @@ class ProductionCard extends Component {
     return (
       <Card onClick={() => this.props.onClickHandler(this.props.production.script_id)}>
         <Image src={this.props.production.script.img_url} alt='' />
-        <Card.Content>
-          <Card.Header>{this.props.production.script.title}</Card.Header>
-          <Card.Description>Written by: {this.props.production.user.username}</Card.Description>
-        </Card.Content>
+        <div>
+          <span className='cardTitle'>{this.props.production.script.title}</span>
+          <span className='cardCopy'>Written by: {this.props.production.user.username}</span>
+        </div>
       </Card>
     )
   }

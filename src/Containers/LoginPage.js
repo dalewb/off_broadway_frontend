@@ -18,10 +18,10 @@ class LoginPage extends Component {
   render() {
     return (
       <Router>
-        <div id='contentContainer'>
+        <React.Fragment>
           <Route exact path="/" render={this.logInForm} />
           <Route exact path="/sign_up" render={this.signUpForm} />
-        </div>
+        </React.Fragment>
       </Router>
     )
   }

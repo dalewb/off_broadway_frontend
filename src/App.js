@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import LoginPage from './Containers/LoginPage'
-import MainPage from './Containers/MainPage'
+import LoginPage from './Containers/LoginPage';
+import MainPage from './Containers/MainPage';
+import Footer from './Components/Footer';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -59,18 +60,31 @@ class App extends Component {
 
   setUserInfo = (e) => {
     this.setState({
+<<<<<<< HEAD
       [e.target.name]: [e.target.value]
     }, () => {console.log(this.state)})
+=======
+      loggedIn: !this.state.loggedIn
+    });
+>>>>>>> brie
   }
 
   loggedInPage = () => {
-    return <MainPage userId={this.state.userId} />
+    return <MainPage userId={this.state.userId} logIn={this.logIn} />
   };
 
+  requireAuth = () => {
+    if (!this.state.loggedIn){
+      window.history.pushState({}, "new state", "/");
+    }
+  }
+
   render() {
+    this.requireAuth();
     return (
       <Router>
         <div className="App">
+<<<<<<< HEAD
           {this.state.loggedIn ? <React.Fragment>
             <Route exact path="/" render={this.loggedInPage} />
             <Route exact path="/new-production" render={this.loggedInPage} />
@@ -85,6 +99,21 @@ class App extends Component {
               />
             </React.Fragment>
           }
+=======
+          <div id='contentContainer'>
+            {this.state.loggedIn ? <React.Fragment>
+              <Route exact path="/" render={this.loggedInPage} /> 
+              <Route exact path="/new-production" render={this.loggedInPage} />
+              <Route exact path="/my-productions" render={this.loggedInPage} />
+              <Route exact path="/all-productions" render={this.loggedInPage} />
+              </React.Fragment>: <React.Fragment>
+                <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck}/>
+              </React.Fragment>
+            }
+          </div>
+          <div className='spacer'></div>
+          {this.state.loggedIn ? <Footer/> : null}
+>>>>>>> brie
         </div>
       </Router>
     );
