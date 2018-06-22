@@ -11,22 +11,28 @@ class ARpage extends Component {
 
   dialogue = '';
 
+  prepLine = (line) => {
+    if (line){
+      return line.slice(2, line.length-1);
+    }
+  }
+
   renderDialogue = () => {
     switch (this.state.currentLine) {
       case 1:
-        this.dialogue = <div className={`${this.props.show.script.line_1[0]}-bubble`} id='line_1' >{this.props.show.script.line_1}</div>
+        this.dialogue = <div className={`${this.props.show.script.line_1[0]}-bubble`} id='line_1' >{this.prepLine(this.props.show.script.line_1)}</div>
         break;
       case 2:
-        this.dialogue = <div className={`${this.props.show.script.line_2[0]}-bubble`} id='line_2' >{this.props.show.script.line_2}</div>
+        this.dialogue = <div className={`${this.props.show.script.line_2[0]}-bubble`} id='line_2' >{this.prepLine(this.props.show.script.line_2)}</div>
         break;
       case 3:
-        this.dialogue = <div className={`${this.props.show.script.line_3[0]}-bubble`} id='line_3' >{this.props.show.script.line_3}</div>
+        this.dialogue = <div className={`${this.props.show.script.line_3[0]}-bubble`} id='line_3' >{this.prepLine(this.props.show.script.line_3)}</div>
         break;
       case 4:
-        this.dialogue = <div className={`${this.props.show.script.line_4[0]}-bubble`} id='line_4' >{this.props.show.script.line_4}</div>
+        this.dialogue = <div className={`${this.props.show.script.line_4[0]}-bubble`} id='line_4' >{this.prepLine(this.props.show.script.line_4)}</div>
         break;
       case 5:
-        this.dialogue = <div className={`${this.props.show.script.line_5[0]}-bubble`} id='line_5' >{this.props.show.script.line_5}</div>
+        this.dialogue = <div className={`${this.props.show.script.line_5[0]}-bubble`} id='line_5' >{this.prepLine(this.props.show.script.line_5)}</div>
         break;
       default:
         this.dialogue = <div></div>
