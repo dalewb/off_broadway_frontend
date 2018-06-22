@@ -18,8 +18,8 @@ class App extends Component {
     if (this.state.loggedIn){
       body[0].style.background = '#fff';
     }else{
-      body[0].style.backgroundImage = `url('./assets/bg.svg')`;
-      body[0].style.backgroundSize = '250%';
+      body[0].style.backgroundImage = `url('./assets/bg.jpg')`;
+      body[0].style.backgroundSize = '150%';
       body[0].style.backgroundPosition = 'center';
       body[0].style.backgroundRepeat = 'no-repeat';
     }
