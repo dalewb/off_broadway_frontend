@@ -269,3 +269,27 @@ h1, h2, h3, h4, h5 {
 .B-bubble {
   right: 20%;
 }
+
+/* EDITS FOR SEMANTIC */
+
+.cardTitle {
+  font-family: 'Six Caps', sans-serif;
+  color: #333;
+  font-size: 2.2em;
+  letter-spacing: .1rem;
+  line-height: 2.25rem;
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.cardCopy {
+  font-family: 'Port Lligat Slab', serif;
+  font-size: 1em;
+  line-height: 1.1rem;
+  color: rgb(117, 117, 117);
+  display: block;
+}

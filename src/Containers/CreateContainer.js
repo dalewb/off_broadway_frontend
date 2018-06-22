@@ -23,7 +23,6 @@ class CreateContainer extends Component {
   }
 
   storeScriptState = (scriptInfo) => {
-    console.log('storeScriptState:scriptInfo', scriptInfo)
     this.setState({
       title: scriptInfo.title,
       line_1: `${scriptInfo.char1}-${scriptInfo.line1}`,
@@ -33,7 +32,7 @@ class CreateContainer extends Component {
       line_5: `${scriptInfo.char5}-${scriptInfo.line5}`,
       user_id: `${scriptInfo.userId}`,
       step: 2
-    }, () => {console.log('storeScriptState:state', this.state)});
+    });
   };
 
   checkSubmission = () => {

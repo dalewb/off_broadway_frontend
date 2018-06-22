@@ -15,17 +15,17 @@ class LineCreation extends Component {
     super(props)
 
     this.state = {
-      title: null,
-      line1: null,
-      line2: null,
-      line3: null,
-      line4: null,
-      line5: null,
-      char1: null,
-      char2: null,
-      char3: null,
-      char4: null,
-      char5: null,
+      title: '',
+      line1: '',
+      line2: '',
+      line3: '',
+      line4: '',
+      line5: '',
+      char1: '',
+      char2: '',
+      char3: '',
+      char4: '',
+      char5: '',
       userId: null
     };
   };
@@ -70,7 +70,7 @@ class LineCreation extends Component {
       char4: filler.char4,
       char5: filler.char5,
       userId: filler.userId
-    }, () => console.log('quickFiller state:', this.state));
+    });
   }
 
   render() {

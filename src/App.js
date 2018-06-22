@@ -21,7 +21,6 @@ class App extends Component {
 
   logIn = (e) => {
     e.preventDefault();
-    console.log('clicked!')
     window.history.pushState({}, "new state", "/");
     this.setState({
       loggedIn: !this.state.loggedIn
