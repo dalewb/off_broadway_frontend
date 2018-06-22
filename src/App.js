@@ -60,13 +60,8 @@ class App extends Component {
 
   setUserInfo = (e) => {
     this.setState({
-<<<<<<< HEAD
       [e.target.name]: [e.target.value]
     }, () => {console.log(this.state)})
-=======
-      loggedIn: !this.state.loggedIn
-    });
->>>>>>> brie
   }
 
   loggedInPage = () => {
@@ -84,7 +79,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-<<<<<<< HEAD
           {this.state.loggedIn ? <React.Fragment>
             <Route exact path="/" render={this.loggedInPage} />
             <Route exact path="/new-production" render={this.loggedInPage} />
@@ -99,21 +93,6 @@ class App extends Component {
               />
             </React.Fragment>
           }
-=======
-          <div id='contentContainer'>
-            {this.state.loggedIn ? <React.Fragment>
-              <Route exact path="/" render={this.loggedInPage} /> 
-              <Route exact path="/new-production" render={this.loggedInPage} />
-              <Route exact path="/my-productions" render={this.loggedInPage} />
-              <Route exact path="/all-productions" render={this.loggedInPage} />
-              </React.Fragment>: <React.Fragment>
-                <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck}/>
-              </React.Fragment>
-            }
-          </div>
-          <div className='spacer'></div>
-          {this.state.loggedIn ? <Footer/> : null}
->>>>>>> brie
         </div>
       </Router>
     );

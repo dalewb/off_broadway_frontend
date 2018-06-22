@@ -31,19 +31,12 @@ class LoginForm extends Component {
         <Form onSubmit={this.props.logIn} /*onSubmit={this.onSubmit} */ >
           <Headline />
           <Form.Field>
-<<<<<<< HEAD
             <label>Username</label>
             <input placeholder='Username' type='text' name='username' onChange={this.props.setUserInfo}></input><br />
           </Form.Field>
           <Form.Field>
             <label>Password</label>
             <input placeholder='Password' type='password' name='password' onChange={this.props.setUserInfo}></input><br />
-=======
-            <input placeholder='Username' type='text' name='username' onChange={this.handleChange}></input><br />
-          </Form.Field>
-          <Form.Field>
-            <input placeholder='Password' type='password' name='password' onChange={this.handleChange}></input><br />
->>>>>>> brie
           </Form.Field>
           <Form.Field>
             <Button type='submit'>Submit</Button>
