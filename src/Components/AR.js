@@ -7,11 +7,11 @@ class ARpage extends Component {
 
   componentDidMount() {
     this.openCurtains();
-    const dialoggie = setInterval(this.cycleDialogue('now'), 500);
-    dialoggie
+    this.dialogueInterval = window.setInterval(this.cycleDialogue, 2500);
   };
 
   dialogue = '';
+  dialogueInterval = '';
 
   prepLine = (line) => {
     if (line){
@@ -70,8 +70,36 @@ class ARpage extends Component {
     moveRCurtain();
   };
 
-  cycleDialogue = (when) => {
-    console.log('this is happening.', when);
+  closeCurtains = () => {
+    const leftCurtain = document.getElementById('img_l-curtain');
+    const rightCurtain = document.getElementById('img_r-curtain');
+    leftCurtain.style.left = `0px`;
+    rightCurtain.style.right = `0px`;
+    let left = leftCurtain.style.left.replace(/[^0-9.]/g, "");
+    let right = rightCurtain.style.left.replace(/[^0-9.]/g, "");
+
+    const moveLCurtain = () => {
+      if (left < 0) {
+        leftCurtain.style.left = `${left += 1}px`;
+        window.requestAnimationFrame(moveLCurtain);
+      } else {
+        return
+      };
+    };
+
+    const moveRCurtain = () => {
+      if (right < 0) {
+        rightCurtain.style.right = `${right += 1}px`;
+        window.requestAnimationFrame(moveRCurtain);
+      } else {
+        return
+      };
+    }
+    moveLCurtain();
+    moveRCurtain();
+  };
+
+  cycleDialogue = () => {
     if(this.state.currentLine < 5){
       const currentLine = this.state.currentLine + 1
       this.setState({
@@ -79,8 +107,10 @@ class ARpage extends Component {
       });
     }else{
       this.setState({
-        currentLine: 1
+        currentLine: 0
       });
+      window.clearInterval(this.dialogueInterval);
+      this.closeCurtains();
     };
   };
 
