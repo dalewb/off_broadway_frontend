@@ -13,6 +13,22 @@ class App extends Component {
     userId: 2
   }
 
+  changeBody = () => {
+    const body = document.getElementsByTagName('body');
+    if (this.state.loggedIn){
+      body[0].style.background = '#fff';
+    }else{
+      body[0].style.backgroundImage = `url('./assets/bg.svg')`;
+      body[0].style.backgroundSize = '250%';
+      body[0].style.backgroundPosition = 'center';
+      body[0].style.backgroundRepeat = 'no-repeat';
+    }
+  }
+
+  componentDidMount() {
+    this.changeBody();
+  }
+
   userExistsCheck = () => {
     this.setState({
       userExists: !this.state.userExists
@@ -38,6 +54,7 @@ class App extends Component {
   }
 
   render() {
+    this.changeBody();
     this.requireAuth();
     return (
       <Router>
