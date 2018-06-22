@@ -6,7 +6,7 @@ class ARpage extends Component {
   }
 
   componentDidMount() {
-    this.openCurtains();
+    // this.openCurtains();
   }
 
   dialogue = '';
@@ -34,10 +34,25 @@ class ARpage extends Component {
   };
 
   openCurtains = () => {
-    // const leftCurtain = document.getElementById('img_l-curtain');
-    // const rightCurtain = document.getElementById('img_r-curtain');
-    // leftCurtain.style.left = `0px`;
-    // rightCurtain.style.right = `0px`;
+    const leftCurtain = document.getElementById('img_l-curtain');
+    const rightCurtain = document.getElementById('img_r-curtain');
+    leftCurtain.style.left = `0px`;
+    rightCurtain.style.right = `0px`;
+    let i = 0;
+
+    const moveLCurtain = () => {
+      let left = leftCurtain.style.left.replace(/[^0-9.]/g, "");
+      if (i < 26) {
+        // console.log('moving left curtain:', `old: ${left}. updated: ${left -= 2}`);
+        leftCurtain.style.left = `${left -= 2}px`;
+        i += 2;
+        window.requestAnimationFrame(moveLCurtain);
+      } else {
+        return
+      };
+    };
+
+    moveLCurtain();
     // let i = 0;
     // while (i < 50){
     //   leftCurtain.style.left = `${i * (-1)}px`
@@ -65,6 +80,7 @@ class ARpage extends Component {
     return (
       <React.Fragment>
         <div id='showDiv' onClick={this.cycleDialogue} >
+          <div id='play_title'>{this.props.show.script.title}</div>
           {this.dialogue}
           <img id='img_chairs' src='/assets/stage_setup_chairs.png' alt='chairs' />
           <img id='img_l-curtain' src='/assets/stage_setup_l-curtain.png' alt='left curtain' />

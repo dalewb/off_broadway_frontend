@@ -186,6 +186,16 @@ h1, h2, h3, h4, h5 {
   right: 30%;
 }
 
+#play_title {
+  font-family: 'Six Caps', sans-serif;
+  color: #fff;
+  font-size: 2.5em;
+  position: fixed;
+  z-index: 9;
+  top: 76%;
+  left: 5%;
+}
+
 .A-bubble, .B-bubble {
   background: #fff;
   position: absolute;
