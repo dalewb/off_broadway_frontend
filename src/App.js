@@ -20,29 +20,32 @@ class App extends Component {
 
   logIn = (e) => {
     e.preventDefault();
+    console.log('clicked!')
     window.history.pushState({}, "new state", "/");
     this.setState({
-      loggedIn: true
+      loggedIn: !this.state.loggedIn
     });
   }
 
   loggedInPage = () => {
-    return <MainPage userId={this.state.userId} />
+    return <MainPage userId={this.state.userId} logIn={this.logIn} />
   };
 
   render() {
     return (
       <Router>
         <div className="App">
-          {this.state.loggedIn ? <React.Fragment>
-            <Route exact path="/" render={this.loggedInPage} /> 
-            <Route exact path="/new-production" render={this.loggedInPage} />
-            <Route exact path="/my-productions" render={this.loggedInPage} />
-            <Route exact path="/all-productions" render={this.loggedInPage} />
-            </React.Fragment>: <React.Fragment>
-              <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck}/>
-            </React.Fragment>
-          }
+          <div id='contentContainer'>
+            {this.state.loggedIn ? <React.Fragment>
+              <Route exact path="/" render={this.loggedInPage} /> 
+              <Route exact path="/new-production" render={this.loggedInPage} />
+              <Route exact path="/my-productions" render={this.loggedInPage} />
+              <Route exact path="/all-productions" render={this.loggedInPage} />
+              </React.Fragment>: <React.Fragment>
+                <LoginPage logIn={this.logIn} userExistsState={this.state.userExists} userExistsCheck={this.userExistsCheck}/>
+              </React.Fragment>
+            }
+          </div>
         </div>
       </Router>
     );

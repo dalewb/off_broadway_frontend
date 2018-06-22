@@ -9,7 +9,15 @@ h1, h2, h3, h4, h5 {
   font-family: 'Six Caps', sans-serif;
 }
 
-.header {
+.App {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  /* background: fuchsia; */
+  position: fixed;
+}
+
+.headline {
   font-family: 'Six Caps', sans-serif;
   font-size: 5em;
   letter-spacing: .2rem;
@@ -65,7 +73,30 @@ h1, h2, h3, h4, h5 {
   width: 100%;
   margin-top: 5%;
   margin-bottom: 5%;
-  background: rgb(241, 241, 241);
+  /* background: rgb(241, 241, 241); */
+}
+
+#header {
+  margin-top: 10%;
+}
+
+#header a, #header a:visited {
+  font-family: 'Six Caps', sans-serif;
+  font-size: 4em;
+  letter-spacing: .2rem;
+  margin-bottom: 4%;
+  display: block;
+  color: #333;
+}
+
+#header button {
+  font-size: .8em;
+  padding: 1%;
+  background: transparent;
+}
+
+#sub-content {
+  margin-top: 10%;
 }
 
 #loginForm, #signUpForm {
