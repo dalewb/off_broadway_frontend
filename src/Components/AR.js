@@ -7,7 +7,8 @@ class ARpage extends Component {
 
   componentDidMount() {
     this.openCurtains();
-    setTimeout(this.cycleDialogue(), 500);
+    const dialoggie = setInterval(this.cycleDialogue('now'), 500);
+    dialoggie
   };
 
   dialogue = '';
@@ -69,7 +70,8 @@ class ARpage extends Component {
     moveRCurtain();
   };
 
-  cycleDialogue = () => {
+  cycleDialogue = (when) => {
+    console.log('this is happening.', when);
     if(this.state.currentLine < 5){
       const currentLine = this.state.currentLine + 1
       this.setState({
@@ -83,7 +85,7 @@ class ARpage extends Component {
   };
 
   render() {
-    this.renderDialogue();
+    this.renderDialogue('at some point.');
     return (
       <React.Fragment>
         <div id='play_title'>{this.props.show.script.title}</div>
