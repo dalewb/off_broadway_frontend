@@ -16,11 +16,15 @@ h1, h2, h3, h4, h5 {
   /* background: fuchsia; */
 }
 
-.headline {
+.headline, .headline2 {
   font-family: 'Six Caps', sans-serif;
   font-size: 5em;
   letter-spacing: .2rem;
   margin-bottom: -2%;
+}
+
+.headline2, .subhead2 {
+  color: #fff;
 }
 
 #footer {
@@ -39,7 +43,7 @@ h1, h2, h3, h4, h5 {
   padding-top: 1%;
 }
 
-.subhead {
+.subhead, .subhead2 {
   font-family: 'Port Lligat Slab', serif;
   font-size: 1.5em;
   margin-bottom: 6%;
@@ -292,4 +296,13 @@ h1, h2, h3, h4, h5 {
   line-height: 1.1rem;
   color: rgb(117, 117, 117);
   display: block;
+}
+
+#index_group{
+  margin-top: -10%;
+  position: relative;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  z-index: 0;
 }

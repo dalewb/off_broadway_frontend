@@ -3,7 +3,7 @@ import handleChange from '../util';
 import { Button, Form } from 'semantic-ui-react'
 
 import { NavLink } from 'react-router-dom';
-import Headline from './Headline';
+import Headline2 from './Headline2';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class LoginForm extends Component {
     return (
       <div id='loginForm'>
         <Form onSubmit={this.props.logIn} /*onSubmit={this.onSubmit} */ >
-          <Headline />
+          <Headline2 />
           <Form.Field>
             <input placeholder='Username' type='text' name='username' onChange={this.handleChange}></input><br />
           </Form.Field>
