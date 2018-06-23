@@ -6,8 +6,8 @@ import MyProductions from '../Components/MyProductions';
 import Home from '../Components/Home';
 import ARpage from '../Components/AR';
 
-// const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
-const URL = 'http://localhost:3000/api/v1/'
+const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+// const URL = 'http://localhost:3000/api/v1/'
 
 class ContentContainer extends Component {
   constructor(props) {
