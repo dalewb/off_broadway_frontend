@@ -38,7 +38,7 @@ class LineCreation extends Component {
 
   handleSelect = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.currentTarget.name]: e.currentTarget.dataset.value
     });
   };
 
