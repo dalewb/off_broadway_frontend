@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import { ARUtils, ARPerspectiveCamera, ARView, ARDebug } from 'three.ar.js';
 // import { VRControls } from 'three.ar.js/third_party/js/VRControls';
 let THREE = require('three');
+let OBJLoader = require('three-obj-loader');
+OBJLoader(THREE);
 // import * as THREE from 'three';
 
 // let MyLoader = require('../assets/JDLoader.min.js');
@@ -53,15 +55,30 @@ class ARtesting extends Component {
 
         camera.position.z = 5;
 
+        var loader = new THREE.OBJLoader();
+        loader.load(
+            'assets/Object006.md2',
+            function ( object ) {
+                scene.add( object );
+            }, function ( xhr ) {
+                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+            }, function ( error ) {
+                console.log( 'An error happened' );
+            }
+        );
+
+        // var loader = new THREE.OBJLoader2();
+        // var callbackOnLoad = function ( event ) {
+        //     scene.add( event.detail.loaderRootNode );
+        // }; 
+        // loader.load( 'assets/Object006.md2', callbackOnLoad, null, null, null, false );
+        
         let animate = function () {
             requestAnimationFrame(animate);
-
             cube.rotation.x += 0.1;
             cube.rotation.y += 0.1;
-
             renderer.render(scene, camera);
         };
-
         animate();
     }
 
