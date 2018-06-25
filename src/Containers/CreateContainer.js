@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ActorsDisplay from './ActorsDisplay';
 import SelectedActors from './SelectedActors';
 import ScriptContainer from './ScriptContainer';
-import MyProductions from '../Components/MyProductions'
+// import MyProductions from '../Components/MyProductions'
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 
@@ -23,7 +23,6 @@ class CreateContainer extends Component {
   }
 
   storeScriptState = (scriptInfo) => {
-    console.log('storeScriptState:scriptInfo', scriptInfo)
     this.setState({
       title: scriptInfo.title,
       line_1: `${scriptInfo.char1}-${scriptInfo.line1}`,
@@ -33,7 +32,7 @@ class CreateContainer extends Component {
       line_5: `${scriptInfo.char5}-${scriptInfo.line5}`,
       user_id: `${scriptInfo.userId}`,
       step: 2
-    }, () => {console.log('storeScriptState:state', this.state)});
+    });
   };
 
   checkSubmission = () => {
@@ -43,18 +42,6 @@ class CreateContainer extends Component {
       this.postScript()
     }
   };
-
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     title: e.target.title.value,
-  //     line_1: e.target.line_1.value,
-  //     line_2: e.target.line_2.value,
-  //     line_3: e.target.line_3.value,
-  //     line_4: e.target.line_4.value,
-  //     line_5: e.target.line_5.value,
-  //   }, console.log('handleSubmit', this.state));
-  // };
 
   postScript = () => {
     fetch(URL + 'scripts', {
@@ -108,8 +95,9 @@ class CreateContainer extends Component {
     console.log("DOES THIS HAPPEN AFTER?????????");
     let productionInfo = fetch(URL + 'productions')
       .then(res => res.json())
-      .then(data => this.findProductionById(data, productionId))
-  }
+      .then(data => this.findProductionById(data, productionId));
+      console.log(productionInfo);
+  };
 
   handleActorCardClick = (actor) => {
     if (!this.state.myActors.includes(actor) && this.state.myActors.length < 2) {

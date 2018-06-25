@@ -5,6 +5,7 @@ import CreateContainer from './CreateContainer';
 import MyProductions from '../Components/MyProductions';
 import Home from '../Components/Home';
 import ARpage from '../Components/AR';
+import ARtesting from './ARtesting';
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 // const URL = 'http://localhost:3000/api/v1/'
@@ -58,21 +59,23 @@ class ContentContainer extends Component {
     });
   };
 
-  seeTheShow = (item) => {
-    console.log('seeTheShow:', item);
+  seeTheShow = (viewProduction) => {
     this.props.onClickHandler('view production');
-  }
+    this.setState({
+      viewProduction
+    });
+  };
 
   setViewProduction = (viewProduction) => {
     this.setState({
       viewProduction,
       myProductions: [...this.state.myProductions, viewProduction],
       productions: [...this.state.productions, viewProduction]
-    })
-    console.log("View Production", this.state.viewProduction);
-    console.log("In View Production, myProductions", this.state.myProductions);
+    });
+    // console.log("View Production", this.state.viewProduction);
+    // console.log("In View Production, myProductions", this.state.myProductions);
     this.props.onClickHandler('my productions')
-  }
+  };
 
   render() {
     return (
@@ -82,9 +85,10 @@ class ContentContainer extends Component {
         {this.props.page === 'all productions' ? <AllProductionsContainer allProductions={this.state.productions} handleViewProductionClick={this.seeTheShow}/> : null}
         {this.props.page === 'new production' ? <CreateContainer actors={this.state.actors} setViewProduction={this.setViewProduction}/> : null}
         {this.props.page === 'my productions' ? <MyProductions myProductions={this.state.myProductions} handleViewProductionClick={this.seeTheShow}/> : null}
+        {this.props.page === 'ar' ? <ARtesting/> : null}
       </React.Fragment>
-    )
-  }
-}
+    );
+  };
+};
 
 export default ContentContainer;

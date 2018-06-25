@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from './ProductionReview';
-import { Card } from 'semantic-ui-react';
 
 class MyProductions extends Component {
 
@@ -37,9 +36,9 @@ class MyProductions extends Component {
     return (
       <React.Fragment>
         {this.state.productionReview ? <ProductionReview production={this.state.productionReview} clickHandler={this.resetProductionReview} handleViewProductionClick={this.props.handleViewProductionClick} /> : null}
-        <Card.Group centered>
+        <div className="ui five cards centered">
           {pCards}
-        </Card.Group>
+        </div>
       </React.Fragment>
     )
   }

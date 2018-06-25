@@ -1,13 +1,75 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Port Lligat Slab', serif;
   font-size: .75em;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Six Caps', sans-serif;
+}
+
+.App {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  /* background: fuchsia; */
+}
+
+#contentContainer{
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  position: relative;
+  z-index: 2;
+  /* background: fuchsia; */
+}
+
+.headline, .headline2 {
+  font-family: 'Six Caps', sans-serif;
+  font-size: 5em;
+  letter-spacing: .2rem;
+  margin-bottom: -2%;
+}
+
+.headline2, .subhead2 {
+  color: #fff;
+}
+
+#footer {
+  font-family: 'Port Lligat Slab', serif;
+  color: rgb(185, 185, 185);
+  font-size: .75em;
+  letter-spacing: .2rem;
+  margin-top: 10%;
+  margin-bottom: 3%;
+  border-top: 1px;
+  border-top-style: dotted;
+  border-top-color: rgb(161, 161, 161);
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 96%;
+  padding-top: 1%;
+}
+
+.subhead, .subhead2 {
+  font-family: 'Port Lligat Slab', serif;
+  font-size: 1.5em;
+  margin-bottom: 6%;
+  display: block;
 }
 
 .divider {
   width: 100%;
   clear: both;
+}
+
+.line {
+  width: 100%;
+  clear: both;
+  border-top: 1px;
+  border-top-style: dotted;
+  border-top-color: rgb(202, 202, 202);
 }
 
 .production_card {
@@ -36,18 +98,74 @@ body {
 
 }
 
-#contentContainer{
-  width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
-  position: relative;
-}
-
-#productionDisplay, #createContainer, #header, #loginForm, #signUpForm {
+#productionDisplay, #createContainer, #header, {
   width: 100%;
   margin-top: 5%;
   margin-bottom: 5%;
-  background: rgb(241, 241, 241);
+  z-index: 2;
+  /* background: rgb(241, 241, 241); */
+}
+
+#header {
+  margin-top: 10%;
+}
+
+#header a, #header a:visited {
+  font-family: 'Six Caps', sans-serif;
+  font-size: 4em;
+  letter-spacing: .2rem;
+  margin-bottom: 4%;
+  display: block;
+  color: #333;
+}
+
+#header button {
+  font-size: .8em;
+  padding: 1%;
+  background: transparent;
+}
+
+#sub-content {
+  margin-top: 10%;
+}
+
+#welcome-headline {
+  font-family: 'Six Caps', sans-serif;
+  font-size: 2.5em;
+  letter-spacing: .1rem;
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 2%;
+  margin-top: -2%;
+  color: #333;
+}
+
+#welcome-subhead {
+  font-family: 'Port Lligat Slab', serif;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  line-height: 1.2rem;
+  display: block;
+  color: rgb(109, 109, 109);
+  font-size: .9em;
+}
+
+#group-shot {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+#loginForm, #signUpForm {
+  width: 50%;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  z-index: 2;
 }
 
 #scriptCreation {
@@ -82,4 +200,152 @@ canvas {
   min-height: 10em;
   margin-bottom: 5%;
   /* background: fuchsia; */
+}
+
+#bgImage {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  z-index: 1;
+}
+
+#showDiv {
+  width: 98%;
+  padding-bottom: 53%;
+  background:#023955;
+  overflow: hidden;
+  position: relative;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+#img_chairs {
+  width: 120%;
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  z-index: 8;
+}
+
+#img_l-curtain, #img_r-curtain {
+  height: 100%;
+  position: absolute;
+  z-index: 7;
+  top: -1%;
+  z-index: 7;
+}
+
+#img_l-curtain {
+  left: -25px;
+}
+
+#img_r-curtain {
+  right: -25px;
+}
+
+#img_stage {
+  width: 125%;
+  left: -10%;
+  top: 65%;
+  position: absolute;
+  z-index: 5;
+}
+
+#a-character, #b-character {
+  position: absolute;
+  z-index: 6;
+  height: 65%;
+  top: 10%;
+}
+
+#a-character {
+  left: 30%;
+}
+
+#b-character {
+  right: 30%;
+}
+
+#play_title {
+  font-family: 'Six Caps', sans-serif;
+  color: #333;
+  font-size: 2.5em;
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -4%;
+  margin-bottom: 2%;
+  letter-spacing: .1rem;
+}
+
+.A-bubble, .B-bubble {
+  background: #fff;
+  position: absolute;
+  border-radius: 25px;
+  z-index: 9;
+  padding: 1%;
+  max-width: 30%;
+  top: 75%;
+}
+
+.A-bubble {
+  left: 20%;
+}
+
+.B-bubble {
+  right: 20%;
+}
+
+/* EDITS FOR SEMANTIC */
+
+.cardTitle {
+  font-family: 'Six Caps', sans-serif;
+  color: #333;
+  font-size: 2.2em;
+  letter-spacing: .1rem;
+  line-height: 2.25rem;
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.cardCopy {
+  font-family: 'Port Lligat Slab', serif;
+  font-size: 1em;
+  line-height: 1.1rem;
+  color: rgb(117, 117, 117);
+  display: block;
+  width: 95%;
+  padding-bottom: 10%;
+}
+
+#index_group{
+  margin-top: -10%;
+  position: relative;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  z-index: 0;
+}
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }
