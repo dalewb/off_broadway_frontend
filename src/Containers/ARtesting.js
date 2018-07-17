@@ -32,7 +32,7 @@ class ARtesting extends Component {
 
         camera.position.z = 5;
 
-        let moonie = new THREE.GLTFLoader();
+        let moonie = new THREE.OBJLoader();
         moonie.load(
             '/moon_3d_model/scene.gltf',
             function ( object ) {
