@@ -31,7 +31,8 @@ class CreateContainer extends Component {
       line_5: `${scriptInfo.char5}-${scriptInfo.line5}`,
       user_id: scriptInfo.userId,
       img_url: scriptInfo.img_url,
-      step: 2
+      step: 2,
+      production_id: null
     });
   };
 
@@ -69,6 +70,7 @@ class CreateContainer extends Component {
       .then(response => {
         console.log('postProduction end');
         console.log('postProduction', response);
+        this.setState({production_id: response.productionId});
         this.postCast(response.productionId)
       });
   };
@@ -91,7 +93,11 @@ class CreateContainer extends Component {
             step: 1
           });
         });
-    }, () => this.props.pageChange('my productions'));
+    }, () => {
+      console.log('end readhed');
+      this.props.pageChange('my productions');
+      this.props.setViewProduction(this.state.production_id);
+    });
     // this.getProductions(productionId)
   };
 

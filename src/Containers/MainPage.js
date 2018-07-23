@@ -64,7 +64,7 @@ class MainPage extends Component {
           {this.state.page === '/' ? <Home/> : null}
           {this.state.page === 'view production' ? <ARpage show={this.state.viewProduction}/> : null}
           {this.state.page === 'all productions' ? <AllProductionsContainer handleViewProductionClick={this.seeTheShow}/> : null}
-          {this.state.page === 'new production' ? <CreateContainer actors={this.state.actors} pageChange={this.pageChange} /> : null}
+          {this.state.page === 'new production' ? <CreateContainer actors={this.state.actors} pageChange={this.pageChange} setViewProduction={this.setViewProduction} /> : null}
           {this.state.page === 'my productions' ? <MyProductions handleViewProductionClick={this.seeTheShow}/> : null}
         </div>
       </React.Fragment>
