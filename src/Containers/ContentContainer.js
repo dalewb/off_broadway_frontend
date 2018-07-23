@@ -91,7 +91,7 @@ class ContentContainer extends Component {
         {this.props.page === 'view production' ? <ARpage show={this.state.viewProduction}/> : null}
         {this.props.page === 'all productions' ? <AllProductionsContainer handleViewProductionClick={this.seeTheShow}/> : null}
         {this.props.page === 'new production' ? <CreateContainer actors={this.state.actors} setViewProduction={this.setViewProduction}/> : null}
-        {this.props.page === 'my productions' ? <MyProductions myProductions={this.state.myProductions} handleViewProductionClick={this.seeTheShow}/> : null}
+        {this.props.page === 'my productions' ? <MyProductions handleViewProductionClick={this.seeTheShow}/> : null}
       </React.Fragment>
     );
   };

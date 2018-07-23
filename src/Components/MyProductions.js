@@ -41,7 +41,7 @@ class MyProductions extends Component {
   };
 
   setProductionReview = (id) => {
-    const productionReview = this.props.myProductions.find(prod => {
+    const productionReview = this.state.myProductions.find(prod => {
       return prod.script_id === id
     });
     this.setState({
