@@ -13,30 +13,12 @@ class ContentContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      productions: [],
-      myProductions: [],
       viewProduction: null
     };
   };
 
   componentDidMount() {
-    this.fetchProductionData();
     this.fetchActorData();
-  };
-
-  fetchProductionData = () => {
-    fetch(URL + 'productions',{
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token')
-      }
-    }).then(response => response.json()).then(productions => {
-      this.setState({
-        productions
-      });
-    }).then(() => {
-      this.myProductions();
-    });
   };
 
   fetchActorData = () => {
@@ -52,20 +34,6 @@ class ContentContainer extends Component {
           actors
         });
       });
-  };
-
-  myProductions = () => {
-    const myProductions = []
-    this.state.productions.forEach(production => {
-      if (production.user_id === this.props.userId){
-        return myProductions.push(production);
-      }else{
-        return;
-      }
-    });
-    this.setState({
-      myProductions
-    });
   };
 
   seeTheShow = (viewProduction) => {

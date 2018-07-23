@@ -10,6 +10,10 @@ class ARpage extends Component {
     this.dialogueInterval = window.setInterval(this.cycleDialogue, 2500);
   };
 
+  componentWillUnmount() {
+    window.clearInterval(this.dialogueInterval);
+  };
+
   dialogue = '';
   dialogueInterval = '';
 
