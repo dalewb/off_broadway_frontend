@@ -37,6 +37,8 @@ class LineCreation extends Component {
   };
 
   handleSelect = (e) => {
+    console.log(e.target.innerText.slice(-1));
+    console.log(e.target.name);
     this.setState({
       [e.target.name]: e.target.value
     });
