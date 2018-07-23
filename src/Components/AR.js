@@ -15,7 +15,7 @@ class ARpage extends Component {
 
   prepLine = (line) => {
     if (line){
-      return line.slice(2, line.length-1);
+      return line.slice(2, line.length);
     }
   }
 
