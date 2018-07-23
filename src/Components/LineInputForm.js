@@ -5,24 +5,22 @@ class LineInput extends Component {
 
   render() {
     const options = [
-      { key: 1, text: "Character A", value: "A" },
-      { key: 2, text: "Character B", value: "B" }
+      { key: 1, text: "Character A", value: "A", name: this.props.char, id: this.props.char },
+      { key: 2, text: "Character B", value: "B", name: this.props.char, id: this.props.char }
     ]
     return (
       <Form.Group >
         <Form.Field
           control={Select}
-          // label="Select Character"
           placeholder="Select Character"
           options={options}
           compact
           onChange={this.props.handleSelect}
-          name={this.props.char}
+          // name={this.props.char}
           // value={this.props.char}
         />
         <Form.Field
           control={Input}
-          // label="Enter Line"
           placeholder="Enter Line"
           name={this.props.name}
           onChange={this.props.handleChange}
