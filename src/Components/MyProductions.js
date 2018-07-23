@@ -3,14 +3,38 @@ import React, { Component } from 'react';
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from './ProductionReview';
 
+const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+
 class MyProductions extends Component {
 
   state = {
-    productionReview: null
+    productionReview: null,
+    myProductions: []
   }
 
+  componentDidMount() {
+    this.fetchProductionData();
+  };
+
+  fetchProductionData = () => {
+    fetch(URL + 'productions',{
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      }
+    }).then(response => response.json()).then(productions => {
+      productions.forEach(prod => {
+        if (prod.user_id === parseInt(localStorage.getItem('user_id'), 10)){
+          this.setState({
+            myProductions: [...this.state.myProductions, prod]
+          });
+        }
+      });
+    });
+  };
+
   renderProductionCards = () => {
-    const cards = this.props.myProductions.map((production, index) => {
+    const cards = this.state.myProductions.map((production, index) => {
       return <ProductionCard production={production} key={index} onClickHandler={this.setProductionReview} />
     });
     return cards;

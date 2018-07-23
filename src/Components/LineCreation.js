@@ -95,7 +95,6 @@ class LineCreation extends Component {
         <p>
           <button type='submit'>Next Step ></button>
         </p>
-        <p onClick={this.quickFiller}>Q</p>
       </Form>
     )
   }
