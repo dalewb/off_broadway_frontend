@@ -17,14 +17,35 @@ class LoginForm extends Component {
   }
 
   onSubmit = (e) => {
-    e.preventDefault()
-    // fetch to backend for username to verify password
+    e.preventDefault();
+    if (this.state.username && this.state.password){
+      fetch('https://mod-4-backend.herokuapp.com/sessions', {
+        method: 'POST',
+        body: JSON.stringify(this.state),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then( res => res.json() )
+      .then( response => {
+        if (response.errors || response.error){
+          alert(response.errors);
+        }else{
+          console.log('user_id', response.user.id);
+          console.log('token', response.token);
+          localStorage.setItem('user_id', response.user.id);
+          localStorage.setItem('token', response.token);
+          this.props.logIn();
+        }
+      });
+    }else{
+      alert('Warning: Username/Password Missing!');
+    }
   }
 
   render() {
     return (
       <div id='loginForm'>
-        <Form onSubmit={this.props.logIn} /*onSubmit={this.onSubmit} */ >
+        <Form onSubmit={this.onSubmit} >
           <Headline2 />
           <Form.Field>
             <input placeholder='Username' type='text' name='username' onChange={this.handleChange}></input><br />

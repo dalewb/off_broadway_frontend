@@ -19,7 +19,26 @@ class SignUpForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Sign Up Submit', this.state);
+    e.persist();
+    if (this.state.password === this.state.passwordCheck){
+      fetch('https://mod-4-backend.herokuapp.com/api/v1/users', {
+        method: 'POST',
+        body: JSON.stringify({username: this.state.username, password: this.state.password}),
+        headers: {'Content-Type': 'application/json'}
+      })
+      .then( res => res.json() )
+      .then( response => {
+        if (response.errors || response.error){
+          alert(response.errors);
+        }else{
+          localStorage.setItem('user_id', response.user.id);
+          localStorage.setItem('token', response.token);
+          this.props.logIn();
+        };
+      });
+    }else {
+      alert('Warning: Passwords do not match!');
+    }
   };
 
   handleChange = (e) => {
@@ -32,7 +51,7 @@ class SignUpForm extends Component {
     return (
       <div id='signUpForm'>
         <Headline2 />
-        <Form onSubmit={this.props.logIn} /* onSubmit={this.handleSubmit} */ >
+        <Form onSubmit={this.handleSubmit} >
           <Form.Field>
           <input placeholder='Username' type="text" name="username" value={this.state.username} onChange={this.handleChange} />
           </Form.Field>

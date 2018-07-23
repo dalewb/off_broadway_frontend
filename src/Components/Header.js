@@ -13,7 +13,7 @@ class Header extends Component {
         <Button name="all_productions" onClick={() => this.props.onClickHandler('all productions')}>All Productions</Button>
         <Button name="create_new_production" onClick={() => this.props.onClickHandler('new production')}>Create New Production</Button>
         <Button name="my_productions" onClick={() => this.props.onClickHandler('my productions')}>My Productions</Button>
-        <Button name="log_out" onClick={this.props.logIn}>Log Out</Button>
+        <Button name="log_out" onClick={this.props.logOut}>Log Out</Button>
       </div>
     );
   };

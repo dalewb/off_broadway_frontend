@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     loggedIn: false,
     userExists: false,
-    userId: 2
+    userId: null
   }
 
   changeBody = () => {
@@ -26,6 +26,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.loggedInCheck();
     this.changeBody();
   }
 
@@ -35,16 +36,34 @@ class App extends Component {
     });
   };
 
-  logIn = (e) => {
-    e.preventDefault();
+  loggedInCheck = () => {
+    if (localStorage.getItem('user_id')){
+      console.log(localStorage.getItem('user_id'));
+      this.setState({
+        loggedIn: true
+      });
+    };
+  };
+
+  logIn = () => {
     window.history.pushState({}, "new state", "/");
     this.setState({
-      loggedIn: !this.state.loggedIn
+      loggedIn: true,
+      userId: parseInt(localStorage.getItem('user_id'), 10)
     });
-  }
+  };
+
+  logOut = () => {
+    localStorage.clear();
+    window.history.pushState({}, "new state", "/");
+    this.setState({
+      loggedIn: false,
+      userId: null
+    });
+  };
 
   loggedInPage = () => {
-    return <MainPage userId={this.state.userId} logIn={this.logIn} />
+    return <MainPage userId={this.state.userId} logOut={this.logOut} />
   };
 
   requireAuth = () => {
