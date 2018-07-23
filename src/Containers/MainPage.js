@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 import Header from '../Components/Header'
-// import ContentContainer from '../Containers/ContentContainer'
-
 import AllProductionsContainer from './AllProductionsContainer';
 import CreateContainer from './CreateContainer';
 import MyProductions from '../Components/MyProductions';
@@ -64,7 +62,6 @@ class MainPage extends Component {
       <React.Fragment>
         <Header onClickHandler={this.pageChange} logOut={this.props.logOut} />
         <div id='sub-content'>
-          {/* <ContentContainer userId={this.props.userId} page={this.state.page} onClickHandler={this.pageChange} /> */}
           {this.state.page === '/' ? <Home/> : null}
           {this.state.page === 'view production' ? <ARpage show={this.state.viewProduction}/> : null}
           {this.state.page === 'all productions' ? <AllProductionsContainer handleViewProductionClick={this.seeTheShow}/> : null}
