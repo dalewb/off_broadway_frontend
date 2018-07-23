@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import ActorsDisplay from './ActorsDisplay';
 import SelectedActors from './SelectedActors';
 import ScriptContainer from './ScriptContainer';
-// import MyProductions from '../Components/MyProductions'
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 
@@ -102,7 +101,7 @@ class CreateContainer extends Component {
   }
 
   getProductions = (productionId) => {
-    console.log("DOES THIS HAPPEN AFTER?????????");
+    // console.log("DOES THIS HAPPEN AFTER?????????");
     let productionInfo = fetch(URL + 'productions', {
       headers: {
         'Content-Type': 'application/json',
@@ -110,8 +109,8 @@ class CreateContainer extends Component {
       }
     })
       .then(res => res.json())
-      .then(data => this.findProductionById(data, productionId));
-      console.log(productionInfo);
+      // .then(data => this.findProductionById(data, productionId));
+      // console.log(productionInfo);
   };
 
   handleActorCardClick = (actor) => {
