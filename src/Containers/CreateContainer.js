@@ -11,7 +11,7 @@ class CreateContainer extends Component {
 
   state = {
     title: null,
-    user_id: 1,
+    user_id: null,
     line_1: null,
     line_2: null,
     line_3: null,
@@ -19,7 +19,7 @@ class CreateContainer extends Component {
     line_5: null,
     myActors: [],
     step: 1,
-    img_url: 'https://i.pinimg.com/originals/2e/eb/61/2eeb616e06307b0e4acd01252c41edef.jpg',
+    img_url: '',
   }
 
   storeScriptState = (scriptInfo) => {
@@ -30,7 +30,8 @@ class CreateContainer extends Component {
       line_3: `${scriptInfo.char3}-${scriptInfo.line3}`,
       line_4: `${scriptInfo.char4}-${scriptInfo.line4}`,
       line_5: `${scriptInfo.char5}-${scriptInfo.line5}`,
-      user_id: `${scriptInfo.userId}`,
+      user_id: scriptInfo.userId,
+      img_url: scriptInfo.img_url,
       step: 2
     });
   };

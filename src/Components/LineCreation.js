@@ -26,7 +26,8 @@ class LineCreation extends Component {
       char3: '',
       char4: '',
       char5: '',
-      userId: null
+      userId: 1,
+      img_url: ''
     };
   };
 
@@ -38,7 +39,7 @@ class LineCreation extends Component {
 
   handleSelect = (e) => {
     this.setState({
-      [e.target.parentNode.id]: e.target.innerText.slice(-1)
+      [e.target.id]: e.target.value
     });
   };
 
@@ -82,6 +83,14 @@ class LineCreation extends Component {
         <LineInputForm name="line3" handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line3} char={'char3'}/><br />
         <LineInputForm name="line4" handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line4} char={'char4'}/><br />
         <LineInputForm name="line5" handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line5} char={'char5'}/>
+        <Form.Field
+          control={Input}
+          placeholder="Image URL"
+          name='img_url'
+          onChange={this.handleChange}
+          style={{ width: "100%" }}
+          value={this.state.img_url}
+        />
         <div className='spacer'></div>
         <p>
           <button type='submit'>Next Step ></button>
