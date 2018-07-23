@@ -26,7 +26,7 @@ class LineCreation extends Component {
       char3: '',
       char4: '',
       char5: '',
-      userId: 1,
+      userId: parseInt(localStorage.getItem('user_id'), 10),
       img_url: ''
     };
   };

@@ -48,7 +48,10 @@ class CreateContainer extends Component {
     fetch(URL + 'scripts', {
       method: 'POST',
       body: JSON.stringify({ title: this.state.title, user_id: this.state.user_id, line_1: this.state.line_1, line_2: this.state.line_2, line_3: this.state.line_3, line_4: this.state.line_4, line_5: this.state.line_5, img_url: this.state.img_url}),
-      headers: {'Content-Type': 'application/json'}
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      }
     })
       .then( res => res.json() )
       .then(response => this.postProduction(response.scriptId));
@@ -58,7 +61,10 @@ class CreateContainer extends Component {
     fetch(URL + 'productions', {
       method: 'POST',
       body: JSON.stringify({script_id: scriptId, user_id: this.state.user_id}),
-      headers: {'Content-Type': 'application/json'}
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      }
     })
       .then( res => res.json() )
       .then(response => {
@@ -73,7 +79,10 @@ class CreateContainer extends Component {
       fetch(URL + 'casts', {
         method: 'POST',
         body: JSON.stringify({production_id: productionId, actor_id: actor.id}),
-        headers: {'Content-Type': 'application/json'}
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token')
+        }
       })
         .then( res => res.json() )
         .then(response => {
@@ -94,7 +103,12 @@ class CreateContainer extends Component {
 
   getProductions = (productionId) => {
     console.log("DOES THIS HAPPEN AFTER?????????");
-    let productionInfo = fetch(URL + 'productions')
+    let productionInfo = fetch(URL + 'productions', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      }
+    })
       .then(res => res.json())
       .then(data => this.findProductionById(data, productionId));
       console.log(productionInfo);
