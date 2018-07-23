@@ -50,9 +50,7 @@ class MainPage extends Component {
 
   setViewProduction = (viewProduction) => {
     this.setState({
-      viewProduction,
-      myProductions: [...this.state.myProductions, viewProduction],
-      productions: [...this.state.productions, viewProduction]
+      viewProduction
     });
     this.pageChange('my productions')
   };
