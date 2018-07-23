@@ -91,8 +91,8 @@ class CreateContainer extends Component {
             step: 1
           });
         });
-    });
-    this.getProductions(productionId)
+    }, () => this.props.pageChange('my productions'));
+    // this.getProductions(productionId)
   };
 
   findProductionById = (productions, productionId) => {
@@ -100,18 +100,18 @@ class CreateContainer extends Component {
     this.props.setViewProduction(myProduction)
   }
 
-  getProductions = (productionId) => {
-    // console.log("DOES THIS HAPPEN AFTER?????????");
-    let productionInfo = fetch(URL + 'productions', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token')
-      }
-    })
-      .then(res => res.json())
-      // .then(data => this.findProductionById(data, productionId));
-      // console.log(productionInfo);
-  };
+  // getProductions = (productionId) => {
+  //   // console.log("DOES THIS HAPPEN AFTER?????????");
+  //   let productionInfo = fetch(URL + 'productions', {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Authorization': localStorage.getItem('token')
+  //     }
+  //   })
+  //     .then(res => res.json())
+  //     // .then(data => this.findProductionById(data, productionId));
+  //     // console.log(productionInfo);
+  // };
 
   handleActorCardClick = (actor) => {
     if (!this.state.myActors.includes(actor) && this.state.myActors.length < 2) {
