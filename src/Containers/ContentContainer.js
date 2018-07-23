@@ -25,7 +25,12 @@ class ContentContainer extends Component {
   };
 
   fetchProductionData = () => {
-    fetch(URL + 'productions').then(response => response.json()).then(productions => {
+    fetch(URL + 'productions',{
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      }
+    }).then(response => response.json()).then(productions => {
       this.setState({
         productions
       });
@@ -35,7 +40,12 @@ class ContentContainer extends Component {
   };
 
   fetchActorData = () => {
-    fetch(URL + 'actors')
+    fetch(URL + 'actors', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      }
+    })
       .then(response => response.json())
       .then(actors => {
         this.setState({
