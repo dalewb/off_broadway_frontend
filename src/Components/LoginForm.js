@@ -30,8 +30,6 @@ class LoginForm extends Component {
         if (response.errors || response.error){
           alert(response.errors);
         }else{
-          console.log('user_id', response.user.id);
-          console.log('token', response.token);
           localStorage.setItem('user_id', response.user.id);
           localStorage.setItem('token', response.token);
           this.props.logIn();

@@ -38,7 +38,6 @@ class App extends Component {
 
   loggedInCheck = () => {
     if (localStorage.getItem('user_id')){
-      console.log(localStorage.getItem('user_id'));
       this.setState({
         loggedIn: true
       });
