@@ -56,6 +56,7 @@ class MainPage extends Component {
   };
 
   render() {
+    console.log('state', this.state);
     return (
       <React.Fragment>
         <Header onClickHandler={this.pageChange} logOut={this.props.logOut} />
