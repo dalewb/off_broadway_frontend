@@ -81,8 +81,6 @@ class ContentContainer extends Component {
       myProductions: [...this.state.myProductions, viewProduction],
       productions: [...this.state.productions, viewProduction]
     });
-    // console.log("View Production", this.state.viewProduction);
-    // console.log("In View Production, myProductions", this.state.myProductions);
     this.props.onClickHandler('my productions')
   };
 
