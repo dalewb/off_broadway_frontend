@@ -5,7 +5,7 @@ import ProductionReview from '../Components/ProductionReview';
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 
-class AllProductionsContainer extends Component {
+class AllProductions extends Component {
   state = {
     productions: [],
     productionReview: null
@@ -60,4 +60,4 @@ class AllProductionsContainer extends Component {
   }
 }
 
-export default AllProductionsContainer;
+export default AllProductions;
