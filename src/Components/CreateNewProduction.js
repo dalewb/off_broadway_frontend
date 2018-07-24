@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import ActorCard from './ActorCard'
 import LineCreation from './LineCreation'
-// import ScriptContainer from '../Containers/ScriptContainer';
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 

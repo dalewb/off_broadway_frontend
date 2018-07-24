@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import handleChange from '../util';
+import { handleChange } from '../util';
 import { Button, Form } from 'semantic-ui-react'
 
 import { NavLink } from 'react-router-dom';
