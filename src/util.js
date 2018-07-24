@@ -1,16 +1,12 @@
+export const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 export const loggedInUserId = parseInt(localStorage.getItem('user_id'), 10);
-
-export function localToken() {
-  return localStorage.getItem('token');
-};
+export const localToken = localStorage.getItem('token');
 
 export function handleChange(e) {
   this.setState({
     [e.target.name]: e.target.value
   });
 };
-
-export const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 
 export const filler = {
   title: 'Here is a rhando title',
