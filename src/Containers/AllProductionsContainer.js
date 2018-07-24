@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-// import AllProductionsDisplay from './AllProductionsDisplay'
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from '../Components/ProductionReview';
 
@@ -55,7 +54,6 @@ class AllProductionsContainer extends Component {
         <div className="ui five cards centered">
           {pCards}
         </div>
-        {/* <AllProductionsDisplay allProductions={this.state.productions} handleViewProductionClick={this.props.handleViewProductionClick}/> */}
         <div className='divider'></div>
       </div>
     )
