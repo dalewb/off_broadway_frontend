@@ -46,7 +46,16 @@ class CreateNewProduction extends Component {
   postScript = () => {
     fetch(URL + 'scripts', {
       method: 'POST',
-      body: JSON.stringify({ title: this.state.title, user_id: this.state.user_id, line_1: this.state.line_1, line_2: this.state.line_2, line_3: this.state.line_3, line_4: this.state.line_4, line_5: this.state.line_5, img_url: this.state.img_url}),
+      body: JSON.stringify({
+        title: this.state.title,
+        user_id: this.state.user_id,
+        line_1: this.state.line_1,
+        line_2: this.state.line_2,
+        line_3: this.state.line_3,
+        line_4: this.state.line_4,
+        line_5: this.state.line_5,
+        img_url: this.state.img_url
+      }),
       headers: {
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
@@ -114,7 +123,7 @@ class CreateNewProduction extends Component {
       <React.Fragment>
         <div id='selectedCards'>
           <h4>2. Select two actors:</h4>
-          
+
           <div className="ui five cards centered">
             {this.state.myActors.map((actor, index) =>  <ActorCard actor={actor} key={index} handleClick={() => {this.removeChosenActor(actor)}} />)}
           </div>
