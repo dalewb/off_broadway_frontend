@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './assets/App.css';
-import LoginPage from './Containers/LoginPage';
-import MainPage from './Containers/MainPage';
-import Footer from './Components/Footer';
+import LoginPage from './LoginPage';
+import MainPage from './MainPage';
+import Footer from '../Components/Footer';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
