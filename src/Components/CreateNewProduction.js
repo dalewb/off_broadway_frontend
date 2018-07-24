@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 
 import ActorCard from './ActorCard'
 import LineCreation from './LineCreation'
-
-const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+import { URL, loggedInUserId } from '../util';
 
 class CreateNewProduction extends Component {
 
   state = {
     title: null,
-    user_id: null,
+    user_id: loggedInUserId,
     line_1: null,
     line_2: null,
     line_3: null,
@@ -28,7 +27,6 @@ class CreateNewProduction extends Component {
       line_3: `${scriptInfo.char3}-${scriptInfo.line3}`,
       line_4: `${scriptInfo.char4}-${scriptInfo.line4}`,
       line_5: `${scriptInfo.char5}-${scriptInfo.line5}`,
-      user_id: scriptInfo.userId,
       img_url: scriptInfo.img_url,
       step: 2,
       production_id: null

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import LineInputForm from './LineInputForm';
 import { Form, Input } from 'semantic-ui-react';
-import { handleChange, loggedInUserId } from '../util';
+import { handleChange } from '../util';
 
 class LineCreation extends Component {
   constructor(props) {
@@ -20,7 +20,6 @@ class LineCreation extends Component {
       char3: '',
       char4: '',
       char5: '',
-      userId: loggedInUserId,
       img_url: ''
     };
   };
