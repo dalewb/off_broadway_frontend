@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from '../Components/ProductionReview';
-import { API_URL } from '../util';
+import { API_URL, localToken, loggedInUserId } from '../util';
 
 class AllProductions extends Component {
   state = {
@@ -18,12 +18,12 @@ class AllProductions extends Component {
     fetch(API_URL + 'productions', {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token')
+        'Authorization': localToken
       }
     }).then(response => response.json()).then(productions => {
       if (this.props.type === 'myProductions'){
         productions.forEach(prod => {
-          if (prod.user_id === parseInt(localStorage.getItem('user_id'), 10)){
+          if (prod.user_id === loggedInUserId){
             this.setState({
               productions: [...this.state.productions, prod]
             });

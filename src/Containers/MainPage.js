@@ -5,7 +5,7 @@ import AllProductions from '../Components/AllProductions';
 import CreateContainer from '../Components/CreateNewProduction';
 import Home from '../Components/Home';
 import ARpage from '../Components/AR';
-import { API_URL } from '../util';
+import { API_URL, localToken } from '../util';
 
 class MainPage extends Component {
   state = {
@@ -28,7 +28,7 @@ class MainPage extends Component {
     fetch(API_URL + 'actors', {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token')
+        'Authorization': localToken
       }
     })
       .then(response => response.json())

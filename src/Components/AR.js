@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { API_URL } from '../util';
+import { API_URL, localToken } from '../util';
 
 class ARpage extends Component {
   state = {
@@ -20,7 +20,7 @@ class ARpage extends Component {
     fetch(`${API_URL}productions/${this.props.show}`, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token')
+        'Authorization': localToken
       }
     }).then( res => res.json() )
     .then(production => {

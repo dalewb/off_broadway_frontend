@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ActorCard from './ActorCard'
 import LineCreation from './LineCreation'
-import { API_URL, loggedInUserId } from '../util';
+import { API_URL, loggedInUserId, localToken } from '../util';
 
 class CreateNewProduction extends Component {
 
@@ -56,7 +56,7 @@ class CreateNewProduction extends Component {
       }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token')
+        'Authorization': localToken
       }
     })
       .then( res => res.json() )
@@ -69,7 +69,7 @@ class CreateNewProduction extends Component {
       body: JSON.stringify({script_id: scriptId, user_id: this.state.user_id}),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token')
+        'Authorization': localToken
       }
     })
       .then( res => res.json() )
@@ -86,7 +86,7 @@ class CreateNewProduction extends Component {
         body: JSON.stringify({production_id: productionId, actor_id: actor.id}),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('token')
+          'Authorization': localToken
         }
       })
         .then( res => res.json() )
