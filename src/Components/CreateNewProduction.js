@@ -110,25 +110,21 @@ class CreateNewProduction extends Component {
     });
   };
 
-  renderLogic = () => {
-    if (this.state.step === 1) {
-      return (
-        <ScriptContainer storeScriptState={this.storeScriptState} />
-      )
-    } else if (this.state.step === 2) {
-      return (
-        <React.Fragment>
-          <SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor} />
-          <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick} checkSubmission={this.checkSubmission} />
-        </React.Fragment>
-      )
-    }
-  }
-
   render() {
     return (
       <div id='createContainer'>
-        {this.renderLogic()}
+        {this.state.step === 1 ? <ScriptContainer storeScriptState={this.storeScriptState} /> : <React.Fragment>
+          <div id='selectedCards'>
+            <h4>2. Select two actors:</h4>
+            <SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor} />
+          </div>
+          <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick} />
+          <div className='divider'></div>
+          <p>&nbsp;</p>
+          <p>
+            <button onClick={this.checkSubmission}>Submit Project</button>
+          </p>
+        </React.Fragment>}
       </div>
     );
   };
