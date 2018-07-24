@@ -1,5 +1,5 @@
 import React from 'react';
-import ActorCard from '../Components/ActorCard'
+import ActorCard from './ActorCard'
 
 const SelectedActors = (props) => (
   <div id='selectedCards'>
