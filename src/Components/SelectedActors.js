@@ -3,7 +3,7 @@ import ActorCard from './ActorCard'
 
 const SelectedActors = (props) => (
   <div className="ui five cards centered">
-    {props.myActors.map((actor, index) =>  <ActorCard actor={actor} key={index} handleClick={() => {props.removeChosenActor(actor)}} />)}
+    {props.myActors.map((actor, index) =>  <ActorCard actor={actor} key={index} handleClick={() => {props.handleClick(actor)}} />)}
   </div>
 )
 

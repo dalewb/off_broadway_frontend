@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import ActorsDisplay from './ActorsDisplay';
-import SelectedActors from './SelectedActors';
+import ActorCard from './ActorCard'
 import ScriptContainer from '../Containers/ScriptContainer';
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
@@ -110,21 +109,34 @@ class CreateNewProduction extends Component {
     });
   };
 
+  renderActors = () => {
+    return (
+      <React.Fragment>
+        <div id='selectedCards'>
+          <h4>2. Select two actors:</h4>
+          
+          <div className="ui five cards centered">
+            {this.state.myActors.map((actor, index) =>  <ActorCard actor={actor} key={index} handleClick={() => {this.removeChosenActor(actor)}} />)}
+          </div>
+        </div>
+
+        <div className="ui five cards centered">
+          {this.props.actors.map((actor, index) => <ActorCard actor={actor} key={index} handleClick={this.handleActorCardClick}/>)}
+        </div>
+
+        <div className='divider'></div>
+        <p>&nbsp;</p>
+        <p>
+          <button onClick={this.checkSubmission}>Submit Project</button>
+        </p>
+      </React.Fragment>
+    )
+  }
+
   render() {
     return (
       <div id='createContainer'>
-        {this.state.step === 1 ? <ScriptContainer storeScriptState={this.storeScriptState} /> : <React.Fragment>
-          <div id='selectedCards'>
-            <h4>2. Select two actors:</h4>
-            <SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor} />
-          </div>
-          <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick} />
-          <div className='divider'></div>
-          <p>&nbsp;</p>
-          <p>
-            <button onClick={this.checkSubmission}>Submit Project</button>
-          </p>
-        </React.Fragment>}
+        {this.state.step === 1 ? <ScriptContainer storeScriptState={this.storeScriptState} /> : this.renderActors()}
       </div>
     );
   };
