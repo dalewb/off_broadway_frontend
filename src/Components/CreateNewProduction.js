@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import ActorsDisplay from './ActorsDisplay';
-import SelectedActors from '../Containers/SelectedActors';
+import SelectedActors from './SelectedActors';
 import ScriptContainer from '../Containers/ScriptContainer';
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
