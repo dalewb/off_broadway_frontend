@@ -22,9 +22,19 @@ class AllProductions extends Component {
         'Authorization': localStorage.getItem('token')
       }
     }).then(response => response.json()).then(productions => {
-      this.setState({
-        productions
-      });
+      if (this.props.type === 'myProductions'){
+        productions.forEach(prod => {
+          if (prod.user_id === parseInt(localStorage.getItem('user_id'), 10)){
+            this.setState({
+              productions: [...this.state.productions, prod]
+            });
+          }
+        });
+      }else{
+        this.setState({
+          productions
+        });
+      }
     });
   };
 

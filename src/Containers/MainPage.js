@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Header from '../Components/Header'
 import AllProductions from '../Components/AllProductions';
 import CreateContainer from './CreateContainer';
-import MyProductions from '../Components/MyProductions';
+// import MyProductions from '../Components/MyProductions';
 import Home from '../Components/Home';
 import ARpage from '../Components/AR';
 
@@ -62,9 +62,9 @@ class MainPage extends Component {
         <div id='sub-content'>
           {this.state.page === '/' ? <Home/> : null}
           {this.state.page === 'view production' ? <ARpage show={this.state.viewProduction}/> : null}
-          {this.state.page === 'all productions' ? <AllProductions handleViewProductionClick={this.seeTheShow}/> : null}
+          {this.state.page === 'all productions' ? <AllProductions handleViewProductionClick={this.seeTheShow} type='allProductions'/> : null}
           {this.state.page === 'new production' ? <CreateContainer actors={this.state.actors} pageChange={this.pageChange} setViewProduction={this.setViewProduction} /> : null}
-          {this.state.page === 'my productions' ? <MyProductions handleViewProductionClick={this.seeTheShow}/> : null}
+          {this.state.page === 'my productions' ? <AllProductions handleViewProductionClick={this.seeTheShow} type='myProductions'/> : null}
         </div>
       </React.Fragment>
     )
