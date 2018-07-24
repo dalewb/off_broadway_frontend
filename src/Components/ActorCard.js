@@ -1,23 +1,13 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 
-class ActorCard extends Component {
-
-  renderActor = () => {
-    return (
-      <Card onClick={() => this.props.handleClick(this.props.actor)} >
-        <Image src={this.props.actor.img_url} />
-        <Card.Content>
-          <Card.Header>{this.props.actor.name}</Card.Header>
-        </Card.Content>
-      </Card>
-    )
-  }
-
-  render() {
-    return this.props.actor ? this.renderActor() : null;
-  }
-}
+const ActorCard = (props) => (
+  <Card onClick={() => props.handleClick(props.actor)} >
+    <Image src={props.actor.img_url} />
+    <Card.Content>
+      <Card.Header>{props.actor.name}</Card.Header>
+    </Card.Content>
+  </Card>
+)
 
 export default ActorCard;
