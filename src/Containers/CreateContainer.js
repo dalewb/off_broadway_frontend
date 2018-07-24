@@ -113,22 +113,13 @@ class CreateContainer extends Component {
   renderLogic = () => {
     if (this.state.step === 1) {
       return (
-        <ScriptContainer
-          storeScriptState={this.storeScriptState}
-        />
+        <ScriptContainer storeScriptState={this.storeScriptState} />
       )
     } else if (this.state.step === 2) {
       return (
         <React.Fragment>
-          <SelectedActors
-            myActors={this.state.myActors}
-            removeChosenActor={this.removeChosenActor}
-          />
-          <ActorsDisplay
-            actors={this.props.actors}
-            handleClick={this.handleActorCardClick}
-            checkSubmission={this.checkSubmission}
-          />
+          <SelectedActors myActors={this.state.myActors} removeChosenActor={this.removeChosenActor} />
+          <ActorsDisplay actors={this.props.actors} handleClick={this.handleActorCardClick} checkSubmission={this.checkSubmission} />
         </React.Fragment>
       )
     }
