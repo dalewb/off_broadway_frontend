@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Header from '../Components/Header'
 import AllProductions from '../Components/AllProductions';
 import CreateContainer from './CreateContainer';
-// import MyProductions from '../Components/MyProductions';
 import Home from '../Components/Home';
 import ARpage from '../Components/AR';
 
