@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import LineInputForm from './LineInputForm'
 import { Form, Input } from 'semantic-ui-react'
-// import handleChange from '../util';
 
 function randy() {
   return Math.floor(Math.random() * 5) + 1
@@ -59,14 +58,14 @@ class LineCreation extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    if (this.checkProject()){
+    if (this.validateForm()){
       this.props.storeScriptState(this.state);
     };
   };
 
-  checkProject = () => {
-    if (this.state.title === null || this.state.title === '' || this.state.title === ' '){
-      alert('Script must have a valid title!');
+  validateForm = () => {
+    if (this.state.title === null || this.state.title === '' || this.state.title === ' ' || this.state.line_1 === '' || this.state.line_2 === '' || this.state.line_3 === '' || this.state.line_4 === '' || this.state.line_5 === ''){
+      alert('Form incomplete!');
       return false
     }else return true ;
   };
@@ -91,20 +90,15 @@ class LineCreation extends Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Input type="text" name="title" placeholder='Play Title' onChange={this.handleChange}  value={this.state.title}/><br /><br />
-        <LineInputForm name="line1" handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line1} char={'char1'}/><br />
-        <LineInputForm name="line2" handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line2} char={'char2'}/><br />
-        <LineInputForm name="line3" handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line3} char={'char3'}/><br />
-        <LineInputForm name="line4" handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line4} char={'char4'}/><br />
-        <LineInputForm name="line5" handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line5} char={'char5'}/>
-        <Form.Field
-          control={Input}
-          placeholder="Image URL"
-          name='img_url'
-          onChange={this.handleChange}
-          style={{ width: "100%" }}
-          value={this.state.img_url}
-        />
+        <Input type='text' name='title' placeholder='Play Title' onChange={this.handleChange}  value={this.state.title}/><br /><br />
+
+        <LineInputForm name='line1' handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line1} char={'char1'}/><br />
+        <LineInputForm name='line2' handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line2} char={'char2'}/><br />
+        <LineInputForm name='line3' handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line3} char={'char3'}/><br />
+        <LineInputForm name='line4' handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line4} char={'char4'}/><br />
+        <LineInputForm name='line5' handleChange={this.handleChange} handleSelect={this.handleSelect} lineText={this.state.line5} char={'char5'}/>
+
+        <Form.Field control={Input} placeholder='Image URL' name='img_url' onChange={this.handleChange} style={{ width: '100%' }} value={this.state.img_url} />
         <div className='spacer'></div>
         <p>
           <button type='submit'>Next Step ></button>
