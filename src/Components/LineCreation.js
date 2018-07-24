@@ -8,7 +8,21 @@ function randy() {
   return Math.floor(Math.random() * 5) + 1
 }
 
-const filler = { userId: randy(), title: `Here is a rhando title, #${randy()}`, line_1: 'What do you remember about your mother?', line_2: 'I never meant to come between you and him.', line_3: 'Why did you scream like that?', line_4: 'Somehow we need to persuade him to part with a million dollars.', line_5: 'Try focussing more on your life and less on mine!', char1: 'A', char2: 'B', char3: 'A', char4: 'B', char5: 'A', img_url: 'https://i.pinimg.com/custom_covers/200x150/401101979251643329_1349568428.jpg'}
+const filler = {
+  userId: randy(),
+  title: `Here is a rhando title, #${randy()}`,
+  line_1: 'What do you remember about your mother?',
+  line_2: 'I never meant to come between you and him.',
+  line_3: 'Why did you scream like that?',
+  line_4: 'Somehow we need to persuade him to part with a million dollars.',
+  line_5: 'Try focussing more on your life and less on mine!',
+  char1: 'A',
+  char2: 'B',
+  char3: 'A',
+  char4: 'B',
+  char5: 'A',
+  img_url: 'https://i.pinimg.com/custom_covers/200x150/401101979251643329_1349568428.jpg'
+}
 
 class LineCreation extends Component {
   constructor(props) {
