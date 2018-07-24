@@ -5,8 +5,7 @@ import AllProductions from '../Components/AllProductions';
 import CreateContainer from '../Components/CreateNewProduction';
 import Home from '../Components/Home';
 import ARpage from '../Components/AR';
-
-const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+import { API_URL } from '../util';
 
 class MainPage extends Component {
   state = {
@@ -26,7 +25,7 @@ class MainPage extends Component {
   }
 
   fetchActorData = () => {
-    fetch(URL + 'actors', {
+    fetch(API_URL + 'actors', {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')

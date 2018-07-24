@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ActorCard from './ActorCard'
 import LineCreation from './LineCreation'
-import { URL, loggedInUserId } from '../util';
+import { API_URL, loggedInUserId } from '../util';
 
 class CreateNewProduction extends Component {
 
@@ -42,7 +42,7 @@ class CreateNewProduction extends Component {
   };
 
   postScript = () => {
-    fetch(URL + 'scripts', {
+    fetch(API_URL + 'scripts', {
       method: 'POST',
       body: JSON.stringify({
         title: this.state.title,
@@ -64,7 +64,7 @@ class CreateNewProduction extends Component {
   };
 
   postProduction = (scriptId) => {
-    fetch(URL + 'productions', {
+    fetch(API_URL + 'productions', {
       method: 'POST',
       body: JSON.stringify({script_id: scriptId, user_id: this.state.user_id}),
       headers: {
@@ -81,7 +81,7 @@ class CreateNewProduction extends Component {
 
   postCast = (productionId) => {
     this.state.myActors.forEach(actor =>{
-      fetch(URL + 'casts', {
+      fetch(API_URL + 'casts', {
         method: 'POST',
         body: JSON.stringify({production_id: productionId, actor_id: actor.id}),
         headers: {

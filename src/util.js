@@ -1,4 +1,5 @@
-export const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+export const URL = 'https://mod-4-backend.herokuapp.com/'
+export const API_URL = `${URL}api/v1/`
 export const loggedInUserId = parseInt(localStorage.getItem('user_id'), 10);
 export const localToken = localStorage.getItem('token');
 

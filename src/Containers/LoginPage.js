@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import LoginForm from '../Components/LoginForm'
 import SignUpForm from '../Components/SignUpForm'
-
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class LoginPage extends Component {
 

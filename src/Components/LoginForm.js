@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
-import { handleChange } from '../util';
-import { Button, Form } from 'semantic-ui-react'
-
 import { NavLink } from 'react-router-dom';
+import { Button, Form } from 'semantic-ui-react';
+
 import Headline2 from './Headline2';
+import { handleChange, URL } from '../util';
 
 class LoginForm extends Component {
-  constructor(props) {
-    super(props)
-    this.handleChange = handleChange.bind(this);
 
-    this.state = {
-      username: '',
-      password: '',
-    }
+  state = {
+    username: '',
+    password: '',
   }
 
   onSubmit = (e) => {
     e.preventDefault();
     if (this.state.username && this.state.password){
-      fetch('https://mod-4-backend.herokuapp.com/sessions', {
+      fetch(URL + 'sessions', {
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {
@@ -31,6 +27,7 @@ class LoginForm extends Component {
           alert(response.errors);
         }else{
           localStorage.setItem('user_id', response.user.id);
+          localStorage.setItem('username', response.user.username);
           localStorage.setItem('token', response.token);
           this.props.logIn();
         }
@@ -46,10 +43,10 @@ class LoginForm extends Component {
         <Form onSubmit={this.onSubmit} >
           <Headline2 />
           <Form.Field>
-            <input placeholder='Username' type='text' name='username' onChange={this.handleChange}></input><br />
+            <input placeholder='Username' type='text' name='username' onChange={handleChange.bind(this)}></input><br />
           </Form.Field>
           <Form.Field>
-            <input placeholder='Password' type='password' name='password' onChange={this.handleChange}></input><br />
+            <input placeholder='Password' type='password' name='password' onChange={handleChange.bind(this)}></input><br />
           </Form.Field>
           <Form.Field>
             <Button type='submit'>Submit</Button>

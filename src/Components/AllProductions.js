@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from '../Components/ProductionReview';
-
-const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+import { API_URL } from '../util';
 
 class AllProductions extends Component {
   state = {
@@ -16,7 +15,7 @@ class AllProductions extends Component {
   };
 
   fetchProductionData = () => {
-    fetch(URL + 'productions', {
+    fetch(API_URL + 'productions', {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
