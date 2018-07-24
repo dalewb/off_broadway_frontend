@@ -20,6 +20,7 @@ class MainPage extends Component {
   };
 
   pageChange = (page) => {
+    console.log('pageChange', page);
     this.setState({
       page
     });

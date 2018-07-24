@@ -68,8 +68,6 @@ class CreateContainer extends Component {
     })
       .then( res => res.json() )
       .then(response => {
-        console.log('postProduction end');
-        console.log('postProduction', response);
         this.setState({production_id: response.productionId});
         this.postCast(response.productionId)
       });
@@ -87,37 +85,13 @@ class CreateContainer extends Component {
       })
         .then( res => res.json() )
         .then(response => {
-          console.log('postCast', response);
-          window.history.pushState({}, "new state", "my-productions");
-          this.setState({
-            step: 1
-          });
+          if (response.errors || response.error){
+            console.log(response.errors);
+          }
         });
-    }, () => {
-      console.log('end readhed');
-      this.props.pageChange('my productions');
-      this.props.setViewProduction(this.state.production_id);
     });
-    // this.getProductions(productionId)
+    this.props.pageChange('my productions');
   };
-
-  findProductionById = (productions, productionId) => {
-    let myProduction = productions.find(production => production.id === productionId)
-    this.props.setViewProduction(myProduction)
-  }
-
-  // getProductions = (productionId) => {
-  //   // console.log("DOES THIS HAPPEN AFTER?????????");
-  //   let productionInfo = fetch(URL + 'productions', {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Authorization': localStorage.getItem('token')
-  //     }
-  //   })
-  //     .then(res => res.json())
-  //     // .then(data => this.findProductionById(data, productionId));
-  //     // console.log(productionInfo);
-  // };
 
   handleActorCardClick = (actor) => {
     if (!this.state.myActors.includes(actor) && this.state.myActors.length < 2) {
