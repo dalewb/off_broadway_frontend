@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import ActorCard from './ActorCard'
-import ScriptContainer from '../Containers/ScriptContainer';
+import LineCreation from './LineCreation'
+// import ScriptContainer from '../Containers/ScriptContainer';
 
 const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
 
@@ -142,10 +143,19 @@ class CreateNewProduction extends Component {
     )
   }
 
+  renderScriptForm = () => {
+    return(
+      <div id='scriptCreation'>
+        <h4>1. Write your script:</h4>
+        <LineCreation storeScriptState={this.storeScriptState} />
+      </div>
+    );
+  };
+
   render() {
     return (
       <div id='createContainer'>
-        {this.state.step === 1 ? <ScriptContainer storeScriptState={this.storeScriptState} /> : this.renderActors()}
+        {this.state.step === 1 ? this.renderScriptForm() : this.renderActors() }
       </div>
     );
   };
