@@ -95,13 +95,11 @@ class Theatre extends Component {
   closeCurtains = () => {
     const leftCurtain = document.getElementById('img_l-curtain');
     const rightCurtain = document.getElementById('img_r-curtain');
-    leftCurtain.style.left = `0px`;
-    rightCurtain.style.right = `0px`;
-    let left = leftCurtain.style.left.replace(/[^0-9.]/g, "");
-    let right = rightCurtain.style.left.replace(/[^0-9.]/g, "");
+    let left = -Math.abs(leftCurtain.style.left.replace(/[^0-9.]/g, ""));
+    let right = -Math.abs(rightCurtain.style.right.replace(/[^0-9.]/g, ""));
 
     const moveLCurtain = () => {
-      if (left < 0) {
+      if (left < -1) {
         leftCurtain.style.left = `${left += 1}px`;
         window.requestAnimationFrame(moveLCurtain);
       } else {
