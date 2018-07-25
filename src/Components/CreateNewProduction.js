@@ -8,7 +8,7 @@ class CreateNewProduction extends Component {
 
   state = {
     title: null,
-    user_id: loggedInUserId,
+    user_id: loggedInUserId(),
     line_1: null,
     line_2: null,
     line_3: null,
@@ -17,7 +17,7 @@ class CreateNewProduction extends Component {
     myActors: [],
     step: 1,
     img_url: '',
-  }
+  };
 
   componentDidMount() {
     this.fetchActorData();
@@ -27,7 +27,7 @@ class CreateNewProduction extends Component {
     fetch(API_URL + 'actors', {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localToken
+        'Authorization': localToken()
       }
     })
       .then(response => response.json())
@@ -75,7 +75,7 @@ class CreateNewProduction extends Component {
       }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localToken
+        'Authorization': localToken()
       }
     })
       .then( res => res.json() )
@@ -88,7 +88,7 @@ class CreateNewProduction extends Component {
       body: JSON.stringify({script_id: scriptId, user_id: this.state.user_id}),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localToken
+        'Authorization': localToken()
       }
     })
       .then( res => res.json() )
@@ -105,7 +105,7 @@ class CreateNewProduction extends Component {
         body: JSON.stringify({production_id: productionId, actor_id: actor.id}),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': localToken
+          'Authorization': localToken()
         }
       })
         .then( res => res.json() )
