@@ -49,11 +49,16 @@ class LineCreation extends Component {
       <Form onSubmit={this.handleSubmit}>
         <Input type='text' name='title' placeholder='Play Title' onChange={handleChange.bind(this)}  value={this.state.title}/><br /><br />
 
-        <LineInputForm name='line1' handleChange={handleChange.bind(this)} handleSelect={this.handleSelect} lineText={this.state.line1} char={'char1'}/><br />
-        <LineInputForm name='line2' handleChange={handleChange.bind(this)} handleSelect={this.handleSelect} lineText={this.state.line2} char={'char2'}/><br />
-        <LineInputForm name='line3' handleChange={handleChange.bind(this)} handleSelect={this.handleSelect} lineText={this.state.line3} char={'char3'}/><br />
-        <LineInputForm name='line4' handleChange={handleChange.bind(this)} handleSelect={this.handleSelect} lineText={this.state.line4} char={'char4'}/><br />
+        <LineInputForm name='line1' handleChange={handleChange.bind(this)} handleSelect={this.handleSelect} lineText={this.state.line1} char={'char1'}/>
+        <div className='spacer'></div>
+        <LineInputForm name='line2' handleChange={handleChange.bind(this)} handleSelect={this.handleSelect} lineText={this.state.line2} char={'char2'}/>
+        <div className='spacer'></div>
+        <LineInputForm name='line3' handleChange={handleChange.bind(this)} handleSelect={this.handleSelect} lineText={this.state.line3} char={'char3'}/>
+        <div className='spacer'></div>
+        <LineInputForm name='line4' handleChange={handleChange.bind(this)} handleSelect={this.handleSelect} lineText={this.state.line4} char={'char4'}/>
+        <div className='spacer'></div>
         <LineInputForm name='line5' handleChange={handleChange.bind(this)} handleSelect={this.handleSelect} lineText={this.state.line5} char={'char5'}/>
+        <div className='spacer'></div>
 
         <Form.Field control={Input} placeholder='Image URL' name='img_url' onChange={handleChange.bind(this)} style={{ width: '100%' }} value={this.state.img_url} />
         <div className='spacer'></div>

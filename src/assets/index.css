@@ -213,6 +213,10 @@ h1, h2, h3, h4, h5 {
   /* clear: both; */
 }
 
+.newInput {
+  width: 75%;
+}
+
 #selectedCards {
   min-height: 10em;
   margin-bottom: 5%;
