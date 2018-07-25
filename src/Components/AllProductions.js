@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from '../Components/ProductionReview';
+import LoadingPage from '../Components/LoadingPage';
 import { API_URL, localToken, loggedInUserId } from '../util';
 
 class AllProductions extends Component {
@@ -61,7 +62,8 @@ class AllProductions extends Component {
           {this.state.productionReview ? <ProductionReview production={this.state.productionReview} handleViewProductionClick={() => this.props.handleViewProductionClick(this.state.productionReview.id)} /> : null}
         </div>
         <div className="ui five cards centered">
-          {pCards}
+
+        {pCards.length > 0 ? pCards : <LoadingPage/>}
         </div>
         <div className='divider'></div>
       </div>
