@@ -5,7 +5,8 @@ import { API_URL, localToken } from '../util';
 class Theatre extends Component {
   state = {
     currentLine: 0,
-    production: null
+    production: null,
+    action: false
   };
 
   componentDidMount() {
@@ -66,10 +67,22 @@ class Theatre extends Component {
   openCurtains = () => {
     const leftCurtain = document.getElementById('img_l-curtain');
     const rightCurtain = document.getElementById('img_r-curtain');
+    const lights = document.getElementById('lights');
+    lights.style.opacity = '.75';
     leftCurtain.style.left = `0px`;
     rightCurtain.style.right = `0px`;
     let left = leftCurtain.style.left.replace(/[^0-9.]/g, "");
     let right = rightCurtain.style.left.replace(/[^0-9.]/g, "");
+    let opass = lights.style.opacity.replace(/[^0-9.]/g, "") * 100;
+
+    const turnOnLights = () => {
+      if (opass > 0){
+        lights.style.opacity = (opass -= 1) / 100;
+        window.requestAnimationFrame(turnOnLights);
+      }else {
+        return
+      }
+    };
 
     const moveLCurtain = () => {
       if (left > (-26)) {
@@ -88,6 +101,7 @@ class Theatre extends Component {
         return
       };
     }
+    turnOnLights();
     moveLCurtain();
     moveRCurtain();
   };
@@ -97,6 +111,18 @@ class Theatre extends Component {
     const rightCurtain = document.getElementById('img_r-curtain');
     let left = -Math.abs(leftCurtain.style.left.replace(/[^0-9.]/g, ""));
     let right = -Math.abs(rightCurtain.style.right.replace(/[^0-9.]/g, ""));
+    const lights = document.getElementById('lights');
+    lights.style.opacity = '0';
+    let opass = lights.style.opacity.replace(/[^0-9.]/g, "") * 100;
+
+    const turnOffLights = () => {
+      if (opass < 75){
+        lights.style.opacity = (opass += 1) / 100;
+        window.requestAnimationFrame(turnOffLights);
+      }else {
+        return
+      }
+    };
 
     const moveLCurtain = () => {
       if (left < -1) {
@@ -115,6 +141,7 @@ class Theatre extends Component {
         return
       };
     }
+    turnOffLights();
     moveLCurtain();
     moveRCurtain();
   };
@@ -145,6 +172,7 @@ class Theatre extends Component {
           <img id='img_chairs' src='/assets/stage_setup_chairs.png' alt='chairs' />
           <img id='img_l-curtain' src='/assets/stage_setup_l-curtain.png' alt='left curtain' />
           <img id='img_r-curtain' src='/assets/stage_setup_r-curtain.png' alt='right curtain' />
+          <div id='lights'></div>
           <img id='img_stage' src='/assets/stage_setup_stage.png' alt='stage' />
           <object id='a-character' aria-label='Actor A' data={this.state.production.actors[0].svg_url} type="image/svg+xml"></object>
           <object id='b-character' aria-label='Actor B' data={this.state.production.actors[1].svg_url} type="image/svg+xml"></object>

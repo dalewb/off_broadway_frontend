@@ -259,6 +259,15 @@ h1, h2, h3, h4, h5 {
   right: -25px;
 }
 
+#lights {
+  height: 100%;
+  width: 100%;
+  z-index: 6;
+  position: absolute;
+  background: #000;
+  opacity: .75;
+}
+
 #img_stage {
   width: 125%;
   left: -10%;
@@ -269,7 +278,7 @@ h1, h2, h3, h4, h5 {
 
 #a-character, #b-character {
   position: absolute;
-  z-index: 6;
+  z-index: 5;
   height: 65%;
   top: 10%;
 }
