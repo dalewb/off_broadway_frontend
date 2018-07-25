@@ -207,8 +207,10 @@ h1, h2, h3, h4, h5 {
 }
 
 #scriptCreation {
-  width: 100%;
-  clear: both;
+  width: 75%;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  /* clear: both; */
 }
 
 #selectedCards {
