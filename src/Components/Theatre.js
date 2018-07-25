@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { API_URL, localToken } from '../util';
 
-class ARpage extends Component {
+class Theatre extends Component {
   state = {
     currentLine: 0,
     production: null
@@ -157,4 +157,4 @@ class ARpage extends Component {
   }
 }
 
-export default ARpage;
+export default Theatre;
