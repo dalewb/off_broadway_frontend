@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-import LoginPage from './Containers/LoginPage';
-import MainPage from './Containers/MainPage';
-import Footer from './Components/Footer';
+import LoginPage from './LoginPage';
+import MainPage from './MainPage';
+import Footer from '../Components/Footer';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -10,7 +9,7 @@ class App extends Component {
   state = {
     loggedIn: false,
     userExists: false,
-    userId: 2
+    userId: null
   }
 
   changeBody = () => {
@@ -26,6 +25,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.loggedInCheck();
     this.changeBody();
   }
 
@@ -35,16 +35,33 @@ class App extends Component {
     });
   };
 
-  logIn = (e) => {
-    e.preventDefault();
+  loggedInCheck = () => {
+    if (localStorage.getItem('user_id')){
+      this.setState({
+        loggedIn: true
+      });
+    };
+  };
+
+  logIn = () => {
     window.history.pushState({}, "new state", "/");
     this.setState({
-      loggedIn: !this.state.loggedIn
+      loggedIn: true,
+      userId: parseInt(localStorage.getItem('user_id'), 10)
     });
-  }
+  };
+
+  logOut = () => {
+    localStorage.clear();
+    window.history.pushState({}, "new state", "/");
+    this.setState({
+      loggedIn: false,
+      userId: null
+    });
+  };
 
   loggedInPage = () => {
-    return <MainPage userId={this.state.userId} logIn={this.logIn} />
+    return <MainPage userId={this.state.userId} logOut={this.logOut} />
   };
 
   requireAuth = () => {
@@ -71,7 +88,7 @@ class App extends Component {
             }
           </div>
           <div className='spacer'></div>
-          {this.state.loggedIn ? <Footer/> : <object id='index_group' aria-label='Group Shot' data='/assets/standup.svg' type="image/svg+xml"></object>}
+          {this.state.loggedIn ? <Footer/> : <object id='index_group' aria-label='Group Shot' data='/assets/standup2.svg' type="image/svg+xml"></object>}
         </div>
       </Router>
     );

@@ -1,13 +1,35 @@
 import React, { Component } from 'react';
 
+import { API_URL, localToken } from '../util';
+
 class ARpage extends Component {
   state = {
-    currentLine: 0
-  }
+    currentLine: 0,
+    production: null
+  };
 
   componentDidMount() {
-    this.openCurtains();
-    this.dialogueInterval = window.setInterval(this.cycleDialogue, 2500);
+    this.fetchProduction();
+  };
+
+  componentWillUnmount() {
+    window.clearInterval(this.dialogueInterval);
+  };
+
+  fetchProduction = () => {
+    fetch(`${API_URL}productions/${this.props.show}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localToken()
+      }
+    }).then( res => res.json() )
+    .then(production => {
+      this.setState({production});
+    })
+    .then(() => {
+      this.openCurtains();
+      this.dialogueInterval = window.setInterval(this.cycleDialogue, 2500);
+    });
   };
 
   dialogue = '';
@@ -15,26 +37,26 @@ class ARpage extends Component {
 
   prepLine = (line) => {
     if (line){
-      return line.slice(2, line.length-1);
+      return line.slice(2, line.length);
     }
   }
 
   renderDialogue = () => {
     switch (this.state.currentLine) {
       case 1:
-        this.dialogue = <div className={`${this.props.show.script.line_1[0]}-bubble`} id='line_1' >{this.prepLine(this.props.show.script.line_1)}</div>
+        this.dialogue = <div className={`${this.state.production.script.line_1[0]}-bubble`} id='line_1' >{this.prepLine(this.state.production.script.line_1)}</div>
         break;
       case 2:
-        this.dialogue = <div className={`${this.props.show.script.line_2[0]}-bubble`} id='line_2' >{this.prepLine(this.props.show.script.line_2)}</div>
+        this.dialogue = <div className={`${this.state.production.script.line_2[0]}-bubble`} id='line_2' >{this.prepLine(this.state.production.script.line_2)}</div>
         break;
       case 3:
-        this.dialogue = <div className={`${this.props.show.script.line_3[0]}-bubble`} id='line_3' >{this.prepLine(this.props.show.script.line_3)}</div>
+        this.dialogue = <div className={`${this.state.production.script.line_3[0]}-bubble`} id='line_3' >{this.prepLine(this.state.production.script.line_3)}</div>
         break;
       case 4:
-        this.dialogue = <div className={`${this.props.show.script.line_4[0]}-bubble`} id='line_4' >{this.prepLine(this.props.show.script.line_4)}</div>
+        this.dialogue = <div className={`${this.state.production.script.line_4[0]}-bubble`} id='line_4' >{this.prepLine(this.state.production.script.line_4)}</div>
         break;
       case 5:
-        this.dialogue = <div className={`${this.props.show.script.line_5[0]}-bubble`} id='line_5' >{this.prepLine(this.props.show.script.line_5)}</div>
+        this.dialogue = <div className={`${this.state.production.script.line_5[0]}-bubble`} id='line_5' >{this.prepLine(this.state.production.script.line_5)}</div>
         break;
       default:
         this.dialogue = <div></div>
@@ -118,16 +140,18 @@ class ARpage extends Component {
     this.renderDialogue('at some point.');
     return (
       <React.Fragment>
-        <div id='play_title'>{this.props.show.script.title}</div>
+      { this.state.production ? <React.Fragment>
+        <div id='play_title'>{this.state.production.script.title}</div>
         <div id='showDiv' onClick={this.cycleDialogue} >
           {this.dialogue}
           <img id='img_chairs' src='/assets/stage_setup_chairs.png' alt='chairs' />
           <img id='img_l-curtain' src='/assets/stage_setup_l-curtain.png' alt='left curtain' />
           <img id='img_r-curtain' src='/assets/stage_setup_r-curtain.png' alt='right curtain' />
           <img id='img_stage' src='/assets/stage_setup_stage.png' alt='stage' />
-          <object id='a-character' aria-label='Actor A' data={this.props.show.actors[0].svg_url} type="image/svg+xml"></object>
-          <object id='b-character' aria-label='Actor B' data={this.props.show.actors[1].svg_url} type="image/svg+xml"></object>
+          <object id='a-character' aria-label='Actor A' data={this.state.production.actors[0].svg_url} type="image/svg+xml"></object>
+          <object id='b-character' aria-label='Actor B' data={this.state.production.actors[1].svg_url} type="image/svg+xml"></object>
         </div>
+      </React.Fragment> : null }
       </React.Fragment>
     )
   }

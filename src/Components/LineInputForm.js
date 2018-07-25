@@ -1,37 +1,22 @@
-import React, { Component } from 'react';
-import { Form, Input, Select } from 'semantic-ui-react';
+import React from 'react';
+import { Form, Input } from 'semantic-ui-react';
 
-class LineInput extends Component {
-
-  render() {
-    const options = [
-      { key: 1, text: "Character A", value: "A" },
-      { key: 2, text: "Character B", value: "B" }
-    ]
-    return (
-      <Form.Group >
-        <Form.Field
-          control={Select}
-          // label="Select Character"
-          placeholder="Select Character"
-          options={options}
-          compact
-          onChange={this.props.handleSelect}
-          name={this.props.char}
-          value={this.props.char}
-        />
-        <Form.Field
-          control={Input}
-          // label="Enter Line"
-          placeholder="Enter Line"
-          name={this.props.name}
-          onChange={this.props.handleChange}
-          style={{ width: "500px" }}
-          value={this.props.lineText}
-        />
-      </Form.Group>
-    )
-  }
-}
+const LineInput = (props) => (
+  <Form.Group >
+    <select defaultValue='Select Character' onChange={props.handleSelect} id={props.char}>
+      <option value='Select Character' disabled>Select Character</option>
+      <option value='A'>Character A</option>
+      <option value='B'>Character B</option>
+    </select>
+    <Form.Field
+      control={Input}
+      placeholder="Enter Line"
+      name={props.name}
+      onChange={props.handleChange}
+      style={{ width: "500px" }}
+      value={props.lineText}
+    />
+  </Form.Group>
+)
 
 export default LineInput;

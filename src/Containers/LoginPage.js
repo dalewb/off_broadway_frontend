@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import LoginForm from '../Components/LoginForm'
 import SignUpForm from '../Components/SignUpForm'
-
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class LoginPage extends Component {
 
@@ -18,10 +17,10 @@ class LoginPage extends Component {
   render() {
     return (
       <Router>
-        <React.Fragment>
-          <Route exact path="/" render={this.logInForm} />
-          <Route exact path="/sign_up" render={this.signUpForm} />
-        </React.Fragment>
+        <div id='loginContainer'>
+          <Route exact path='/' render={this.logInForm} />
+          <Route exact path='/sign_up' render={this.signUpForm} />
+        </div>
       </Router>
     )
   }
