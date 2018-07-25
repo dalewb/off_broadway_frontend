@@ -88,7 +88,7 @@ class App extends Component {
             }
           </div>
           <div className='spacer'></div>
-          {this.state.loggedIn ? <Footer/> : <object id='index_group' aria-label='Group Shot' data='/assets/standup.svg' type="image/svg+xml"></object>}
+          {this.state.loggedIn ? <Footer/> : <object id='index_group' aria-label='Group Shot' data='/assets/standup2.svg' type="image/svg+xml"></object>}
         </div>
       </Router>
     );
