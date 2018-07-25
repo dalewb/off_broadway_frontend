@@ -66,10 +66,6 @@ class Theatre extends Component {
     };
   };
 
-  // startDialogue = () => {
-  //   this.dialogueInterval = window.setInterval(this.cycleDialogue, 2500);
-  // };
-
   openCurtains = () => {
     this.setState({
       action: true,
