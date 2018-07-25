@@ -1,7 +1,13 @@
-export const URL = 'https://mod-4-backend.herokuapp.com/'
-export const API_URL = `${URL}api/v1/`
-export const loggedInUserId = parseInt(localStorage.getItem('user_id'), 10);
-export const localToken = localStorage.getItem('token');
+export const URL = 'https://mod-4-backend.herokuapp.com/';
+export const API_URL = `${URL}api/v1/`;
+
+export function localToken() {
+  return localStorage.getItem('token');
+};
+
+export function loggedInUserId() {
+  return parseInt(localStorage.getItem('user_id'), 10);
+};
 
 export function handleChange(e) {
   this.setState({

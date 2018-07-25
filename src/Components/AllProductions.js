@@ -18,12 +18,12 @@ class AllProductions extends Component {
     fetch(API_URL + 'productions', {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localToken
+        'Authorization': localToken()
       }
     }).then(response => response.json()).then(productions => {
       if (this.props.type === 'myProductions'){
         productions.forEach(prod => {
-          if (prod.user_id === loggedInUserId){
+          if (prod.user_id === loggedInUserId()){
             this.setState({
               productions: [...this.state.productions, prod]
             });

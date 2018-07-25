@@ -45,10 +45,11 @@ class App extends Component {
 
   logIn = () => {
     window.history.pushState({}, "new state", "/");
-    this.setState({
-      loggedIn: true,
-      userId: parseInt(localStorage.getItem('user_id'), 10)
-    });
+    this.loggedInCheck();
+    // this.setState({
+    //   loggedIn: true,
+    //   userId: parseInt(localStorage.getItem('user_id'), 10)
+    // });
   };
 
   logOut = () => {

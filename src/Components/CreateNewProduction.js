@@ -19,6 +19,25 @@ class CreateNewProduction extends Component {
     img_url: '',
   }
 
+  componentDidMount() {
+    this.fetchActorData();
+  };
+
+  fetchActorData = () => {
+    fetch(API_URL + 'actors', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localToken
+      }
+    })
+      .then(response => response.json())
+      .then(actors => {
+        this.setState({
+          actors
+        });
+      });
+  };
+
   storeScriptState = (scriptInfo) => {
     this.setState({
       title: scriptInfo.title,
@@ -128,7 +147,7 @@ class CreateNewProduction extends Component {
         </div>
 
         <div className="ui five cards centered">
-          {this.props.actors.map((actor, index) => <ActorCard actor={actor} key={index} handleClick={this.handleActorCardClick}/>)}
+          {this.state.actors.map((actor, index) => <ActorCard actor={actor} key={index} handleClick={this.handleActorCardClick}/>)}
         </div>
 
         <div className='divider'></div>

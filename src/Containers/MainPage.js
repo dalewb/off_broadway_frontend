@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import Header from '../Components/Header'
 import AllProductions from '../Components/AllProductions';
-import CreateContainer from '../Components/CreateNewProduction';
+import CreateNewProduction from '../Components/CreateNewProduction';
 import Home from '../Components/Home';
 import ARpage from '../Components/AR';
-import { API_URL, localToken } from '../util';
+// import { API_URL, localToken } from '../util';
 
 class MainPage extends Component {
   state = {
@@ -13,9 +13,9 @@ class MainPage extends Component {
     viewProduction: null
   }
 
-  componentDidMount() {
-    this.fetchActorData();
-  };
+  // componentDidMount() {
+  //   this.fetchActorData();
+  // };
 
   pageChange = (page) => {
     this.setState({
@@ -24,20 +24,20 @@ class MainPage extends Component {
     window.history.pushState({}, "new state", page.replace(/ /g,"-"));
   }
 
-  fetchActorData = () => {
-    fetch(API_URL + 'actors', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': localToken
-      }
-    })
-      .then(response => response.json())
-      .then(actors => {
-        this.setState({
-          actors
-        });
-      });
-  };
+  // fetchActorData = () => {
+  //   fetch(API_URL + 'actors', {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Authorization': localToken
+  //     }
+  //   })
+  //     .then(response => response.json())
+  //     .then(actors => {
+  //       this.setState({
+  //         actors
+  //       });
+  //     });
+  // };
 
   seeTheShow = (viewProduction) => {
     this.pageChange('view production');
@@ -61,7 +61,7 @@ class MainPage extends Component {
           {this.state.page === '/' ? <Home/> : null}
           {this.state.page === 'view production' ? <ARpage show={this.state.viewProduction}/> : null}
           {this.state.page === 'all productions' ? <AllProductions handleViewProductionClick={this.seeTheShow} type='allProductions'/> : null}
-          {this.state.page === 'new production' ? <CreateContainer actors={this.state.actors} pageChange={this.pageChange} setViewProduction={this.setViewProduction} /> : null}
+          {this.state.page === 'new production' ? <CreateNewProduction actors={this.state.actors} pageChange={this.pageChange} setViewProduction={this.setViewProduction} /> : null}
           {this.state.page === 'my productions' ? <AllProductions handleViewProductionClick={this.seeTheShow} type='myProductions'/> : null}
         </div>
       </React.Fragment>
