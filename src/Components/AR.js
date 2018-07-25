@@ -20,7 +20,7 @@ class ARpage extends Component {
     fetch(`${API_URL}productions/${this.props.show}`, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localToken
+        'Authorization': localToken()
       }
     }).then( res => res.json() )
     .then(production => {
