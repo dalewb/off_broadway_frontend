@@ -35,6 +35,7 @@ class Theatre extends Component {
 
   startProduction = () => {
     this.openCurtains();
+    this.dialogueInterval = window.setInterval(this.cycleDialogue, 2500);
   };
 
   prepLine = (line) => {
@@ -65,6 +66,10 @@ class Theatre extends Component {
     };
   };
 
+  // startDialogue = () => {
+  //   this.dialogueInterval = window.setInterval(this.cycleDialogue, 2500);
+  // };
+
   openCurtains = () => {
     this.setState({
       action: true,
@@ -94,7 +99,7 @@ class Theatre extends Component {
         leftCurtain.style.left = `${left -= 1}px`;
         window.requestAnimationFrame(moveLCurtain);
       } else {
-        return this.dialogueInterval = window.setInterval(this.cycleDialogue, 2500);
+        return
       };
     };
 
@@ -195,7 +200,7 @@ class Theatre extends Component {
       <React.Fragment>
       { this.state.production ? <React.Fragment>
         <div id='play_title'>{this.state.production.script.title}</div>
-        <div id='showDiv' onClick={this.cycleDialogue} >
+        <div id='showDiv' >
           {this.state.action === false ? this.renderStartPrompt() : this.renderEndPrompt() }
           {this.dialogue}
           <img id='img_chairs' src='/assets/stage_setup_chairs.png' alt='chairs' />
