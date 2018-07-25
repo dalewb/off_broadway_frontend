@@ -126,7 +126,7 @@ class Theatre extends Component {
         window.requestAnimationFrame(turnOffLights);
       }else {
         this.setState({
-          action: false
+          hide: false
         });
         return
       }
