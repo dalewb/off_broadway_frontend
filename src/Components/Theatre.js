@@ -6,7 +6,8 @@ class Theatre extends Component {
   state = {
     currentLine: 0,
     production: null,
-    action: false
+    action: false,
+    hide: false
   };
 
   componentDidMount() {
@@ -26,15 +27,15 @@ class Theatre extends Component {
     }).then( res => res.json() )
     .then(production => {
       this.setState({production});
-    })
-    .then(() => {
-      this.openCurtains();
-      this.dialogueInterval = window.setInterval(this.cycleDialogue, 2500);
     });
   };
 
   dialogue = '';
   dialogueInterval = '';
+
+  startProduction = () => {
+    this.openCurtains();
+  };
 
   prepLine = (line) => {
     if (line){
@@ -65,6 +66,10 @@ class Theatre extends Component {
   };
 
   openCurtains = () => {
+    this.setState({
+      action: true,
+      hide: true
+    });
     const leftCurtain = document.getElementById('img_l-curtain');
     const rightCurtain = document.getElementById('img_r-curtain');
     const lights = document.getElementById('lights');
@@ -89,7 +94,7 @@ class Theatre extends Component {
         leftCurtain.style.left = `${left -= 1}px`;
         window.requestAnimationFrame(moveLCurtain);
       } else {
-        return
+        return this.dialogueInterval = window.setInterval(this.cycleDialogue, 2500);
       };
     };
 
@@ -120,6 +125,9 @@ class Theatre extends Component {
         lights.style.opacity = (opass += 1) / 100;
         window.requestAnimationFrame(turnOffLights);
       }else {
+        this.setState({
+          action: false
+        });
         return
       }
     };
@@ -161,13 +169,34 @@ class Theatre extends Component {
     };
   };
 
+  renderEndPrompt = () => {
+    if (!this.state.hide){
+      return (
+        <div id='prompt'>
+          <span className='header'>The End.</span>
+          <span className='action' onClick={this.startProduction}>Watch Again ></span>
+        </div>
+      );
+    };
+  };
+
+  renderStartPrompt = () => {
+    return (
+      <div id='prompt'>
+        <span className='header'>Welcome!</span>
+        <span className='action' onClick={this.startProduction}>Start Play ></span>
+      </div>
+    );
+  };
+
   render() {
-    this.renderDialogue('at some point.');
+    this.renderDialogue();
     return (
       <React.Fragment>
       { this.state.production ? <React.Fragment>
         <div id='play_title'>{this.state.production.script.title}</div>
         <div id='showDiv' onClick={this.cycleDialogue} >
+          {this.state.action === false ? this.renderStartPrompt() : this.renderEndPrompt() }
           {this.dialogue}
           <img id='img_chairs' src='/assets/stage_setup_chairs.png' alt='chairs' />
           <img id='img_l-curtain' src='/assets/stage_setup_l-curtain.png' alt='left curtain' />
