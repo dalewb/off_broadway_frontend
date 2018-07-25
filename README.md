@@ -12,8 +12,8 @@ Scripting app allowing users to create scripts and watch them ‘acted out’ in
 [React JS](https://reactjs.org/)
 
 
-## Install
-Run npm install to install packages and dependencies.
+## NPM Reference
+[React Loading Spinkit](https://github.com/phobal/react-loading-spinkit)
 
 
 ## Tests
