@@ -5,10 +5,6 @@ body {
   font-size: .75em;
 }
 
-/* .App {
-  text-align: center;
-} */
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -210,7 +206,6 @@ h1, h2, h3, h4, h5 {
   width: 75%;
   margin-left: 12.5%;
   margin-right: 12.5%;
-  /* clear: both; */
 }
 
 .newInput {
@@ -220,7 +215,6 @@ h1, h2, h3, h4, h5 {
 #selectedCards {
   min-height: 10em;
   margin-bottom: 5%;
-  /* background: fuchsia; */
 }
 
 #bgImage {
