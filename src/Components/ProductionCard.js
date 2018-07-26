@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 
 const ProductionCard = (props) => (
   <Card onClick={() => props.onClickHandler(props.production.script_id)}>
-    <Image src={props.production.script.img_url} alt='' />
+    <div className='cardImage' style={{ backgroundImage: `url(${props.production.script.img_url})` }}></div>
     <div>
       <span className='cardTitle'>{props.production.script.title}</span>
       <span className='cardCopy'>Written by: {props.production.user.username}</span>

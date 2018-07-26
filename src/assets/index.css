@@ -355,6 +355,13 @@ h1, h2, h3, h4, h5 {
 
 /* EDITS FOR SEMANTIC */
 
+.cardImage {
+  width: 100%;
+  padding-bottom: 95%;
+  background-size: cover;
+  background-position: center;
+}
+
 .cardTitle {
   font-family: 'Six Caps', sans-serif;
   color: #333;
