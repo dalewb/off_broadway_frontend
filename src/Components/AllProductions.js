@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 import ProductionCard from '../Components/ProductionCard';
 import ProductionReview from '../Components/ProductionReview';
+import BlankProductionReview from '../Components/BlankProductionReview';
 import LoadingPage from '../Components/LoadingPage';
-import { API_URL, localToken, loggedInUserId } from '../util';
+import { API_URL, localToken, loggedInUserId, scrollToTop } from '../util';
 
 class AllProductions extends Component {
   state = {
@@ -51,7 +52,7 @@ class AllProductions extends Component {
     });
     this.setState({
       productionReview
-    });
+    }, scrollToTop(1000));
   };
 
   render() {
@@ -59,7 +60,7 @@ class AllProductions extends Component {
     return (
       <div id='productionDisplay'>
         <div className="ui three cards centered">
-          {this.state.productionReview ? <ProductionReview production={this.state.productionReview} clickHandler={this.setProductionReview} handleViewProductionClick={() => this.props.handleViewProductionClick(this.state.productionReview.id)} /> : null}
+          {this.state.productionReview ? <ProductionReview production={this.state.productionReview} clickHandler={this.setProductionReview} handleViewProductionClick={() => this.props.handleViewProductionClick(this.state.productionReview.id)} /> : <BlankProductionReview/>}
         </div>
         <div className="ui five cards centered">
 

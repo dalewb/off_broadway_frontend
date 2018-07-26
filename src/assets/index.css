@@ -362,7 +362,7 @@ h1, h2, h3, h4, h5 {
   background-position: center;
 }
 
-.cardTitle, .reviewTitle {
+.cardTitle, .reviewTitle, .blankReviewTitle {
   font-family: 'Six Caps', sans-serif;
   color: #333;
   font-size: 2.2em;
@@ -432,6 +432,7 @@ h1, h2, h3, h4, h5 {
   background: #f3f3f3;
   font-size: .9em;
   line-height: 1.3em;
+  text-align: left;
 }
 
 .imageInspect {
@@ -442,6 +443,12 @@ h1, h2, h3, h4, h5 {
   background-position: center;
 }
 
+.blankImage {
+  width: 0;
+  padding-bottom: 50%;
+  display: table-cell;
+}
+
 .reviewTitle {
   margin: 0 0 4% 0;
   text-align: left;
@@ -449,11 +456,25 @@ h1, h2, h3, h4, h5 {
   line-height: 1.05em;
 }
 
+.blankReviewTitle {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 3.25em;
+  width: 100%;
+}
+
 .details {
   display: table-cell;
   vertical-align: middle;
   padding-left: 5%;
   text-align: left;
+}
+
+.blankDetails {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .customButton {
@@ -471,6 +492,7 @@ h1, h2, h3, h4, h5 {
 
 .x {
   font-size: .75em;
+  text-align: center;
   color: #fff;
   width: 2vw;
   height: 2vw;
