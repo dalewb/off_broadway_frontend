@@ -40,7 +40,7 @@ class AllProductions extends Component {
 
   renderProductionCards = () => {
     const cards = this.state.productions.map((production, index) => {
-      return <ProductionCard production={production} key={index} onClickHandler={this.setProductionReview} />
+      return <ProductionCard production={production} key={index} onClickHandler={this.setProductionReview} handleViewProductionClick={() => this.props.handleViewProductionClick(production.id)} />
     });
     return cards;
   };
@@ -59,7 +59,7 @@ class AllProductions extends Component {
     return (
       <div id='productionDisplay'>
         <div className="ui three cards centered">
-          {this.state.productionReview ? <ProductionReview production={this.state.productionReview} handleViewProductionClick={() => this.props.handleViewProductionClick(this.state.productionReview.id)} /> : null}
+          {this.state.productionReview ? <ProductionReview production={this.state.productionReview} clickHandler={this.setProductionReview} handleViewProductionClick={() => this.props.handleViewProductionClick(this.state.productionReview.id)} /> : null}
         </div>
         <div className="ui five cards centered">
 

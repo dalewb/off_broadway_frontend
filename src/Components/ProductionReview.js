@@ -1,15 +1,17 @@
 import React from 'react';
-import { Card, Image, Button } from 'semantic-ui-react'
 
 const ProductionReview = (props) => (
-    <Card centered onClick={props.clickHandler}>
-        <Image src={props.production.script.img_url} alt='' />
-        <Card.Content>
-            <span className='cardTitle'>{props.production.script.title}</span>
-            <span className='cardCopy'>Written by: {props.production.user.username}</span>
-            <span className='cardCopy'>Featuring: {props.production.actors[0].name} and {props.production.actors[1].name}</span>
-            <Button onClick={() => props.handleViewProductionClick(props.production.id)}>View Production</Button>
-        </Card.Content>
-    </Card>
+    <div id='singleProduction'>
+      <div className='x' onClick={props.clickHandler}>X</div>
+      <div className='imageInspect' style={{ backgroundImage: `url(${props.production.script.img_url})` }}></div>
+      <div className='details'>
+        <span className='reviewTitle'>{props.production.script.title}</span>
+        <p>
+          Written by: {props.production.user.username}<br/>
+          Featuring: {props.production.actors[0].name} and {props.production.actors[1].name}
+        </p>
+        <button onClick={() => props.handleViewProductionClick(props.production.id)} className='customButton'>View Production</button>
+      </div>
+    </div>
 );
 export default ProductionReview;
