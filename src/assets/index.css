@@ -283,11 +283,11 @@ h1, h2, h3, h4, h5 {
 }
 
 #img_l-curtain {
-  left: -25px;
+  left: 0px;
 }
 
 #img_r-curtain {
-  right: -25px;
+  right: 0px;
 }
 
 #lights {
