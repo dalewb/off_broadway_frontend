@@ -21,7 +21,7 @@ No tests provided.
 
 
 ## How to Use
-Setup [Rails API backend](https://github.com/briecodes/off_broadway_backend).<br/>
+Setup [Rails API backend](https://github.com/dalewb/off_broadway_backend).<br/>
 Run npm start.
 
 
