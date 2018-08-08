@@ -1,5 +1,5 @@
 <h1 align='center'>
-  <img src='https://github.com/dalewb/off_broadway_frontend/blob/master/src/assets/off-broadway.png?raw=true' alt='Off-Broadway' width='500'>
+  <img src='https://github.com/briecodes/off_broadway_frontend/blob/master/src/assets/off-broadway.png?raw=true' alt='Off-Broadway' width='500'>
 </h1>
 
 ## Off-Broadway (Frontend)
