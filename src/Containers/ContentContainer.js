@@ -50,13 +50,14 @@ class ContentContainer extends Component {
   myProductions = () => {
     const myProductions = []
     console.log("this is",this)
-    return this.state.productions.forEach(production => {
+    this.state.productions.forEach(production => {
+      console.log("production is ", production)
+      console.log("this.props.userId is ", this.props.userId)
       if (production.user_id === this.props.userId){
-        return myProductions.push(production);
-      }else{
-        return;
+        myProductions.push(production);
       }
     });
+    console.log("myProductions are ", myProductions);
     this.setState({
       myProductions
     });
@@ -73,7 +74,7 @@ class ContentContainer extends Component {
     this.setState({
       viewProduction,
       myProductions: [...this.state.myProductions, viewProduction],
-      productions: [...this.state.productions, viewProduction]
+      productions: [...this.state.productions, viewProduction],
     });
     // console.log("View Production", this.state.viewProduction);
     // console.log("In View Production, myProductions", this.state.myProductions);

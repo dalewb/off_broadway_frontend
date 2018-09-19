@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     loggedIn: false,
     userExists: false,
-    userId: 2
+    userId: 1
   }
 
   changeBody = () => {
@@ -61,7 +61,7 @@ class App extends Component {
         <div className="App">
           <div id='contentContainer'>
             {this.state.loggedIn ? <React.Fragment>
-              <Route exact path="/" render={this.loggedInPage} /> 
+              <Route exact path="/" render={this.loggedInPage} />
               <Route exact path="/new-production" render={this.loggedInPage} />
               <Route exact path="/my-productions" render={this.loggedInPage} />
               <Route exact path="/all-productions" render={this.loggedInPage} />
