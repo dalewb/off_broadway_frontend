@@ -6,8 +6,8 @@ import MyProductions from '../Components/MyProductions';
 import Home from '../Components/Home';
 import ARpage from '../Components/AR';
 
-const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
-// const URL = 'http://localhost:3000/api/v1/'
+// const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+const URL = 'http://localhost:3000/api/v1/'
 
 class ContentContainer extends Component {
   constructor(props) {
@@ -25,11 +25,14 @@ class ContentContainer extends Component {
   };
 
   fetchProductionData = () => {
-    fetch(URL + 'productions').then(response => response.json()).then(productions => {
-      this.setState({
-        productions
-      });
-    }).then(() => {
+    fetch(URL + 'productions')
+      .then(response => response.json())
+      .then(productions => {
+        this.setState({
+          productions
+        }, console.log("After production fetch, productions are ", productions));
+      })
+      .then(() => {
       this.myProductions();
     });
   };
@@ -47,7 +50,7 @@ class ContentContainer extends Component {
   myProductions = () => {
     const myProductions = []
     console.log("this is",this)
-    this.state.productions.forEach(production => {
+    return this.state.productions.forEach(production => {
       if (production.user_id === this.props.userId){
         return myProductions.push(production);
       }else{

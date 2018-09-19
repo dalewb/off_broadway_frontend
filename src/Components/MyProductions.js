@@ -11,6 +11,7 @@ class MyProductions extends Component {
 
   renderProductionCards = () => {
     const cards = this.props.myProductions.map((production, index) => {
+      // debugger
       return <ProductionCard production={production} key={index} onClickHandler={this.setProductionReview} />
     });
     return cards;

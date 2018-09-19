@@ -5,8 +5,8 @@ import SelectedActors from './SelectedActors';
 import ScriptContainer from './ScriptContainer';
 // import MyProductions from '../Components/MyProductions'
 
-const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
-// const URL = 'http://localhost:3000/api/v1/'
+// const URL = 'https://mod-4-backend.herokuapp.com/api/v1/'
+const URL = 'http://localhost:3000/api/v1/'
 
 class CreateContainer extends Component {
 
@@ -70,11 +70,11 @@ class CreateContainer extends Component {
 
   postCast = (productionId) => {
     this.state.myActors.forEach(actor =>{
-      console.log("In postCast, actor is ", actor);
+      console.log("In postCast, actor.id is ", actor.id);
       console.log("In postCast, productionId is ", productionId);
       fetch(URL + 'casts', {
         method: 'POST',
-        body: JSON.stringify({production_id: productionId, actor_id: actor.id}),
+        body: JSON.stringify({production_id: productionId, actor_id: actor.casts[0].actor_id}),
         headers: {'Content-Type': 'application/json'}
       })
         .then( res => res.json() )
