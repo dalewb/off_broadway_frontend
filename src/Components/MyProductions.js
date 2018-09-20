@@ -6,7 +6,8 @@ import ProductionReview from './ProductionReview';
 class MyProductions extends Component {
 
   state = {
-    productionReview: null
+    productionReview: null,
+    update: false,
   }
 
   renderProductionCards = () => {

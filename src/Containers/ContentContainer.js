@@ -53,7 +53,7 @@ class ContentContainer extends Component {
     this.state.productions.forEach(production => {
       console.log("production is ", production)
       console.log("this.props.userId is ", this.props.userId)
-      if (production.user_id === this.props.userId){
+      if (production.user_id){
         myProductions.push(production);
       }
     });
@@ -75,7 +75,8 @@ class ContentContainer extends Component {
       viewProduction,
       myProductions: [...this.state.myProductions, viewProduction],
       productions: [...this.state.productions, viewProduction],
-    });
+    })
+    this.fetchProductionData()
     // console.log("View Production", this.state.viewProduction);
     // console.log("In View Production, myProductions", this.state.myProductions);
     this.props.onClickHandler('my productions')
