@@ -95,7 +95,6 @@ class CreateContainer extends Component {
   }
 
   getProductions = (productionId) => {
-    console.log("DOES THIS HAPPEN AFTER?????????");
     let productionInfo = fetch(URL + 'productions')
       .then(res => res.json())
       .then(data => this.findProductionById(data, productionId));
