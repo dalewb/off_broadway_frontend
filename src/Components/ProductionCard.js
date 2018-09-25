@@ -11,7 +11,7 @@ class ProductionCard extends Component {
           <Image src={this.props.production ? this.props.production.script.img_url : null} alt='' />
           <div>
             <span className='cardTitle'>{this.props.production.script.title}</span>
-            <span className='cardCopy'>Written by: {this.props.production.user.username}</span>
+            <span className='cardCopy'>Written by: William</span>
           </div>
         </Card>
       )
