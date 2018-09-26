@@ -20,7 +20,9 @@ Once the form is filled in, the user then selects actors to perform the script. 
 </h1>
 
 ## Built With
-[React JS](https://reactjs.org/)
+
+Frontend: [React JS](https://reactjs.org/)<br/>
+Backend:  [Rails](https://rubyonrails.org/)
 
 
 ## Install
