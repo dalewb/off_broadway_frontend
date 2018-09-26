@@ -25,17 +25,26 @@ Frontend: [React JS](https://reactjs.org/)<br/>
 Backend:  [Rails](https://rubyonrails.org/)
 
 
-## Install
-Run npm install to install packages and dependencies.
-
-
 ## Tests
 No tests provided.
 
 
 ## How to Use
-Setup [Rails API backend](https://github.com/dalewb/off_broadway_backend).<br/>
-Run npm start.
+First, fork or clone the [backend](https://github.com/dalewb/off_broadway_backend).  After you've done that, navigate into the folder where you saved the repo and run:
+<br/><br/>
+```$ rails s```
+<br/><br/>
+That will get the server for the back end up and running.
+
+To run the frontend, you can install Node.js [here](https://nodejs.org/en/).
+After you install Node.js, clone or fork this repo, navigate into the repo and run:
+<br/><br/>
+```$ npm install```
+<br/><br/>
+to install all packages and dependencies.  Then run:
+<br/><br/>
+```$ npm start```
+<br/><br/>
 
 
 ## Contribute
